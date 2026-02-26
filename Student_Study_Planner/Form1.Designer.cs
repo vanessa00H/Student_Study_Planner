@@ -40,15 +40,15 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbType = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.numMinutes = new System.Windows.Forms.TextBox();
+            this.numHours = new System.Windows.Forms.TextBox();
+            this.rbHigh = new System.Windows.Forms.RadioButton();
+            this.rbMedium = new System.Windows.Forms.RadioButton();
+            this.rbLow = new System.Windows.Forms.RadioButton();
+            this.txtCategory = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -93,6 +93,7 @@
             this.lblProgressValue = new System.Windows.Forms.Label();
             this.lblProgressTitle = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.MainTap.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -177,19 +178,20 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.datePicker);
             this.tabPage1.Controls.Add(this.button9);
             this.tabPage1.Controls.Add(this.button8);
             this.tabPage1.Controls.Add(this.button7);
             this.tabPage1.Controls.Add(this.button6);
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.cmbType);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.radioButton3);
-            this.tabPage1.Controls.Add(this.radioButton2);
-            this.tabPage1.Controls.Add(this.radioButton1);
-            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.numMinutes);
+            this.tabPage1.Controls.Add(this.numHours);
+            this.tabPage1.Controls.Add(this.rbHigh);
+            this.tabPage1.Controls.Add(this.rbMedium);
+            this.tabPage1.Controls.Add(this.rbLow);
+            this.tabPage1.Controls.Add(this.txtCategory);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.txtTitle);
             this.tabPage1.Controls.Add(this.label6);
@@ -261,21 +263,21 @@
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // comboBox1
+            // cmbType
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbType.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Items.AddRange(new object[] {
             "StudySession",
             "Assignment",
             "Quiz",
             "Exam"});
-            this.comboBox1.Location = new System.Drawing.Point(617, 196);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(292, 40);
-            this.comboBox1.TabIndex = 16;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbType.Location = new System.Drawing.Point(617, 196);
+            this.cmbType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(292, 40);
+            this.cmbType.TabIndex = 16;
+            this.cmbType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -300,75 +302,75 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "minutes";
             // 
-            // textBox4
+            // numMinutes
             // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(674, 408);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(76, 34);
-            this.textBox4.TabIndex = 13;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.numMinutes.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numMinutes.Location = new System.Drawing.Point(674, 408);
+            this.numMinutes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numMinutes.Name = "numMinutes";
+            this.numMinutes.Size = new System.Drawing.Size(76, 34);
+            this.numMinutes.TabIndex = 13;
+            this.numMinutes.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // textBox3
+            // numHours
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(496, 403);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(76, 34);
-            this.textBox3.TabIndex = 12;
+            this.numHours.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numHours.Location = new System.Drawing.Point(496, 403);
+            this.numHours.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numHours.Name = "numHours";
+            this.numHours.Size = new System.Drawing.Size(76, 34);
+            this.numHours.TabIndex = 12;
             // 
-            // radioButton3
+            // rbHigh
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.radioButton3.Location = new System.Drawing.Point(298, 403);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(75, 29);
-            this.radioButton3.TabIndex = 11;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "High";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbHigh.AutoSize = true;
+            this.rbHigh.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbHigh.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.rbHigh.Location = new System.Drawing.Point(298, 403);
+            this.rbHigh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbHigh.Name = "rbHigh";
+            this.rbHigh.Size = new System.Drawing.Size(75, 29);
+            this.rbHigh.TabIndex = 11;
+            this.rbHigh.TabStop = true;
+            this.rbHigh.Text = "High";
+            this.rbHigh.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbMedium
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.radioButton2.Location = new System.Drawing.Point(159, 403);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(103, 29);
-            this.radioButton2.TabIndex = 10;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Medium";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbMedium.AutoSize = true;
+            this.rbMedium.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbMedium.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.rbMedium.Location = new System.Drawing.Point(159, 403);
+            this.rbMedium.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbMedium.Name = "rbMedium";
+            this.rbMedium.Size = new System.Drawing.Size(103, 29);
+            this.rbMedium.TabIndex = 10;
+            this.rbMedium.TabStop = true;
+            this.rbMedium.Text = "Medium";
+            this.rbMedium.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbLow
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.radioButton1.Location = new System.Drawing.Point(57, 403);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(69, 29);
-            this.radioButton1.TabIndex = 9;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Low";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbLow.AutoSize = true;
+            this.rbLow.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbLow.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.rbLow.Location = new System.Drawing.Point(57, 403);
+            this.rbLow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbLow.Name = "rbLow";
+            this.rbLow.Size = new System.Drawing.Size(69, 29);
+            this.rbLow.TabIndex = 9;
+            this.rbLow.TabStop = true;
+            this.rbLow.Text = "Low";
+            this.rbLow.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txtCategory
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(617, 73);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(292, 39);
-            this.textBox2.TabIndex = 8;
+            this.txtCategory.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategory.Location = new System.Drawing.Point(617, 73);
+            this.txtCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.Size = new System.Drawing.Size(292, 39);
+            this.txtCategory.TabIndex = 8;
             // 
             // textBox1
             // 
@@ -859,6 +861,14 @@
             this.tabPage5.Text = "Setting";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // datePicker
+            // 
+            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datePicker.Location = new System.Drawing.Point(135, 246);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(200, 26);
+            this.datePicker.TabIndex = 21;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -913,16 +923,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TextBox txtCategory;
+        private System.Windows.Forms.RadioButton rbHigh;
+        private System.Windows.Forms.RadioButton rbMedium;
+        private System.Windows.Forms.RadioButton rbLow;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox numMinutes;
+        private System.Windows.Forms.TextBox numHours;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
@@ -958,6 +968,7 @@
         private System.Windows.Forms.Label lblProgressStatus;
         private System.Windows.Forms.Label lblDeadlinesStatus;
         private System.Windows.Forms.Label lblGoalStatus;
+        private System.Windows.Forms.DateTimePicker datePicker;
     }
 }
 

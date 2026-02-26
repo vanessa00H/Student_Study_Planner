@@ -11,8 +11,10 @@ using System.Windows.Forms;
 
 namespace Student_Study_Planner
 {
+
     public partial class Form1 : Form
     {
+        private List<PlannerItem> items = new List<PlannerItem>();
         public Form1()
         {
             InitializeComponent();
@@ -152,8 +154,21 @@ namespace Student_Study_Planner
                 return;
             }
 
+            // Validate Priority: Ensure user selects a priority
+            if (!(rbLow.Checked || rbMedium.Checked || rbHigh.Checked))
+            {
+                MessageBox.Show("Please select a priority.");
+                return;
+            }
+
             // Create new task object based on the selected type
             PlannerItem task;
+
+            if (cmbType.SelectedItem == null || string.IsNullOrWhiteSpace(cmbType.SelectedItem.ToString()))
+            {
+                MessageBox.Show("Please select a task type.");
+                return;
+            }
 
             if (cmbType.SelectedItem.ToString() == "StudySession")
             {
@@ -185,44 +200,6 @@ namespace Student_Study_Planner
             ClearFields();
         }
 
-        // Edit Task Button
-        private void btnEditTask_Click(object sender, EventArgs e)
-        {
-            // Find task by title
-            var task = items.FirstOrDefault(t => t.Title == txtTitle.Text.Trim());
-
-            if (task == null)
-            {
-                MessageBox.Show("Task not found.");
-                return;
-            }
-
-            // Update task properties
-            task.Category = txtCategory.Text.Trim();
-            task.Date = datePicker.Value.Date;
-            task.Priority = GetPriority();
-            task.IsCompleted = false; // Reset completed status
-
-            MessageBox.Show("Task updated successfully!");
-        }
-
-        // Delete Task Button
-        private void btnDeleteTask_Click(object sender, EventArgs e)
-        {
-            var task = items.FirstOrDefault(t => t.Title == txtTitle.Text.Trim());
-
-            if (task == null)
-            {
-                MessageBox.Show("Task not found.");
-                return;
-            }
-
-            items.Remove(task);
-            MessageBox.Show("Task deleted successfully!");
-            ClearFields();
-        }
-
-        // Clear input fields
         private void ClearFields()
         {
             txtTitle.Clear();
@@ -231,8 +208,8 @@ namespace Student_Study_Planner
             rbLow.Checked = false;
             rbMedium.Checked = false;
             rbHigh.Checked = false;
-            numHours.Value = 0;
-            numMinutes.Value = 0;
+            numHours.Text = " ";
+            numMinutes.Text = " ";
             datePicker.Value = DateTime.Now;
         }
 
@@ -243,7 +220,5 @@ namespace Student_Study_Planner
             if (rbMedium.Checked) return Priority.Medium;
             return Priority.High;
         }
-    }
-}
     }
 }

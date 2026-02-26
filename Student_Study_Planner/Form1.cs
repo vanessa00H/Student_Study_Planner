@@ -71,5 +71,20 @@ namespace Student_Study_Planner
         {
 
         }
+
+        private void lblProgressValue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblProgressStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDeadLinesValue_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

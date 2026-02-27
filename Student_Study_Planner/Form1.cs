@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Student_Study_Planner
 {
@@ -18,6 +19,53 @@ namespace Student_Study_Planner
         public Form1()
         {
             InitializeComponent();
+            LoadTasks(); // Load tasks when the form initializes
+        }
+        // Save tasks to a CSV file
+        private void SaveTasks()
+        {
+            using (StreamWriter sw = new StreamWriter("tasks.csv"))
+            {
+                // Write the header (column names)
+                sw.WriteLine("Title,Category,Date,Priority,Hours,Minutes");
+
+                // Write each task as a CSV line
+                foreach (var task in items)
+                {
+                    sw.WriteLine($"{task.Title},{task.Category},{task.Date.ToShortDateString()},{task.Priority},{task.Hours},{task.Minutes}");
+                }
+            }
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveTasks(); // Save tasks when the form is closing
+        }
+
+        // Load tasks from a CSV file
+        private void LoadTasks()
+        {
+            if (File.Exists("tasks.csv"))
+            {
+                var lines = File.ReadAllLines("tasks.csv");
+
+                // Skip header line
+                foreach (var line in lines.Skip(1))
+                {
+                    var values = line.Split(',');
+
+                        var task = new StudySession(
+                               DateTime.Parse(values[2]),    //  DateTime
+                               values[0],                    // Title
+                               values[1],                    // Category
+                               (Priority)Enum.Parse(typeof(Priority), values[3]),  // Priority
+                               int.Parse(values[4]),         // Hours
+                               int.Parse(values[5]),         // Minutes
+                               TaskType.StudySession         // TaskType
+                         );
+
+                            items.Add(task);
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -202,6 +250,8 @@ namespace Student_Study_Planner
             items.Add(task);
 
             MessageBox.Show("Task added successfully!");
+            SaveTasks(); // Save tasks to the file after adding
+            LoadTasks(); // Refresh the task list display
             ClearFields();
         }
 
@@ -322,6 +372,8 @@ namespace Student_Study_Planner
             task.IsCompleted = false; // Reset completed status
 
             MessageBox.Show("Task updated successfully!");
+            SaveTasks(); // Save changes to the file after updating
+            LoadTasks(); // Refresh the task list display
             ClearAllFields(); // Renamed method to ClearAllFields
         }
 
@@ -383,6 +435,7 @@ namespace Student_Study_Planner
             items.Remove(task);
 
             MessageBox.Show("Task deleted successfully!");
+            SaveTasks(); // Save changes to the file after deletion
             ClearFields();  // Clear the input fields after deletion
         }
 

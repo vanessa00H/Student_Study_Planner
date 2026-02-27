@@ -30,6 +30,8 @@ namespace Student_Study_Planner
         public TaskType Type { get; set; }
         public Priority Priority { get; set; }
         public bool IsCompleted { get; set; }
+        public int Hours { get; set; }
+        public int Minutes { get; set; }
 
         public PlannerItem(DateTime date, string title, string category, TaskType type, Priority priority)
         {

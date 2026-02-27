@@ -440,6 +440,21 @@ namespace Student_Study_Planner
         {
             ClearFields();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMark_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear2_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
     }
 }
     

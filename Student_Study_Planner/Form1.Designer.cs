@@ -36,6 +36,8 @@
             this.button5 = new System.Windows.Forms.Button();
             this.MainTap = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.numHours = new System.Windows.Forms.NumericUpDown();
+            this.numMinutes = new System.Windows.Forms.NumericUpDown();
             this.grpPriority = new System.Windows.Forms.GroupBox();
             this.rbLow = new System.Windows.Forms.RadioButton();
             this.rbMedium = new System.Windows.Forms.RadioButton();
@@ -91,18 +93,16 @@
             this.lblProgressValue = new System.Windows.Forms.Label();
             this.lblProgressTitle = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.numMinutes = new System.Windows.Forms.NumericUpDown();
-            this.numHours = new System.Windows.Forms.NumericUpDown();
             this.MainTap.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numHours)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).BeginInit();
             this.grpPriority.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.cardDeadlines.SuspendLayout();
             this.pnlProgress.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numHours)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -206,6 +206,42 @@
             this.tabPage1.Size = new System.Drawing.Size(1088, 766);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "AddTask";
+            // 
+            // numHours
+            // 
+            this.numHours.Location = new System.Drawing.Point(567, 387);
+            this.numHours.Maximum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.numHours.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numHours.Name = "numHours";
+            this.numHours.Size = new System.Drawing.Size(120, 27);
+            this.numHours.TabIndex = 24;
+            this.numHours.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numHours.Validating += new System.ComponentModel.CancelEventHandler(this.numHours_Validating);
+            // 
+            // numMinutes
+            // 
+            this.numMinutes.Location = new System.Drawing.Point(789, 387);
+            this.numMinutes.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.numMinutes.Name = "numMinutes";
+            this.numMinutes.Size = new System.Drawing.Size(120, 27);
+            this.numMinutes.TabIndex = 23;
+            this.numMinutes.Validating += new System.ComponentModel.CancelEventHandler(this.numMinutes_Validating);
             // 
             // grpPriority
             // 
@@ -476,6 +512,7 @@
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnClear2
             // 
@@ -488,6 +525,7 @@
             this.btnClear2.TabIndex = 6;
             this.btnClear2.Text = "Clear";
             this.btnClear2.UseVisualStyleBackColor = false;
+            this.btnClear2.Click += new System.EventHandler(this.btnClear2_Click);
             // 
             // btnMark
             // 
@@ -501,6 +539,7 @@
             this.btnMark.TabIndex = 5;
             this.btnMark.Text = "MarkTaskComleted";
             this.btnMark.UseVisualStyleBackColor = false;
+            this.btnMark.Click += new System.EventHandler(this.btnMark_Click);
             // 
             // lvTasks
             // 
@@ -847,42 +886,6 @@
             this.tabPage5.Text = "Setting";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // numMinutes
-            // 
-            this.numMinutes.Location = new System.Drawing.Point(789, 387);
-            this.numMinutes.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.numMinutes.Name = "numMinutes";
-            this.numMinutes.Size = new System.Drawing.Size(120, 27);
-            this.numMinutes.TabIndex = 23;
-            this.numMinutes.Validating += new System.ComponentModel.CancelEventHandler(this.numMinutes_Validating);
-            // 
-            // numHours
-            // 
-            this.numHours.Location = new System.Drawing.Point(567, 387);
-            this.numHours.Maximum = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
-            this.numHours.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numHours.Name = "numHours";
-            this.numHours.Size = new System.Drawing.Size(120, 27);
-            this.numHours.TabIndex = 24;
-            this.numHours.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numHours.Validating += new System.ComponentModel.CancelEventHandler(this.numHours_Validating);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -901,6 +904,8 @@
             this.MainTap.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numHours)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).EndInit();
             this.grpPriority.ResumeLayout(false);
             this.grpPriority.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -913,8 +918,6 @@
             this.cardDeadlines.PerformLayout();
             this.pnlProgress.ResumeLayout(false);
             this.pnlProgress.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numMinutes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numHours)).EndInit();
             this.ResumeLayout(false);
 
         }

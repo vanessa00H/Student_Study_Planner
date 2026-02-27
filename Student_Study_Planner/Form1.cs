@@ -68,17 +68,7 @@ namespace Student_Study_Planner
                                int.Parse(values[5]),         // Minutes
                                TaskType.StudySession         // TaskType
                          );
-                    var task = new StudySession(
-                        DateTime.Parse(values[2]),              // Date
-                        values[0],                              // Title
-                        values[1],                              // Category
-                        (Priority)Enum.Parse(typeof(Priority), values[3]),
-                        int.Parse(values[4]),                   // Hours
-                        int.Parse(values[5]),                   // Minutes
-                        TaskType.StudySession
-                    );
 
-                   
                     if (values.Length > 6)
                         task.IsCompleted = bool.Parse(values[6]);
 
@@ -683,6 +673,35 @@ namespace Student_Study_Planner
                     col.Width = columnWidth;
                 }
             }
+        }
+
+        private void txtTitle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbMedium_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpPriority_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewReport_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgvReport = new DataGridView();
+            dgvReport.Location = new Point(20, 130);
+            dgvReport.Size = new Size(940, 480);
+
+            // Properties
+            dgvReport.RowHeadersVisible = false; 
+            dgvReport.AutoGenerateColumns = false;
+            dgvReport.AllowUserToAddRows = false;
+            dgvReport.ReadOnly = true;
+            dgvReport.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
     }
 }

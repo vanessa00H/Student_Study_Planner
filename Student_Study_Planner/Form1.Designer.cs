@@ -228,7 +228,6 @@
             0,
             0,
             0});
-            this.numHours.Validating += new System.ComponentModel.CancelEventHandler(this.numHours_Validating);
             // 
             // numMinutes
             // 
@@ -241,7 +240,6 @@
             this.numMinutes.Name = "numMinutes";
             this.numMinutes.Size = new System.Drawing.Size(120, 27);
             this.numMinutes.TabIndex = 23;
-            this.numMinutes.Validating += new System.ComponentModel.CancelEventHandler(this.numMinutes_Validating);
             // 
             // grpPriority
             // 
@@ -499,6 +497,7 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ViewTask";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Resize += new System.EventHandler(this.tabPage2_Resize);
             // 
             // btnSearch
             // 
@@ -543,6 +542,9 @@
             // 
             // lvTasks
             // 
+            this.lvTasks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvTasks.CheckBoxes = true;
             this.lvTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.clmStatus,
@@ -565,37 +567,37 @@
             // clmStatus
             // 
             this.clmStatus.Text = "Status";
-            this.clmStatus.Width = 150;
+            this.clmStatus.Width = 125;
             // 
             // clmTitle
             // 
             this.clmTitle.Text = "Title";
             this.clmTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmTitle.Width = 250;
+            this.clmTitle.Width = 220;
             // 
             // clmCategory
             // 
             this.clmCategory.Text = "Category";
             this.clmCategory.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmCategory.Width = 250;
+            this.clmCategory.Width = 220;
             // 
             // clmPriority
             // 
             this.clmPriority.Text = "Priority";
             this.clmPriority.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmPriority.Width = 200;
+            this.clmPriority.Width = 120;
             // 
             // clmTime
             // 
             this.clmTime.Text = "Time";
             this.clmTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmTime.Width = 200;
+            this.clmTime.Width = 113;
             // 
             // clmType
             // 
             this.clmType.Text = "Type";
             this.clmType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clmType.Width = 250;
+            this.clmType.Width = 170;
             // 
             // lblSearch
             // 

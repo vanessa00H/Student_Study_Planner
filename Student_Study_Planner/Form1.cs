@@ -44,33 +44,78 @@ namespace Student_Study_Planner
         // Load tasks from a CSV file
         private void LoadTasks()
         {
+            items.Clear();
+            lvTasks.Items.Clear();
+            lvTasks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvDashboard.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+
             if (File.Exists("tasks.csv"))
             {
                 var lines = File.ReadAllLines("tasks.csv");
 
-                // Skip header line
                 foreach (var line in lines.Skip(1))
                 {
                     var values = line.Split(',');
 
-                        var task = new StudySession(
-                               DateTime.Parse(values[2]),    //  DateTime
-                               values[0],                    // Title
-                               values[1],                    // Category
-                               (Priority)Enum.Parse(typeof(Priority), values[3]),  // Priority
-                               int.Parse(values[4]),         // Hours
-                               int.Parse(values[5]),         // Minutes
-                               TaskType.StudySession         // TaskType
-                         );
+                    var task = new StudySession(
+                        DateTime.Parse(values[2]),              // Date
+                        values[0],                              // Title
+                        values[1],                              // Category
+                        (Priority)Enum.Parse(typeof(Priority), values[3]),
+                        int.Parse(values[4]),                   // Hours
+                        int.Parse(values[5]),                   // Minutes
+                        TaskType.StudySession
+                    );
 
-                            items.Add(task);
+                   
+                    if (values.Length > 6)
+                        task.IsCompleted = bool.Parse(values[6]);
+
+                    items.Add(task);
                 }
+            }
+
+           
+            foreach (var task in items)
+            {
+                string status = task.IsCompleted ? "✔ " : "✖ ";
+                lvTasks.Items.Add(status + task.GetDetails());
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            lvTasks.View = View.Details;
+            lvTasks.FullRowSelect = true;
+            lvTasks.GridLines = true;
+            lvTasks.Scrollable = true;
+            lvTasks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            lvDashboard.View = View.Details;
+            lvDashboard.FullRowSelect = true;
+            lvDashboard.GridLines = true;
+            lvDashboard.Scrollable = true;
+            lvDashboard.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
+            if (lvTasks.Columns.Count > 0)
+            {
+                int columnWidth = lvTasks.ClientSize.Width / lvTasks.Columns.Count;
+
+                foreach (ColumnHeader col in lvTasks.Columns)
+                {
+                    col.Width = columnWidth;
+                }
+            }
+
+            if (lvDashboard.Columns.Count > 0)
+            {
+                int columnWidth = lvDashboard.ClientSize.Width / lvDashboard.Columns.Count;
+
+                foreach (ColumnHeader col in lvDashboard.Columns)
+                {
+                    col.Width = columnWidth;
+                }
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -221,34 +266,6 @@ namespace Student_Study_Planner
             }
         }
 
-        private void numHours_Validating(object sender, CancelEventArgs e)
-        {
-            if (numHours.Value < 1 || numHours.Value > 24)
-            {
-                MessageBox.Show("Hours must be between 1 and 24.");
-                numHours.ForeColor = Color.Red;
-                e.Cancel = true;
-            }
-            else
-            {
-                numHours.ForeColor = Color.Black;
-            }
-
-        }
-
-        private void numMinutes_Validating(object sender, CancelEventArgs e)
-        {
-            if (numMinutes.Value < 0 || numMinutes.Value > 59)
-            {
-                MessageBox.Show("Minutes must be between 0 and 59.");
-                numMinutes.ForeColor = Color.Red;
-                e.Cancel = true;
-            }
-            else
-            {
-                numMinutes.ForeColor = Color.Black;
-            }
-        }
 
         private void cmbFilter_Validating(object sender, CancelEventArgs e)
         {
@@ -266,7 +283,15 @@ namespace Student_Study_Planner
 
         private void txtSearch_Validating(object sender, CancelEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                MessageBox.Show("Search field cannot be empty.");
+                txtSearch.BackColor = Color.LightPink;
+                e.Cancel = true;
+                return;
+            }
 
+            txtSearch.BackColor = Color.White;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -443,17 +468,129 @@ namespace Student_Study_Planner
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (!ValidateChildren())
+                return;
 
+            string keyword = txtSearch.Text.Trim();
+            List<PlannerItem> results = new List<PlannerItem>();
+
+            // ---------- Priority (1-3) ----------
+            if (int.TryParse(keyword, out int number))
+            {
+                if (number >= 1 && number <= 3)
+                {
+                    results = items
+                        .Where(i => (int)i.Priority == number)
+                        .OrderBy(i => i.Date)
+                        .ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Priority must be 1 (Low), 2 (Medium), or 3 (High).");
+                    return;
+                }
+            }
+
+            // ---------- Date ----------
+            else if (DateTime.TryParse(keyword, out DateTime date))
+            {
+                results = items
+                    .Where(i => i.Date.Date == date.Date)
+                    .OrderBy(i => i.Date)
+                    .ToList();
+            }
+
+            // ---------- Title OR Category ----------
+            else
+            {
+                if (!keyword.All(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)))
+                {
+                    MessageBox.Show("Search cannot contain symbols.");
+                    return;
+                }
+
+                results = items
+                    .Where(i =>
+                        i.Title.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0
+                        ||
+                        i.Category.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0
+                    )
+                    .OrderBy(i => i.Date)
+                    .ToList();
+            }
+
+            lvTasks.Items.Clear();
+
+            if (results.Count == 0)
+            {
+                MessageBox.Show("No matching tasks found.");
+                return;
+            }
+
+            foreach (var task in results)
+            {
+                lvTasks.Items.Add(task.GetDetails());
+            }
         }
+        
 
         private void btnMark_Click(object sender, EventArgs e)
         {
+            if (items.Count == 0)
+            {
+                MessageBox.Show("No tasks available.");
+                return;
+            }
 
+            
+            if (lvTasks.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please select a task first.");
+                return;
+            }
+
+            int index = lvTasks.SelectedItems[0].Index;
+
+            if (items[index].IsCompleted)
+            {
+                MessageBox.Show("Task is already completed.");
+                return;
+            }
+
+            items[index].IsCompleted = true;
+
+            MessageBox.Show("Task marked as completed successfully!");
+
+            SaveTasks();
+            LoadTasks();
         }
 
         private void btnClear2_Click(object sender, EventArgs e)
         {
             ClearFields();
+        }
+
+        private void tabPage2_Resize(object sender, EventArgs e)
+        {
+            if (lvTasks.Columns.Count > 0)
+            {
+                int columnWidth = lvTasks.ClientSize.Width / lvTasks.Columns.Count;
+
+                foreach (ColumnHeader col in lvTasks.Columns)
+                {
+                    col.Width = columnWidth;
+                }
+            }
+
+            if (lvDashboard.Columns.Count > 0)
+            {
+                int columnWidth = lvDashboard.ClientSize.Width / lvDashboard.Columns.Count;
+
+                foreach (ColumnHeader col in lvDashboard.Columns)
+                {
+                    col.Width = columnWidth;
+                }
+            }
         }
     }
 }

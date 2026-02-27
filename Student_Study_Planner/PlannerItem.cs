@@ -25,6 +25,7 @@ namespace Student_Study_Planner
     public abstract class PlannerItem
     {
         public DateTime Date { get; set; }
+        public DateTime EndDate { get; set; }
         public string Title { get; set; }
         public string Category { get; set; }
         public TaskType Type { get; set; }
@@ -33,9 +34,10 @@ namespace Student_Study_Planner
         public int Hours { get; set; }
         public int Minutes { get; set; }
 
-        public PlannerItem(DateTime date, string title, string category, TaskType type, Priority priority)
+        public PlannerItem(DateTime date,DateTime EndDte ,string title, string category, TaskType type, Priority priority)
         {
             Date = date;
+            EndDate = EndDte;
             Title = title;
             Category = category;
             Type = type;

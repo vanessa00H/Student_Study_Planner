@@ -36,6 +36,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.MainTap = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -93,7 +94,6 @@
             this.lblProgressValue = new System.Windows.Forms.Label();
             this.lblProgressTitle = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.MainTap.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -107,7 +107,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(28, 88);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(127, 50);
             this.button1.TabIndex = 0;
@@ -118,7 +118,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(365, 88);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(95, 50);
             this.button2.TabIndex = 1;
@@ -130,7 +130,7 @@
             // 
             this.button3.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(199, 88);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(129, 50);
             this.button3.TabIndex = 2;
@@ -141,7 +141,7 @@
             // 
             this.button4.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(502, 90);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(130, 50);
             this.button4.TabIndex = 3;
@@ -152,7 +152,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(680, 91);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(95, 50);
             this.button5.TabIndex = 4;
@@ -169,7 +169,7 @@
             this.MainTap.Controls.Add(this.tabPage5);
             this.MainTap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTap.Location = new System.Drawing.Point(0, 0);
-            this.MainTap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MainTap.Margin = new System.Windows.Forms.Padding(2);
             this.MainTap.Name = "MainTap";
             this.MainTap.SelectedIndex = 0;
             this.MainTap.Size = new System.Drawing.Size(1096, 840);
@@ -202,13 +202,21 @@
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(1088, 807);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "AddTask";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // datePicker
+            // 
+            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datePicker.Location = new System.Drawing.Point(135, 246);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(200, 26);
+            this.datePicker.TabIndex = 21;
             // 
             // button9
             // 
@@ -216,12 +224,13 @@
             this.button9.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.button9.Location = new System.Drawing.Point(279, 582);
-            this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button9.Margin = new System.Windows.Forms.Padding(2);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(126, 59);
             this.button9.TabIndex = 20;
             this.button9.Text = "EditTask";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -229,12 +238,13 @@
             this.button8.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.button8.Location = new System.Drawing.Point(526, 582);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button8.Margin = new System.Windows.Forms.Padding(2);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(126, 59);
             this.button8.TabIndex = 19;
             this.button8.Text = "DeleteTask";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -242,12 +252,13 @@
             this.button7.Font = new System.Drawing.Font("Segoe UI Symbol", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button7.Location = new System.Drawing.Point(802, 582);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(126, 59);
             this.button7.TabIndex = 18;
             this.button7.Text = "Clear";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -255,7 +266,7 @@
             this.button6.Font = new System.Drawing.Font("Segoe UI Symbol", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button6.Location = new System.Drawing.Point(49, 583);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(126, 59);
             this.button6.TabIndex = 17;
@@ -273,7 +284,7 @@
             "Quiz",
             "Exam"});
             this.cmbType.Location = new System.Drawing.Point(617, 196);
-            this.cmbType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbType.Margin = new System.Windows.Forms.Padding(2);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(292, 40);
             this.cmbType.TabIndex = 16;
@@ -306,7 +317,7 @@
             // 
             this.numMinutes.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numMinutes.Location = new System.Drawing.Point(674, 408);
-            this.numMinutes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numMinutes.Margin = new System.Windows.Forms.Padding(2);
             this.numMinutes.Name = "numMinutes";
             this.numMinutes.Size = new System.Drawing.Size(76, 34);
             this.numMinutes.TabIndex = 13;
@@ -316,7 +327,7 @@
             // 
             this.numHours.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numHours.Location = new System.Drawing.Point(496, 403);
-            this.numHours.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numHours.Margin = new System.Windows.Forms.Padding(2);
             this.numHours.Name = "numHours";
             this.numHours.Size = new System.Drawing.Size(76, 34);
             this.numHours.TabIndex = 12;
@@ -327,7 +338,7 @@
             this.rbHigh.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbHigh.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.rbHigh.Location = new System.Drawing.Point(298, 403);
-            this.rbHigh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbHigh.Margin = new System.Windows.Forms.Padding(2);
             this.rbHigh.Name = "rbHigh";
             this.rbHigh.Size = new System.Drawing.Size(75, 29);
             this.rbHigh.TabIndex = 11;
@@ -341,7 +352,7 @@
             this.rbMedium.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMedium.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.rbMedium.Location = new System.Drawing.Point(159, 403);
-            this.rbMedium.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbMedium.Margin = new System.Windows.Forms.Padding(2);
             this.rbMedium.Name = "rbMedium";
             this.rbMedium.Size = new System.Drawing.Size(103, 29);
             this.rbMedium.TabIndex = 10;
@@ -355,7 +366,7 @@
             this.rbLow.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbLow.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.rbLow.Location = new System.Drawing.Point(57, 403);
-            this.rbLow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbLow.Margin = new System.Windows.Forms.Padding(2);
             this.rbLow.Name = "rbLow";
             this.rbLow.Size = new System.Drawing.Size(69, 29);
             this.rbLow.TabIndex = 9;
@@ -367,7 +378,7 @@
             // 
             this.txtCategory.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategory.Location = new System.Drawing.Point(617, 73);
-            this.txtCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCategory.Margin = new System.Windows.Forms.Padding(2);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(292, 39);
             this.txtCategory.TabIndex = 8;
@@ -376,7 +387,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(135, 202);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(251, 39);
             this.textBox1.TabIndex = 7;
@@ -386,7 +397,7 @@
             // 
             this.txtTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitle.Location = new System.Drawing.Point(135, 70);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(2);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(251, 39);
             this.txtTitle.TabIndex = 6;
@@ -472,10 +483,10 @@
             this.tabPage2.Controls.Add(this.textBox5);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1088, 857);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(1088, 807);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ViewTask";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -486,7 +497,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.btnSearch.Location = new System.Drawing.Point(920, 63);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(94, 38);
             this.btnSearch.TabIndex = 7;
@@ -498,7 +509,7 @@
             this.button11.BackColor = System.Drawing.Color.DarkGray;
             this.button11.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.button11.Location = new System.Drawing.Point(316, 706);
-            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button11.Margin = new System.Windows.Forms.Padding(2);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(190, 51);
             this.button11.TabIndex = 6;
@@ -511,7 +522,7 @@
             this.button10.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.InactiveBorder;
             this.button10.Location = new System.Drawing.Point(60, 706);
-            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(190, 51);
             this.button10.TabIndex = 5;
@@ -532,7 +543,7 @@
             this.lvTasks.GridLines = true;
             this.lvTasks.HideSelection = false;
             this.lvTasks.Location = new System.Drawing.Point(52, 166);
-            this.lvTasks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvTasks.Margin = new System.Windows.Forms.Padding(2);
             this.lvTasks.Name = "lvTasks";
             this.lvTasks.Size = new System.Drawing.Size(973, 489);
             this.lvTasks.TabIndex = 4;
@@ -595,7 +606,7 @@
             "This Month",
             "Completed"});
             this.comboBox2.Location = new System.Drawing.Point(142, 66);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(180, 28);
             this.comboBox2.TabIndex = 2;
@@ -604,7 +615,7 @@
             // 
             this.textBox5.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(650, 60);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(230, 39);
             this.textBox5.TabIndex = 1;
@@ -623,10 +634,10 @@
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage3.Size = new System.Drawing.Size(1088, 857);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage3.Size = new System.Drawing.Size(1088, 807);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Reports";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -640,10 +651,10 @@
             this.tabPage4.Controls.Add(this.pnlProgress);
             this.tabPage4.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage4.Size = new System.Drawing.Size(1088, 857);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage4.Size = new System.Drawing.Size(1088, 807);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Dashboard";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -670,7 +681,7 @@
             this.lvDashboard.GridLines = true;
             this.lvDashboard.HideSelection = false;
             this.lvDashboard.Location = new System.Drawing.Point(72, 325);
-            this.lvDashboard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvDashboard.Margin = new System.Windows.Forms.Padding(2);
             this.lvDashboard.Name = "lvDashboard";
             this.lvDashboard.Size = new System.Drawing.Size(935, 301);
             this.lvDashboard.TabIndex = 3;
@@ -708,7 +719,7 @@
             this.panel3.Controls.Add(this.lblGoalTitle);
             this.panel3.Controls.Add(this.lblWeeklyGoal);
             this.panel3.Location = new System.Drawing.Point(814, 112);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(192, 147);
             this.panel3.TabIndex = 2;
@@ -757,7 +768,7 @@
             this.cardDeadlines.Controls.Add(this.lblDeadLinesValue);
             this.cardDeadlines.Controls.Add(this.lblDeadlineTitle);
             this.cardDeadlines.Location = new System.Drawing.Point(435, 112);
-            this.cardDeadlines.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cardDeadlines.Margin = new System.Windows.Forms.Padding(2);
             this.cardDeadlines.Name = "cardDeadlines";
             this.cardDeadlines.Size = new System.Drawing.Size(192, 147);
             this.cardDeadlines.TabIndex = 1;
@@ -807,7 +818,7 @@
             this.pnlProgress.Controls.Add(this.lblProgressValue);
             this.pnlProgress.Controls.Add(this.lblProgressTitle);
             this.pnlProgress.Location = new System.Drawing.Point(72, 112);
-            this.pnlProgress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlProgress.Margin = new System.Windows.Forms.Padding(2);
             this.pnlProgress.Name = "pnlProgress";
             this.pnlProgress.Size = new System.Drawing.Size(192, 147);
             this.pnlProgress.TabIndex = 0;
@@ -853,21 +864,13 @@
             // tabPage5
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage5.Size = new System.Drawing.Size(1088, 857);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage5.Size = new System.Drawing.Size(1088, 807);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Setting";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // datePicker
-            // 
-            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePicker.Location = new System.Drawing.Point(135, 246);
-            this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(200, 26);
-            this.datePicker.TabIndex = 21;
             // 
             // Form1
             // 
@@ -880,7 +883,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

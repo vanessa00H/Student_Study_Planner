@@ -58,6 +58,16 @@ namespace Student_Study_Planner
                 {
                     var values = line.Split(',');
 
+                        var task = new StudySession(
+                               DateTime.Parse(values[2]),    //  DateTime
+                               DateTime.Parse(values[2]).AddHours(int.Parse(values[4])).AddMinutes(int.Parse(values[5])), // EndDate
+                               values[0],                    // Title
+                               values[1],                    // Category
+                               (Priority)Enum.Parse(typeof(Priority), values[3]),  // Priority
+                               int.Parse(values[4]),         // Hours
+                               int.Parse(values[5]),         // Minutes
+                               TaskType.StudySession         // TaskType
+                         );
                     var task = new StudySession(
                         DateTime.Parse(values[2]),              // Date
                         values[0],                              // Title
@@ -278,6 +288,7 @@ namespace Student_Study_Planner
             else
             {
                 cmbFilter.BackColor = Color.White;
+                e.Cancel = false;
             }
         }
 
@@ -296,9 +307,7 @@ namespace Student_Study_Planner
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-          
             // Required Fields Check
-          
             if (string.IsNullOrWhiteSpace(txtTitle.Text) ||
                 string.IsNullOrWhiteSpace(txtCategory.Text) ||
                 cmbType.SelectedIndex == -1 ||
@@ -312,49 +321,76 @@ namespace Student_Study_Planner
                 return;
             }
 
-            // Run All Field Validations
-           
-            if (!ValidateChildren())
+            // Check if EndDate is not in the past
+            if (endDatePicker.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("End date cannot be in the past.",
+                    "Invalid Date",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Check if EndDate is the same as StartDate
+            if (endDatePicker.Value.Date == datePicker.Value.Date)
+            {
+                MessageBox.Show("End date cannot be the same as start date.",
+                    "Invalid Date",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+            // Check if EndDate is before StartDate
+            if (endDatePicker.Value.Date < datePicker.Value.Date)
+            {
+                MessageBox.Show("End date cannot be before start date.",
+                    "Invalid Date",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+                // Run All Field Validations
+                if (!ValidateChildren())
                 return;
 
             // Get Time Values
-           
             int hours = (int)numHours.Value;
             int minutes = (int)numMinutes.Value;
 
             // Create Task Object
-          
             PlannerItem task;
 
             if (cmbType.SelectedItem.ToString() == "StudySession")
             {
                 task = new StudySession(
                     datePicker.Value.Date,
+                    endDatePicker.Value.Date,
                     txtTitle.Text.Trim(),
                     txtCategory.Text.Trim(),
                     GetPriority(),
                     hours,
                     minutes,
                     TaskType.StudySession);
+               
             }
             else
             {
                 task = new DeadlineTask(
                     datePicker.Value.Date,
+                    endDatePicker.Value.Date,
                     txtTitle.Text.Trim(),
                     txtCategory.Text.Trim(),
                     GetPriority(),
                     datePicker.Value.Date.AddDays(7), // Example deadline
                     "Sample description",
                     TaskType.Assignment);
+                
             }
 
             // Add To List
-            
             items.Add(task);
 
             // Success Message
-
             MessageBox.Show("Task added successfully!",
                 "Success",
                 MessageBoxButtons.OK,
@@ -376,7 +412,7 @@ namespace Student_Study_Planner
             rbMedium.Checked = false;
             rbHigh.Checked = false;
 
-            numHours.Value = 0;
+            numHours.Value = 1;
             numMinutes.Value = 0;
 
             datePicker.Value = DateTime.Today;
@@ -391,6 +427,7 @@ namespace Student_Study_Planner
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            // Check if Title is provided
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
                 MessageBox.Show("Please enter the task title to edit.");
@@ -401,6 +438,7 @@ namespace Student_Study_Planner
             if (!ValidateChildren())
                 return;
 
+            // Find task by title
             var task = items.FirstOrDefault(t =>
                 t.Title.Equals(txtTitle.Text.Trim(), StringComparison.OrdinalIgnoreCase));
 
@@ -410,16 +448,51 @@ namespace Student_Study_Planner
                 return;
             }
 
+            // Validate End Date: Ensure End Date is not in the past
+            if (endDatePicker.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("End date cannot be in the past.",
+                    "Invalid Date",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Validate End Date: Ensure End Date is not the same as Start Date
+            if (endDatePicker.Value.Date == datePicker.Value.Date)
+            {
+                MessageBox.Show("End date cannot be the same as start date.",
+                    "Invalid Date",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+            // Check if EndDate is before StartDate
+            if (endDatePicker.Value.Date < datePicker.Value.Date)
+            {
+                MessageBox.Show("End date cannot be before start date.",
+                    "Invalid Date",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
             // Update Properties
             task.Category = txtCategory.Text.Trim();
             task.Date = datePicker.Value.Date;
             task.Priority = GetPriority();
             task.IsCompleted = false;
 
+            // Update EndDate for StudySession or DeadlineTask
             if (task is StudySession studyTask)
             {
                 studyTask.EstimatedHours = (int)numHours.Value;
                 studyTask.EstimatedMinutes = (int)numMinutes.Value;
+                studyTask.EndDate = endDatePicker.Value.Date;  // Update EndDate
+            }
+            else if (task is DeadlineTask deadlineTask)
+            {
+                deadlineTask.EndDate = endDatePicker.Value.Date;  // Update EndDate
             }
 
             MessageBox.Show("Task edit successfully!",
@@ -427,6 +500,7 @@ namespace Student_Study_Planner
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
+            // Save and Refresh Tasks
             SaveTasks();
             LoadTasks();
             ClearFields();
@@ -568,6 +642,24 @@ namespace Student_Study_Planner
         private void btnClear2_Click(object sender, EventArgs e)
         {
             ClearFields();
+        }
+
+        private void datePicker_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbFilter.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a filter option first.");
+                cmbFilter.BackColor = Color.LightPink;
+            }
+            else
+            {
+                cmbFilter.BackColor = Color.White;
+            } 
         }
 
         private void tabPage2_Resize(object sender, EventArgs e)

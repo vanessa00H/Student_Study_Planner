@@ -11,9 +11,9 @@ namespace Student_Study_Planner
         public int EstimatedHours { get; set; }
         public int EstimatedMinutes { get; set; }
 
-        public StudySession(DateTime date, string title, string category, Priority priority,
+        public StudySession(DateTime date,DateTime EndDte, string title, string category, Priority priority,
             int estimatedHours, int estimatedMinutes, TaskType type)
-            : base(date, title, category, type, priority)
+            : base(date, EndDte, title, category, type, priority)
         {
             EstimatedHours = estimatedHours;
             EstimatedMinutes = estimatedMinutes;

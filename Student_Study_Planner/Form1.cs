@@ -88,41 +88,6 @@ namespace Student_Study_Planner
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void lblProgressValue_Click(object sender, EventArgs e)
         {
 
@@ -138,90 +103,203 @@ namespace Student_Study_Planner
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        
+
+       
+
+        private void txtTitle_Validating(object sender, CancelEventArgs e)
         {
-            // Validate Title: Must not be empty
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
                 MessageBox.Show("Title cannot be empty.");
+                txtTitle.ForeColor = Color.Red;
+                e.Cancel = true;
                 return;
             }
 
-            // Title must contain both letters and numbers, not just numbers
-            if (txtTitle.Text.Trim().All(char.IsDigit))
+            bool onlyNumbers = true;
+
+            foreach (char c in txtTitle.Text)
+            {
+                if (!char.IsDigit(c) && !char.IsWhiteSpace(c))
+                {
+                    onlyNumbers = false;
+                    break;
+                }
+            }
+
+            if (onlyNumbers)
             {
                 MessageBox.Show("Title cannot contain only numbers.");
-                return;
+                txtTitle.ForeColor = Color.Red;
+                e.Cancel = true;
             }
-
-            // Title must not contain symbols
-            if (!txtTitle.Text.All(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)))
+            else
             {
-                MessageBox.Show("Title cannot contain symbols.");
-                return;
+                txtTitle.ForeColor = Color.Black;
             }
+        }
 
-            // Validate Category: Must not be empty
+        private void txtCategory_Validating(object sender, CancelEventArgs e)
+        {
             if (string.IsNullOrWhiteSpace(txtCategory.Text))
             {
                 MessageBox.Show("Category is required.");
+                txtCategory.ForeColor = Color.Red;
+                e.Cancel = true;
                 return;
             }
 
-            // Category must contain both letters and numbers, not just numbers
-            if (txtCategory.Text.Trim().All(char.IsDigit))
+            bool onlyNumbers = true;
+
+            foreach (char c in txtCategory.Text)
+            {
+                if (!char.IsDigit(c))
+                {
+                    onlyNumbers = false;
+                    break;
+                }
+            }
+
+            if (onlyNumbers)
             {
                 MessageBox.Show("Category cannot be numbers only.");
-                return;
+                txtCategory.ForeColor = Color.Red;
+                e.Cancel = true;
             }
-
-            // Category must not contain symbols
-            if (!txtCategory.Text.All(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)))
+            else
             {
-                MessageBox.Show("Category cannot contain symbols.");
+                txtCategory.ForeColor = Color.Black;
+            }
+        }
+
+        private void datePicker_Validating(object sender, CancelEventArgs e)
+        {
+            int currentYear = DateTime.Now.Year;
+
+            if (datePicker.Value.Year < currentYear || datePicker.Value.Year > 2030)
+            {
+                MessageBox.Show($"Year must be between {currentYear} and 2030.");
+                e.Cancel = true;
                 return;
             }
 
-            // Validate Date (should not be in the past): Date must be today or in the future
-            if (datePicker.Value.Date < DateTime.Now.Date)
+            if (datePicker.Value.Date < DateTime.Today)
             {
                 MessageBox.Show("Date cannot be in the past.");
-                return;
+                e.Cancel = true;
             }
+        }
 
-            // Validate Estimated Time: Hours and Minutes must be valid numbers and greater than 0
-            if (!int.TryParse(numHours.Text, out int hours) || hours <= 0)
-            {
-                MessageBox.Show("Hours must be a valid number and greater than 0.");
-                return;
-            }
-            if(int.Parse(numHours.Text)<1||int.Parse(numHours.Text)>60)
-            {
-                MessageBox.Show("Hours must be between 1 and 60.");
-                return;
-            }
-
-            if (!int.TryParse(numMinutes.Text, out int minutes) || minutes < 0 || minutes >= 60)
-            {
-                MessageBox.Show("Minutes must be a valid number between 0 and 59.");
-                return;
-            }
-
-            // Validate Priority: Ensure user selects a priority
-            if (!(rbLow.Checked || rbMedium.Checked || rbHigh.Checked))
-            {
-                MessageBox.Show("Please select a priority.");
-                return;
-            }
-
-            // Create new task object based on the selected type
-            PlannerItem task;
-
-            if (cmbType.SelectedItem == null || string.IsNullOrWhiteSpace(cmbType.SelectedItem.ToString()))
+        private void cmbType_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbType.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a task type.");
+                cmbType.BackColor = Color.LightPink;
+                e.Cancel = true;
+            }
+            else
+            {
+                cmbType.BackColor = Color.White;
+            }
+        }
+
+        
+
+        private void grpPriority_Validating(object sender, CancelEventArgs e)
+        {
+            if (!rbLow.Checked && !rbMedium.Checked && !rbHigh.Checked)
+            {
+                MessageBox.Show("Please select a priority.");
+                grpPriority.BackColor = Color.MistyRose;
+                e.Cancel = true;
+            }
+            else
+            {
+                grpPriority.BackColor = Color.Transparent;
+            }
+        }
+
+        private void numHours_Validating(object sender, CancelEventArgs e)
+        {
+            if (numHours.Value < 1 || numHours.Value > 24)
+            {
+                MessageBox.Show("Hours must be between 1 and 24.");
+                numHours.ForeColor = Color.Red;
+                e.Cancel = true;
+            }
+            else
+            {
+                numHours.ForeColor = Color.Black;
+            }
+
+        }
+
+        private void numMinutes_Validating(object sender, CancelEventArgs e)
+        {
+            if (numMinutes.Value < 0 || numMinutes.Value > 59)
+            {
+                MessageBox.Show("Minutes must be between 0 and 59.");
+                numMinutes.ForeColor = Color.Red;
+                e.Cancel = true;
+            }
+            else
+            {
+                numMinutes.ForeColor = Color.Black;
+            }
+        }
+
+        private void cmbFilter_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbFilter.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a filter option.");
+                cmbFilter.BackColor = Color.LightPink;
+                e.Cancel = true; 
+            }
+            else
+            {
+                cmbFilter.BackColor = Color.White;
+            }
+        }
+
+        private void txtSearch_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+          
+            // Required Fields Check
+          
+            if (string.IsNullOrWhiteSpace(txtTitle.Text) ||
+                string.IsNullOrWhiteSpace(txtCategory.Text) ||
+                cmbType.SelectedIndex == -1 ||
+                (!rbLow.Checked && !rbMedium.Checked && !rbHigh.Checked) ||
+                (numHours.Value == 0 && numMinutes.Value == 0))
+            {
+                MessageBox.Show("Please fill all required fields.",
+                    "Missing Information",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
                 return;
             }
+
+            // Run All Field Validations
+           
+            if (!ValidateChildren())
+                return;
+
+            // Get Time Values
+           
+            int hours = (int)numHours.Value;
+            int minutes = (int)numMinutes.Value;
+
+            // Create Task Object
+          
+            PlannerItem task;
 
             if (cmbType.SelectedItem.ToString() == "StudySession")
             {
@@ -241,65 +319,65 @@ namespace Student_Study_Planner
                     txtTitle.Text.Trim(),
                     txtCategory.Text.Trim(),
                     GetPriority(),
-                    datePicker.Value.Date.AddDays(7), // Example of deadline
+                    datePicker.Value.Date.AddDays(7), // Example deadline
                     "Sample description",
                     TaskType.Assignment);
             }
 
-            // Add task to list
+            // Add To List
+            
             items.Add(task);
 
-            MessageBox.Show("Task added successfully!");
-            SaveTasks(); // Save tasks to the file after adding
-            LoadTasks(); // Refresh the task list display
+            // Success Message
+
+            MessageBox.Show("Task added successfully!",
+                "Success",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            // Save + Refresh + Clear
+            SaveTasks();
+            LoadTasks();
             ClearFields();
         }
-
+        // Clear All Fields
         private void ClearFields()
         {
             txtTitle.Clear();
             txtCategory.Clear();
             cmbType.SelectedIndex = -1;
+
             rbLow.Checked = false;
             rbMedium.Checked = false;
             rbHigh.Checked = false;
-            numHours.Text = " ";
-            numMinutes.Text = " ";
-            datePicker.Value = DateTime.Now;
+
+            numHours.Value = 0;
+            numMinutes.Value = 0;
+
+            datePicker.Value = DateTime.Today;
         }
 
-        // Get selected priority
+        // Get Selected Priority
         private Priority GetPriority()
         {
             if (rbLow.Checked) return Priority.Low;
             if (rbMedium.Checked) return Priority.Medium;
             return Priority.High;
         }
-
-        private void button9_Click(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-            // Validate Title: Must not be empty
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
-                MessageBox.Show("Title cannot be empty.");
+                MessageBox.Show("Please enter the task title to edit.");
                 return;
             }
 
-            // Title must contain both letters and numbers, not just numbers
-            if (txtTitle.Text.Trim().All(char.IsDigit))
-            {
-                MessageBox.Show("Title cannot contain only numbers.");
+            // Run Validating Events
+            if (!ValidateChildren())
                 return;
-            }
 
-            // Title must not contain symbols
-            if (!txtTitle.Text.All(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)))
-            {
-                MessageBox.Show("Title cannot contain symbols.");
-                return;
-            }
-            // Find task by title
-            var task = items.FirstOrDefault(t => t.Title == txtTitle.Text.Trim());
+            var task = items.FirstOrDefault(t =>
+                t.Title.Equals(txtTitle.Text.Trim(), StringComparison.OrdinalIgnoreCase));
 
             if (task == null)
             {
@@ -307,123 +385,38 @@ namespace Student_Study_Planner
                 return;
             }
 
-            // Validate Category: Must not be empty
-            if (string.IsNullOrWhiteSpace(txtCategory.Text))
-            {
-                MessageBox.Show("Category is required.");
-                return;
-            }
-
-            // Category must contain both letters and numbers, not just numbers
-            if (txtCategory.Text.Trim().All(char.IsDigit))
-            {
-                MessageBox.Show("Category cannot be numbers only.");
-                return;
-            }
-
-            // Category must not contain symbols
-            if (!txtCategory.Text.All(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)))
-            {
-                MessageBox.Show("Category cannot contain symbols.");
-                return;
-            }
-
-            // Validate Date (should not be in the past): Date must be today or in the future
-            if (datePicker.Value.Date < DateTime.Now.Date)
-            {
-                MessageBox.Show("Date cannot be in the past.");
-                return;
-            }
-
-            // Validate Estimated Time: Hours and Minutes must be valid numbers and greater than 0
-            if (!int.TryParse(numHours.Text, out int hours) || hours <= 0)
-            {
-                MessageBox.Show("Hours must be a valid number and greater than 0.");
-                return;
-            }
-            if (int.Parse(numHours.Text) < 1 || int.Parse(numHours.Text) > 60)
-            {
-                MessageBox.Show("Hours must be between 1 and 60.");
-                return;
-            }
-
-            if (!int.TryParse(numMinutes.Text, out int minutes) || minutes < 0 || minutes >= 60)
-            {
-                MessageBox.Show("Minutes must be a valid number between 0 and 59.");
-                return;
-            }
-
-            // Validate Priority: Ensure user selects a priority
-            if (!(rbLow.Checked || rbMedium.Checked || rbHigh.Checked))
-            {
-                MessageBox.Show("Please select a priority.");
-                return;
-            }
-
-            if (cmbType.SelectedItem == null || string.IsNullOrWhiteSpace(cmbType.SelectedItem.ToString()))
-            {
-                MessageBox.Show("Please select a task type.");
-                return;
-            }
-            // Update task properties with new values
+            // Update Properties
             task.Category = txtCategory.Text.Trim();
             task.Date = datePicker.Value.Date;
-            task.Priority = GetSelectedPriority(); // Updated function name here
-            task.IsCompleted = false; // Reset completed status
+            task.Priority = GetPriority();
+            task.IsCompleted = false;
 
-            MessageBox.Show("Task updated successfully!");
-            SaveTasks(); // Save changes to the file after updating
-            LoadTasks(); // Refresh the task list display
-            ClearAllFields(); // Renamed method to ClearAllFields
+            if (task is StudySession studyTask)
+            {
+                studyTask.EstimatedHours = (int)numHours.Value;
+                studyTask.EstimatedMinutes = (int)numMinutes.Value;
+            }
+
+            MessageBox.Show("Task edit successfully!",
+                "Success",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            SaveTasks();
+            LoadTasks();
+            ClearFields();
         }
 
-        // Updated function name
-        private Priority GetSelectedPriority()
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (rbLow.Checked) return Priority.Low;
-            if (rbMedium.Checked) return Priority.Medium;
-            return Priority.High;
-        }
-
-        // Renamed ClearFields method to ClearAllFields
-        private void ClearAllFields()
-        {
-            txtTitle.Clear();
-            txtCategory.Clear();
-            cmbType.SelectedIndex = -1;
-            rbLow.Checked = false;
-            rbMedium.Checked = false;
-            rbHigh.Checked = false;
-            numHours.Text = " ";
-            numMinutes.Text = " ";
-            datePicker.Value = DateTime.Now;
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            // Validate Title: Ensure Title is not empty
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
                 MessageBox.Show("Please enter the title of the task to delete.");
                 return;
             }
 
-            // Title must contain both letters and numbers, not just numbers
-            if (txtTitle.Text.Trim().All(char.IsDigit))
-            {
-                MessageBox.Show("Title cannot contain only numbers.");
-                return;
-            }
-
-            // Title must not contain symbols
-            if (!txtTitle.Text.All(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)))
-            {
-                MessageBox.Show("Title cannot contain symbols.");
-                return;
-            }
-
-            // Find task by title
-            var task = items.FirstOrDefault(t => t.Title == txtTitle.Text.Trim());
+            var task = items.FirstOrDefault(t =>
+                t.Title.Equals(txtTitle.Text.Trim(), StringComparison.OrdinalIgnoreCase));
 
             if (task == null)
             {
@@ -431,35 +424,24 @@ namespace Student_Study_Planner
                 return;
             }
 
-            // Remove task from the list
             items.Remove(task);
 
-            MessageBox.Show("Task deleted successfully!");
-            SaveTasks(); // Save changes to the file after deletion
-            ClearFields();  // Clear the input fields after deletion
+            MessageBox.Show("Task deleted successfully!",
+                "Success",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            SaveTasks();
+            LoadTasks();
+            ClearFields();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            // Clear all text fields
-            txtTitle.Clear();
-            txtCategory.Clear();
-
-            // Reset ComboBox selection
-            cmbType.SelectedIndex = -1;
-
-            // Uncheck all radio buttons (Priority)
-            rbLow.Checked = false;
-            rbMedium.Checked = false;
-            rbHigh.Checked = false;
-
-            // Reset numeric up-down values (Estimated Time)
-            numHours.Text = " ";
-            numMinutes.Text = " ";
-
-            // Reset DatePicker to today's date
-            datePicker.Value = DateTime.Now;
+            ClearFields();
         }
     }
-    
 }
+    
+    
+

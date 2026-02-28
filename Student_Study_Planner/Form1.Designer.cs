@@ -76,11 +76,6 @@
             this.lblFilter = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewReport = new System.Windows.Forms.DataGridView();
-            this.ClmCategoryReport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmTotalTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmCompletedR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPendingR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmCompletionRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -106,6 +101,11 @@
             this.lblProgressValue = new System.Windows.Forms.Label();
             this.lblProgressTitle = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.ClmCategoryReport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmTotalTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmCompletedR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPendingR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmCompletionRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MineTap.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHours)).BeginInit();
@@ -730,41 +730,6 @@
             this.dataGridViewReport.TabIndex = 5;
             this.dataGridViewReport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReport_CellContentClick);
             // 
-            // ClmCategoryReport
-            // 
-            this.ClmCategoryReport.HeaderText = "Category";
-            this.ClmCategoryReport.MinimumWidth = 10;
-            this.ClmCategoryReport.Name = "ClmCategoryReport";
-            this.ClmCategoryReport.Width = 300;
-            // 
-            // ClmTotalTask
-            // 
-            this.ClmTotalTask.HeaderText = "TotalTask";
-            this.ClmTotalTask.MinimumWidth = 10;
-            this.ClmTotalTask.Name = "ClmTotalTask";
-            this.ClmTotalTask.Width = 300;
-            // 
-            // ClmCompletedR
-            // 
-            this.ClmCompletedR.HeaderText = "Completed";
-            this.ClmCompletedR.MinimumWidth = 10;
-            this.ClmCompletedR.Name = "ClmCompletedR";
-            this.ClmCompletedR.Width = 300;
-            // 
-            // clmPendingR
-            // 
-            this.clmPendingR.HeaderText = "Pending";
-            this.clmPendingR.MinimumWidth = 10;
-            this.clmPendingR.Name = "clmPendingR";
-            this.clmPendingR.Width = 300;
-            // 
-            // ClmCompletionRate
-            // 
-            this.ClmCompletionRate.HeaderText = "CompletionRate";
-            this.ClmCompletionRate.MinimumWidth = 10;
-            this.ClmCompletionRate.Name = "ClmCompletionRate";
-            this.ClmCompletionRate.Width = 300;
-            // 
             // btnGenerate
             // 
             this.btnGenerate.BackColor = System.Drawing.Color.CornflowerBlue;
@@ -788,7 +753,7 @@
             this.dateTimePicker2.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker2.MinDate = new System.DateTime(2026, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(151, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(276, 26);
             this.dateTimePicker2.TabIndex = 3;
             this.dateTimePicker2.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePicker2_Validating);
             // 
@@ -798,7 +763,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(182, 54);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(151, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(274, 26);
             this.dateTimePicker1.TabIndex = 2;
             this.dateTimePicker1.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePicker1_Validating);
             // 
@@ -1053,6 +1018,41 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Setting";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // ClmCategoryReport
+            // 
+            this.ClmCategoryReport.HeaderText = "Category";
+            this.ClmCategoryReport.MinimumWidth = 10;
+            this.ClmCategoryReport.Name = "ClmCategoryReport";
+            this.ClmCategoryReport.Width = 150;
+            // 
+            // ClmTotalTask
+            // 
+            this.ClmTotalTask.HeaderText = "TotalTask";
+            this.ClmTotalTask.MinimumWidth = 10;
+            this.ClmTotalTask.Name = "ClmTotalTask";
+            this.ClmTotalTask.Width = 150;
+            // 
+            // ClmCompletedR
+            // 
+            this.ClmCompletedR.HeaderText = "Completed";
+            this.ClmCompletedR.MinimumWidth = 10;
+            this.ClmCompletedR.Name = "ClmCompletedR";
+            this.ClmCompletedR.Width = 150;
+            // 
+            // clmPendingR
+            // 
+            this.clmPendingR.HeaderText = "Pending";
+            this.clmPendingR.MinimumWidth = 10;
+            this.clmPendingR.Name = "clmPendingR";
+            this.clmPendingR.Width = 150;
+            // 
+            // ClmCompletionRate
+            // 
+            this.ClmCompletionRate.HeaderText = "CompletionRate";
+            this.ClmCompletionRate.MinimumWidth = 10;
+            this.ClmCompletionRate.Name = "ClmCompletionRate";
+            this.ClmCompletionRate.Width = 150;
             // 
             // Form1
             // 

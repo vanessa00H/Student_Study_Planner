@@ -31,13 +31,14 @@ namespace Student_Study_Planner
         {
             using (StreamWriter sw = new StreamWriter("tasks.csv"))
             {
-                // Write the header (column names)
-                sw.WriteLine("Title,Category,Date,Priority,Hours,Minutes,IsCompleted");
+                sw.WriteLine("Kind,Title,Category,Date,Priority,Hours,Minutes,IsCompleted,Type");
 
-                // Write each task as a CSV line
                 foreach (var task in items)
                 {
-                    sw.WriteLine($"{task.Title},{task.Category},{task.Date.ToShortDateString()},{task.Priority},{task.Hours},{task.Minutes}{task.IsCompleted}");
+                    if (task is StudySession s)
+                        sw.WriteLine(s.ToCSV());
+                    else
+                        sw.WriteLine($"DeadlineTask,{task.Title},{task.Category},{task.Date:dd/MM/yyyy},{task.Priority},0,0,{task.IsCompleted},{task.Type}");
                 }
             }
         }
@@ -68,22 +69,12 @@ namespace Student_Study_Planner
                 foreach (var line in lines.Skip(1))
                 {
                     var values = line.Split(',');
-
-                    var task = new StudySession(
-                           DateTime.Parse(values[2]),    //  DateTime
-                           DateTime.Parse(values[2]).AddHours(int.Parse(values[4])).AddMinutes(int.Parse(values[5])), // EndDate
-                           values[0],                    // Title
-                           values[1],                    // Category
-                           (Priority)Enum.Parse(typeof(Priority), values[3]),  // Priority
-                           int.Parse(values[4]),         // Hours
-                           int.Parse(values[5]),         // Minutes
-                           TaskType.StudySession         // TaskType
-                     );
-
-                    if (values.Length > 6)
-                        task.IsCompleted = bool.Parse(values[6]);
-
-                    items.Add(task);
+                    if (string.IsNullOrWhiteSpace(line)) continue;
+                    try
+                    {
+                        items.Add(StudySession.FromCSV(line));
+                    }
+                    catch { continue; }
                 }
             }
 
@@ -139,32 +130,32 @@ namespace Student_Study_Planner
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void lblProgressValue_Click(object sender, EventArgs e)
+        private void LblProgressValue_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void lblProgressStatus_Click(object sender, EventArgs e)
+        private void LblProgressStatus_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void lblDeadLinesValue_Click(object sender, EventArgs e)
+        private void LblDeadLinesValue_Click(object sender, EventArgs e)
         {
 
         }

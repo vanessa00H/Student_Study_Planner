@@ -15,6 +15,8 @@ namespace Student_Study_Planner
 
     public partial class Form1 : Form
     {
+        private bool isAdding = false;
+        private bool isEditing = false;
         private List<PlannerItem> items = new List<PlannerItem>();
         public Form1()
         {
@@ -255,6 +257,8 @@ namespace Student_Study_Planner
 
         private void cmbFilter_Validating(object sender, CancelEventArgs e)
         {
+            if (isAdding) return; // Skip validation when adding a new task
+            if(isEditing) return; // Skip validation when editing a task
             if (cmbFilter.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a filter option.");
@@ -270,6 +274,8 @@ namespace Student_Study_Planner
 
         private void txtSearch_Validating(object sender, CancelEventArgs e)
         {
+            if (isAdding) return; // Skip validation when adding a new task
+            if(isEditing) return; // Skip validation when editing a task
             if (string.IsNullOrWhiteSpace(txtSearch.Text))
             {
                 MessageBox.Show("Search field cannot be empty.");
@@ -283,6 +289,7 @@ namespace Student_Study_Planner
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            isAdding = true;
             // Required Fields Check
             if (string.IsNullOrWhiteSpace(txtTitle.Text) ||
                 string.IsNullOrWhiteSpace(txtCategory.Text) ||
@@ -326,7 +333,7 @@ namespace Student_Study_Planner
                 return;
             }
             // Run All Field Validations
-            if (!ValidateChildren())
+            if (!ValidateChildren()&&(cmbFilter.CausesValidation=false)&&(txtSearch.CausesValidation=false))
                 return;
 
             // Get Time Values
@@ -365,7 +372,7 @@ namespace Student_Study_Planner
 
             // Add To List
             items.Add(task);
-
+            isAdding = false;
             // Success Message
             MessageBox.Show("Task added successfully!",
                 "Success",
@@ -403,6 +410,7 @@ namespace Student_Study_Planner
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            isEditing = true;
             // Check if Title is provided
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
@@ -470,7 +478,7 @@ namespace Student_Study_Planner
             {
                 deadlineTask.EndDate = endDatePicker.Value.Date;  // Update EndDate
             }
-
+            isEditing = false;
             MessageBox.Show("Task edit successfully!",
                 "Success",
                 MessageBoxButtons.OK,

@@ -58,16 +58,16 @@ namespace Student_Study_Planner
                 {
                     var values = line.Split(',');
 
-                        var task = new StudySession(
-                               DateTime.Parse(values[2]),    //  DateTime
-                               DateTime.Parse(values[2]).AddHours(int.Parse(values[4])).AddMinutes(int.Parse(values[5])), // EndDate
-                               values[0],                    // Title
-                               values[1],                    // Category
-                               (Priority)Enum.Parse(typeof(Priority), values[3]),  // Priority
-                               int.Parse(values[4]),         // Hours
-                               int.Parse(values[5]),         // Minutes
-                               TaskType.StudySession         // TaskType
-                         );
+                    var task = new StudySession(
+                           DateTime.Parse(values[2]),    //  DateTime
+                           DateTime.Parse(values[2]).AddHours(int.Parse(values[4])).AddMinutes(int.Parse(values[5])), // EndDate
+                           values[0],                    // Title
+                           values[1],                    // Category
+                           (Priority)Enum.Parse(typeof(Priority), values[3]),  // Priority
+                           int.Parse(values[4]),         // Hours
+                           int.Parse(values[5]),         // Minutes
+                           TaskType.StudySession         // TaskType
+                     );
 
                     if (values.Length > 6)
                         task.IsCompleted = bool.Parse(values[6]);
@@ -76,7 +76,7 @@ namespace Student_Study_Planner
                 }
             }
 
-           
+
             foreach (var task in items)
             {
                 string status = task.IsCompleted ? "✔ " : "✖ ";
@@ -116,6 +116,8 @@ namespace Student_Study_Planner
                     col.Width = columnWidth;
                 }
             }
+
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -148,9 +150,9 @@ namespace Student_Study_Planner
 
         }
 
-        
 
-       
+
+
 
         private void txtTitle_Validating(object sender, CancelEventArgs e)
         {
@@ -218,23 +220,7 @@ namespace Student_Study_Planner
             }
         }
 
-        private void datePicker_Validating(object sender, CancelEventArgs e)
-        {
-            int currentYear = DateTime.Now.Year;
 
-            if (datePicker.Value.Year < currentYear || datePicker.Value.Year > 2030)
-            {
-                MessageBox.Show($"Year must be between {currentYear} and 2030.");
-                e.Cancel = true;
-                return;
-            }
-
-            if (datePicker.Value.Date < DateTime.Today)
-            {
-                MessageBox.Show("Date cannot be in the past.");
-                e.Cancel = true;
-            }
-        }
 
         private void cmbType_Validating(object sender, CancelEventArgs e)
         {
@@ -250,7 +236,7 @@ namespace Student_Study_Planner
             }
         }
 
-        
+
 
         private void grpPriority_Validating(object sender, CancelEventArgs e)
         {
@@ -273,7 +259,7 @@ namespace Student_Study_Planner
             {
                 MessageBox.Show("Please select a filter option.");
                 cmbFilter.BackColor = Color.LightPink;
-                e.Cancel = true; 
+                e.Cancel = true;
             }
             else
             {
@@ -322,7 +308,7 @@ namespace Student_Study_Planner
             }
 
             // Check if EndDate is the same as StartDate
-            if (endDatePicker.Value.Date == datePicker.Value.Date)
+            if (endDatePicker.Value.Date == StartDatePicker.Value.Date)
             {
                 MessageBox.Show("End date cannot be the same as start date.",
                     "Invalid Date",
@@ -331,7 +317,7 @@ namespace Student_Study_Planner
                 return;
             }
             // Check if EndDate is before StartDate
-            if (endDatePicker.Value.Date < datePicker.Value.Date)
+            if (endDatePicker.Value.Date < StartDatePicker.Value.Date)
             {
                 MessageBox.Show("End date cannot be before start date.",
                     "Invalid Date",
@@ -339,8 +325,8 @@ namespace Student_Study_Planner
                     MessageBoxIcon.Warning);
                 return;
             }
-                // Run All Field Validations
-                if (!ValidateChildren())
+            // Run All Field Validations
+            if (!ValidateChildren())
                 return;
 
             // Get Time Values
@@ -353,7 +339,7 @@ namespace Student_Study_Planner
             if (cmbType.SelectedItem.ToString() == "StudySession")
             {
                 task = new StudySession(
-                    datePicker.Value.Date,
+                    StartDatePicker.Value.Date,
                     endDatePicker.Value.Date,
                     txtTitle.Text.Trim(),
                     txtCategory.Text.Trim(),
@@ -361,20 +347,20 @@ namespace Student_Study_Planner
                     hours,
                     minutes,
                     TaskType.StudySession);
-               
+
             }
             else
             {
                 task = new DeadlineTask(
-                    datePicker.Value.Date,
+                    StartDatePicker.Value.Date,
                     endDatePicker.Value.Date,
                     txtTitle.Text.Trim(),
                     txtCategory.Text.Trim(),
                     GetPriority(),
-                    datePicker.Value.Date.AddDays(7), // Example deadline
+                    StartDatePicker.Value.Date.AddDays(7), // Example deadline
                     "Sample description",
                     TaskType.Assignment);
-                
+
             }
 
             // Add To List
@@ -405,7 +391,7 @@ namespace Student_Study_Planner
             numHours.Value = 1;
             numMinutes.Value = 0;
 
-            datePicker.Value = DateTime.Today;
+            StartDatePicker.Value = DateTime.Today;
         }
 
         // Get Selected Priority
@@ -449,7 +435,7 @@ namespace Student_Study_Planner
             }
 
             // Validate End Date: Ensure End Date is not the same as Start Date
-            if (endDatePicker.Value.Date == datePicker.Value.Date)
+            if (endDatePicker.Value.Date == StartDatePicker.Value.Date)
             {
                 MessageBox.Show("End date cannot be the same as start date.",
                     "Invalid Date",
@@ -458,7 +444,7 @@ namespace Student_Study_Planner
                 return;
             }
             // Check if EndDate is before StartDate
-            if (endDatePicker.Value.Date < datePicker.Value.Date)
+            if (endDatePicker.Value.Date < StartDatePicker.Value.Date)
             {
                 MessageBox.Show("End date cannot be before start date.",
                     "Invalid Date",
@@ -469,7 +455,7 @@ namespace Student_Study_Planner
 
             // Update Properties
             task.Category = txtCategory.Text.Trim();
-            task.Date = datePicker.Value.Date;
+            task.Date = StartDatePicker.Value.Date;
             task.Priority = GetPriority();
             task.IsCompleted = false;
 
@@ -596,7 +582,7 @@ namespace Student_Study_Planner
                 lvTasks.Items.Add(task.GetDetails());
             }
         }
-        
+
 
         private void btnMark_Click(object sender, EventArgs e)
         {
@@ -606,7 +592,7 @@ namespace Student_Study_Planner
                 return;
             }
 
-            
+
             if (lvTasks.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Please select a task first.");
@@ -634,23 +620,6 @@ namespace Student_Study_Planner
             ClearFields();
         }
 
-        private void datePicker_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbFilter.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select a filter option first.");
-                cmbFilter.BackColor = Color.LightPink;
-            }
-            else
-            {
-                cmbFilter.BackColor = Color.White;
-            } 
-        }
 
         private void tabPage2_Resize(object sender, EventArgs e)
         {
@@ -675,21 +644,6 @@ namespace Student_Study_Planner
             }
         }
 
-        private void txtTitle_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbMedium_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grpPriority_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridViewReport_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView dgvReport = new DataGridView();
@@ -697,11 +651,107 @@ namespace Student_Study_Planner
             dgvReport.Size = new Size(940, 480);
 
             // Properties
-            dgvReport.RowHeadersVisible = false; 
+            dgvReport.RowHeadersVisible = false;
             dgvReport.AutoGenerateColumns = false;
             dgvReport.AllowUserToAddRows = false;
             dgvReport.ReadOnly = true;
             dgvReport.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void StartDatePicker_Validating(object sender, CancelEventArgs e)
+        {
+            int currentYear = DateTime.Now.Year;
+
+            if (StartDatePicker.Value.Year < currentYear || StartDatePicker.Value.Year > 2030)
+            {
+                MessageBox.Show($"Year must be between {currentYear} and 2030.");
+                e.Cancel = true;
+                return;
+            }
+
+            if (StartDatePicker.Value.Date < DateTime.Today)
+            {
+                MessageBox.Show("Start date cannot be in the past.");
+                e.Cancel = true;
+                return;
+            }
+
+            if (endDatePicker.Value < StartDatePicker.Value)
+            {
+                MessageBox.Show("End date must be after start date.");
+                e.Cancel = true;
+            }
+        }
+
+        private void endDatePicker_Validating(object sender, CancelEventArgs e)
+        {
+            int currentYear = DateTime.Now.Year;
+
+            if (endDatePicker.Value.Year < currentYear || endDatePicker.Value.Year > 2030)
+            {
+                MessageBox.Show($"Year must be between {currentYear} and 2030.");
+                e.Cancel = true;
+                return;
+            }
+
+            if (endDatePicker.Value < StartDatePicker.Value)
+            {
+                MessageBox.Show("End date must be after start date.");
+                e.Cancel = true;
+            }
+        }
+
+        private void StartDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            endDatePicker.MinDate = StartDatePicker.Value;
+        }
+
+        private void dateTimePicker1_Validating(object sender, CancelEventArgs e)
+        {
+            int currentYear = DateTime.Now.Year;
+
+            if (dateTimePicker1.Value.Year < currentYear ||
+                dateTimePicker1.Value.Year > 2030)
+            {
+                MessageBox.Show($"Year must be between {currentYear} and 2030.");
+                e.Cancel = true;
+                return;
+            }
+        }
+
+        private void dateTimePicker2_Validating(object sender, CancelEventArgs e)
+        {
+            int currentYear = DateTime.Now.Year;
+
+            if (dateTimePicker2.Value.Year < currentYear ||
+                dateTimePicker2.Value.Year > 2030)
+            {
+                MessageBox.Show($"Year must be between {currentYear} and 2030.");
+                e.Cancel = true;
+                return;
+            }
+
+            if (dateTimePicker2.Value < dateTimePicker1.Value)
+            {
+                MessageBox.Show("To date cannot be before From date.");
+                e.Cancel = true;
+                return;
+            }
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+
+            CancelEventArgs fromArgs = new CancelEventArgs();
+            dateTimePicker1_Validating(dateTimePicker1, fromArgs);
+
+            CancelEventArgs toArgs = new CancelEventArgs();
+            dateTimePicker2_Validating(dateTimePicker2, toArgs);
+
+            if (fromArgs.Cancel || toArgs.Cancel)
+                return;
+
+            MessageBox.Show("Report Generated Successfully!");
         }
     }
 }

@@ -913,12 +913,12 @@ namespace Student_Study_Planner
                 int daysLeft = (next.Date.Date - DateTime.Today).Days;
 
                 string when =
-                    daysLeft < 0 ? $"Overdue by {-daysLeft} /nday(s)" :
-                    daysLeft == 0 ? "/nDue today" :
+                    daysLeft < 0 ? $"Overdue by {-daysLeft} day(s)" :
+                    daysLeft == 0 ? "Due today" :
                     $"Due in {daysLeft} day(s)";
 
                 lblDeadLinesValue.Text =
-                    $"{next.Title} - {next.Date.ToShortDateString()} ({when})";
+                    $"{next.Title}\n{next.Date.ToShortDateString()}\n({when})";
             }
 
             // ---------- Weekly Goal ----------
@@ -939,7 +939,7 @@ namespace Student_Study_Planner
             lvDashboard.Items.Clear();
 
             var topTasks = items
-                .Where(t => !t.IsCompleted)
+             
                 .OrderBy(t => t.Date)
                 .Take(5)
                 .ToList();
@@ -949,6 +949,7 @@ namespace Student_Study_Planner
                 ListViewItem row = new ListViewItem(t.Title);
                 row.SubItems.Add(t.Priority.ToString());
                 row.SubItems.Add(t.Date.ToShortDateString());
+                row.SubItems.Add(t.IsCompleted? "Completed" : "Pending");
 
                 if (t.Date.Date < DateTime.Today)
                     row.ForeColor = Color.Red;

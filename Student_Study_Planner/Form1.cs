@@ -22,6 +22,7 @@ namespace Student_Study_Planner
         public Form1()
         {
             InitializeComponent();
+            cmbFilter.SelectionChangeCommitted+=(s,e)=>ApplyFilter();
             LoadTasks(); // Load tasks when the form initializes
         }
         // Save tasks to a CSV file
@@ -97,6 +98,7 @@ namespace Student_Study_Planner
                 item.SubItems.Add(task.Type.ToString());
                 lvTasks.Items.Add(item);
             }
+            ApplyFilter(); // Apply filter after loading tasks
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -276,6 +278,7 @@ namespace Student_Study_Planner
         {
             if (isAdding) return; // Skip validation when adding a new task
             if(isEditing) return; // Skip validation when editing a task
+            ApplyFilter();
             if (cmbFilter.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a filter option.");
@@ -293,15 +296,23 @@ namespace Student_Study_Planner
         {
             if (isAdding) return; // Skip validation when adding a new task
             if(isEditing) return; // Skip validation when editing a task
+
             if (string.IsNullOrWhiteSpace(txtSearch.Text))
             {
-                MessageBox.Show("Search field cannot be empty.");
-                txtSearch.BackColor = Color.LightPink;
-                e.Cancel = true;
+                e.Cancel =false;
                 return;
             }
-
-            txtSearch.BackColor = Color.White;
+            if(!txtSearch.Text.All(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)))
+            {
+                MessageBox.Show("Search cannot contain symbols.");
+                txtSearch.ForeColor = Color.Red;
+                e.Cancel = true;
+            }
+            else
+            {
+                txtSearch.ForeColor = Color.Black;
+                e.Cancel = false;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -544,13 +555,28 @@ namespace Student_Study_Planner
         private void btnSearch_Click(object sender, EventArgs e)
         {
             isFiltering = true;
-            if (!ValidateChildren())
-                return;
 
             string keyword = txtSearch.Text.Trim();
+
+            // If search box is empty → apply the selected filter only
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                isFiltering = false;
+                ApplyFilter();
+                return;
+            }
+
+            // Validate only the search textbox (not the whole form)
+            if (!keyword.All(c=>char.IsLetterOrDigit(c)||char.IsWhiteSpace(c)))
+            {
+                MessageBox.Show("Search cannot contain symbols.");
+                isFiltering = false;
+                return;
+            }
+
             List<PlannerItem> results = new List<PlannerItem>();
 
-            // ---------- Priority (1-3) ----------
+            // ---------- Search by Priority (1-3) ----------
             if (int.TryParse(keyword, out int number))
             {
                 if (number >= 1 && number <= 3)
@@ -563,11 +589,11 @@ namespace Student_Study_Planner
                 else
                 {
                     MessageBox.Show("Priority must be 1 (Low), 2 (Medium), or 3 (High).");
+                    isFiltering = false;
                     return;
                 }
             }
-
-            // ---------- Date ----------
+            // ---------- Search by Date ----------
             else if (DateTime.TryParse(keyword, out DateTime date))
             {
                 results = items
@@ -575,20 +601,20 @@ namespace Student_Study_Planner
                     .OrderBy(i => i.Date)
                     .ToList();
             }
-
-            // ---------- Title OR Category ----------
+            // ---------- Search by Title or Category ----------
             else
             {
+                // Prevent symbols in search input
                 if (!keyword.All(c => char.IsLetterOrDigit(c) || char.IsWhiteSpace(c)))
                 {
                     MessageBox.Show("Search cannot contain symbols.");
+                    isFiltering = false;
                     return;
                 }
 
                 results = items
                     .Where(i =>
-                        i.Title.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0
-                        ||
+                        i.Title.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0 ||
                         i.Category.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0
                     )
                     .OrderBy(i => i.Date)
@@ -600,23 +626,27 @@ namespace Student_Study_Planner
             if (results.Count == 0)
             {
                 MessageBox.Show("No matching tasks found.");
+                isFiltering = false;
                 return;
             }
 
+            // Display search results in ListView
             foreach (var task in results)
             {
-                string status = task.IsCompleted ? "Completed " : "Pending";
+                string status = task.IsCompleted ? "Completed" : "Pending";
+
                 ListViewItem item = new ListViewItem(status);
                 item.SubItems.Add(task.Title);
                 item.SubItems.Add(task.Category);
                 item.SubItems.Add(task.Priority.ToString());
                 item.SubItems.Add(task.Date.ToShortDateString());
                 item.SubItems.Add(task.Type.ToString());
+
                 lvTasks.Items.Add(item);
             }
+
             isFiltering = false;
         }
-
 
         private void btnMark_Click(object sender, EventArgs e)
         {
@@ -786,6 +816,79 @@ namespace Student_Study_Planner
                 return;
 
             MessageBox.Show("Report Generated Successfully!");
+        }
+        private void ApplyFilter()
+        {
+            if (items == null || items.Count == 0)
+            {
+                lvTasks.Items.Clear();
+                return;
+            }
+
+            string filter = cmbFilter.Text;
+
+            IEnumerable<PlannerItem> filtered = items;
+
+            if (filter == "All Tasks")
+            {
+                filtered = items;
+            }
+            else if (filter == "Today")
+            {
+                filtered = items.Where(i => i.Date.Date == DateTime.Today);
+            }
+            else if (filter == "This Week")
+            {
+                var start = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek);
+                var end = start.AddDays(7);
+
+                filtered = items.Where(i =>
+                    i.Date.Date >= start.Date &&
+                    i.Date.Date < end.Date);
+            }
+            else if (filter == "This Month")
+            {
+                var start = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+                var end = start.AddMonths(1);
+
+                filtered = items.Where(i =>
+                    i.Date.Date >= start.Date &&
+                    i.Date.Date < end.Date);
+            }
+            else if (filter == "Completed")
+            {
+                filtered = items.Where(i => i.IsCompleted);
+            }
+            else if (filter == "Overdue")
+            {
+                filtered = items.Where(i =>
+                    !i.IsCompleted &&
+                    i.Date.Date < DateTime.Today);
+            }
+
+            // show results
+            lvTasks.Items.Clear();
+
+            foreach (var task in filtered.OrderBy(i => i.Date))
+            {
+                string status = task.IsCompleted ? "Completed" : "Pending";
+
+                ListViewItem row = new ListViewItem(status);
+
+                row.SubItems.Add(task.Title);
+                row.SubItems.Add(task.Category);
+                row.SubItems.Add(task.Priority.ToString());
+                row.SubItems.Add(task.Date.ToShortDateString());
+                row.SubItems.Add(task.GetType().Name);
+
+                //RED: Highlight overdue tasks in red 
+                if (!task.IsCompleted && task.Date.Date < DateTime.Today)
+                {
+                    row.ForeColor = Color.Red;
+                }
+
+                lvTasks.Items.Add(row);
+            }
         }
     }
 }

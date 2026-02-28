@@ -9,9 +9,9 @@ namespace Student_Study_Planner
     // Priority Enum
     public enum Priority
     {
-        Low,
-        Medium,
-        High
+        Low=1,
+        Medium=2,
+        High=3
     }
 
     // TaskType Enum

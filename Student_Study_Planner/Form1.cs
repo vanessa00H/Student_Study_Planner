@@ -17,6 +17,7 @@ namespace Student_Study_Planner
     {
         private bool isAdding = false;
         private bool isEditing = false;
+        private bool isFiltering = false;
         private List<PlannerItem> items = new List<PlannerItem>();
         public Form1()
         {
@@ -48,7 +49,13 @@ namespace Student_Study_Planner
         {
             items.Clear();
             lvTasks.Items.Clear();
-            lvTasks.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvTasks.Columns[0].Width = 80;
+            lvTasks.Columns[1].Width = 150;
+            lvTasks.Columns[2].Width = 120;
+            lvTasks.Columns[3].Width = 100;
+            lvTasks.Columns[4].Width = 120;
+            lvTasks.Columns[5].Width = 120;
+
             lvDashboard.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
 
@@ -82,7 +89,13 @@ namespace Student_Study_Planner
             foreach (var task in items)
             {
                 string status = task.IsCompleted ? "✔ " : "✖ ";
-                lvTasks.Items.Add(status + task.GetDetails());
+                ListViewItem item = new ListViewItem(status);
+                item.SubItems.Add(task.Title);
+                item.SubItems.Add(task.Category);
+                item.SubItems.Add(task.Priority.ToString());
+                item.SubItems.Add(task.Date.ToShortDateString());
+                item.SubItems.Add(task.Type.ToString());
+                lvTasks.Items.Add(item);
             }
         }
 
@@ -158,6 +171,7 @@ namespace Student_Study_Planner
 
         private void txtTitle_Validating(object sender, CancelEventArgs e)
         {
+            if (isFiltering) return; // Skip validation when filtering
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
                 MessageBox.Show("Title cannot be empty.");
@@ -191,6 +205,7 @@ namespace Student_Study_Planner
 
         private void txtCategory_Validating(object sender, CancelEventArgs e)
         {
+            if (isFiltering) return; // Skip validation when filtering
             if (string.IsNullOrWhiteSpace(txtCategory.Text))
             {
                 MessageBox.Show("Category is required.");
@@ -226,6 +241,7 @@ namespace Student_Study_Planner
 
         private void cmbType_Validating(object sender, CancelEventArgs e)
         {
+            if (isFiltering) return; // Skip validation when filtering
             if (cmbType.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a task type.");
@@ -242,6 +258,7 @@ namespace Student_Study_Planner
 
         private void grpPriority_Validating(object sender, CancelEventArgs e)
         {
+            if (isFiltering) return; // Skip validation when filtering
             if (!rbLow.Checked && !rbMedium.Checked && !rbHigh.Checked)
             {
                 MessageBox.Show("Please select a priority.");
@@ -526,6 +543,7 @@ namespace Student_Study_Planner
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            isFiltering = true;
             if (!ValidateChildren())
                 return;
 
@@ -587,8 +605,16 @@ namespace Student_Study_Planner
 
             foreach (var task in results)
             {
-                lvTasks.Items.Add(task.GetDetails());
+                string status = task.IsCompleted ? "Completed " : "Pending";
+                ListViewItem item = new ListViewItem(status);
+                item.SubItems.Add(task.Title);
+                item.SubItems.Add(task.Category);
+                item.SubItems.Add(task.Priority.ToString());
+                item.SubItems.Add(task.Date.ToShortDateString());
+                item.SubItems.Add(task.Type.ToString());
+                lvTasks.Items.Add(item);
             }
+            isFiltering = false;
         }
 
 

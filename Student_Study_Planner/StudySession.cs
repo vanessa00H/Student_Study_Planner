@@ -28,24 +28,60 @@ namespace Student_Study_Planner
 
         public static StudySession FromCSV(string line)
         {
+            if (string.IsNullOrWhiteSpace(line))
+                return null;
+
             string[] p = line.Split(',');
 
-            if (p.Length < 9) return null;
+            // NEW FORMAT (9 fields)
+            if (p.Length >= 9)
+            {
+                try
+                {
+                    DateTime date = DateTime.ParseExact(p[3].Trim(), "dd/MM/yyyy",
+                        System.Globalization.CultureInfo.InvariantCulture);
 
-            // 0=Kind, 1=Title, 2=Category, 3=Date, 4=Priority, 5=Hours, 6=Minutes, 7=IsCompleted, 8=Type
-            DateTime date = DateTime.ParseExact(p[3], "dd/MM/yyyy",
-                            System.Globalization.CultureInfo.InvariantCulture);
-            string title = p[1];
-            string category = p[2];
-            Priority pr = (Priority)Enum.Parse(typeof(Priority), p[4]);
-            int hours = int.Parse(p[5]);
-            int minutes = int.Parse(p[6]);
-            bool done = bool.Parse(p[7]);
-            TaskType type = (TaskType)Enum.Parse(typeof(TaskType), p[8]);
+                    string title = p[1].Trim();
+                    string category = p[2].Trim();
+                    Priority pr = (Priority)Enum.Parse(typeof(Priority), p[4].Trim());
+                    int hours = int.Parse(p[5].Trim());
+                    int minutes = int.Parse(p[6].Trim());
+                    bool done = bool.Parse(p[7].Trim());
+                    TaskType type = (TaskType)Enum.Parse(typeof(TaskType), p[8].Trim());
 
-            StudySession s = new StudySession(date, date, title, category, pr, hours, minutes, type);
-            s.IsCompleted = done;
-            return s;
+                    StudySession s = new StudySession(date, date, title, category, pr, hours, minutes, type);
+                    s.IsCompleted = done;
+                    return s;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+
+            // OLD FORMAT (6 fields): Title,Category,Date,Priority,Hours,Minutes
+            if (p.Length >= 6)
+            {
+                try
+                {
+                    string title = p[0].Trim();
+                    string category = p[1].Trim();
+                    DateTime date = DateTime.Parse(p[2].Trim());
+                    Priority pr = (Priority)Enum.Parse(typeof(Priority), p[3].Trim());
+                    int hours = int.Parse(p[4].Trim());
+                    int minutes = int.Parse(p[5].Trim());
+
+                    StudySession s = new StudySession(date, date, title, category, pr, hours, minutes, TaskType.StudySession);
+                    s.IsCompleted = false; // default = Pending
+                    return s;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+
+            return null;
         }
 
         public override string GetDetails()

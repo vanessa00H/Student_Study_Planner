@@ -81,6 +81,7 @@ namespace Student_Study_Planner
 
             foreach (var task in items)
             {
+                
                 string status = task.IsCompleted ? "✔ " : "✖ ";
                 ListViewItem item = new ListViewItem(status);
                 item.SubItems.Add(task.Title);
@@ -650,13 +651,13 @@ namespace Student_Study_Planner
             }
 
 
-            if (lvTasks.SelectedItems.Count == 0)
+            if (lvTasks.CheckedItems.Count == 0)
             {
                 MessageBox.Show("Please select a task first.");
                 return;
             }
 
-            int index = lvTasks.SelectedItems[0].Index;
+            int index = lvTasks.CheckedItems[0].Index;
 
             if (items[index].IsCompleted)
             {
@@ -674,7 +675,11 @@ namespace Student_Study_Planner
 
         private void btnClear2_Click(object sender, EventArgs e)
         {
-            ClearFields();
+            {
+                txtSearch.Clear();
+                cmbFilter.SelectedIndex = -1;
+      
+            }
         }
 
 
@@ -908,8 +913,8 @@ namespace Student_Study_Planner
                 int daysLeft = (next.Date.Date - DateTime.Today).Days;
 
                 string when =
-                    daysLeft < 0 ? $"Overdue by {-daysLeft} day(s)" :
-                    daysLeft == 0 ? "Due today" :
+                    daysLeft < 0 ? $"Overdue by {-daysLeft} /nday(s)" :
+                    daysLeft == 0 ? "/nDue today" :
                     $"Due in {daysLeft} day(s)";
 
                 lblDeadLinesValue.Text =
@@ -953,6 +958,11 @@ namespace Student_Study_Planner
         }
 
         private void lblWeeklyGoal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlDeadlines_Paint(object sender, PaintEventArgs e)
         {
 
         }

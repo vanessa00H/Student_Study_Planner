@@ -22,6 +22,7 @@ namespace Student_Study_Planner
         public Form1()
         {
             InitializeComponent();
+           
             cmbFilter.SelectionChangeCommitted+=(s,e)=>ApplyFilter();
             LoadTasks(); // Load tasks when the form initializes
         }
@@ -31,12 +32,12 @@ namespace Student_Study_Planner
             using (StreamWriter sw = new StreamWriter("tasks.csv"))
             {
                 // Write the header (column names)
-                sw.WriteLine("Title,Category,Date,Priority,Hours,Minutes");
+                sw.WriteLine("Title,Category,Date,Priority,Hours,Minutes,IsCompleted");
 
                 // Write each task as a CSV line
                 foreach (var task in items)
                 {
-                    sw.WriteLine($"{task.Title},{task.Category},{task.Date.ToShortDateString()},{task.Priority},{task.Hours},{task.Minutes}");
+                    sw.WriteLine($"{task.Title},{task.Category},{task.Date.ToShortDateString()},{task.Priority},{task.Hours},{task.Minutes}{task.IsCompleted}");
                 }
             }
         }
@@ -99,6 +100,7 @@ namespace Student_Study_Planner
                 lvTasks.Items.Add(item);
             }
             ApplyFilter(); // Apply filter after loading tasks
+            UpdateDashboard();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -889,6 +891,79 @@ namespace Student_Study_Planner
 
                 lvTasks.Items.Add(row);
             }
+
+        }
+        private void UpdateDashboard()
+        {
+            int total = items.Count;
+            int completed = items.Count(t => t.IsCompleted);
+            int pending = total - completed;
+            int percent = (total == 0) ? 0 : (int)Math.Round((completed * 100.0) / total);
+
+            lblProgressValue.Text = percent + "%";
+            lblProgressStatus.Text = $"Completed: {completed} | Pending: {pending}";
+
+            var next = items
+                .Where(t => !t.IsCompleted)
+                .OrderBy(t => t.Date)
+                .FirstOrDefault();
+
+            if (next == null)
+            {
+                lblDeadLinesValue.Text = "No upcoming tasks";
+            }
+            else
+            {
+                int daysLeft = (next.Date.Date - DateTime.Today).Days;
+
+                string when =
+                    daysLeft < 0 ? $"Overdue by {-daysLeft} day(s)" :
+                    daysLeft == 0 ? "Due today" :
+                    $"Due in {daysLeft} day(s)";
+
+                lblDeadLinesValue.Text =
+                    $"{next.Title} - {next.Date.ToShortDateString()} ({when})";
+            }
+
+            // ---------- Weekly Goal ----------
+            int weeklyGoal = 5; // change this number if you want (e.g., 10)
+
+            var startOfWeek = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek);
+            var endOfWeek = startOfWeek.AddDays(7);
+
+            int doneThisWeek = items.Count(t =>
+                t.IsCompleted &&
+                t.Date >= startOfWeek &&
+                t.Date < endOfWeek);
+
+            lblGoalTitle.Text = $"WEEKLY GOAL\n{doneThisWeek}/{weeklyGoal}";
+            lblGoalTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // -------------------------------
+
+            lvDashboard.Items.Clear();
+
+            var topTasks = items
+                .Where(t => !t.IsCompleted)
+                .OrderBy(t => t.Date)
+                .Take(5)
+                .ToList();
+
+            foreach (var t in topTasks)
+            {
+                ListViewItem row = new ListViewItem(t.Title);
+                row.SubItems.Add(t.Priority.ToString());
+                row.SubItems.Add(t.Date.ToShortDateString());
+
+                if (t.Date.Date < DateTime.Today)
+                    row.ForeColor = Color.Red;
+
+                lvDashboard.Items.Add(row);
+            }
+        }
+
+        private void lblWeeklyGoal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

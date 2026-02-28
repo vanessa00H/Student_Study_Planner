@@ -93,11 +93,11 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlWeeklyGoal = new System.Windows.Forms.Panel();
             this.lblGoalStatus = new System.Windows.Forms.Label();
             this.lblGoalTitle = new System.Windows.Forms.Label();
             this.lblWeeklyGoal = new System.Windows.Forms.Label();
-            this.cardDeadlines = new System.Windows.Forms.Panel();
+            this.pnlDeadlines = new System.Windows.Forms.Panel();
             this.lblDeadlinesStatus = new System.Windows.Forms.Label();
             this.lblDeadLinesValue = new System.Windows.Forms.Label();
             this.lblDeadlineTitle = new System.Windows.Forms.Label();
@@ -106,12 +106,6 @@
             this.lblProgressValue = new System.Windows.Forms.Label();
             this.lblProgressTitle = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.btnSaveGoal = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.MineTap.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHours)).BeginInit();
@@ -121,8 +115,8 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport)).BeginInit();
             this.tabPage4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.cardDeadlines.SuspendLayout();
+            this.pnlWeeklyGoal.SuspendLayout();
+            this.pnlDeadlines.SuspendLayout();
             this.pnlProgress.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -831,8 +825,8 @@
             // 
             this.tabPage4.Controls.Add(this.lblDashboard);
             this.tabPage4.Controls.Add(this.lvDashboard);
-            this.tabPage4.Controls.Add(this.panel3);
-            this.tabPage4.Controls.Add(this.cardDeadlines);
+            this.tabPage4.Controls.Add(this.pnlWeeklyGoal);
+            this.tabPage4.Controls.Add(this.pnlDeadlines);
             this.tabPage4.Controls.Add(this.pnlProgress);
             this.tabPage4.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.Location = new System.Drawing.Point(8, 39);
@@ -895,18 +889,18 @@
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 300;
             // 
-            // panel3
+            // pnlWeeklyGoal
             // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.lblGoalStatus);
-            this.panel3.Controls.Add(this.lblGoalTitle);
-            this.panel3.Controls.Add(this.lblWeeklyGoal);
-            this.panel3.Location = new System.Drawing.Point(1085, 140);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(255, 183);
-            this.panel3.TabIndex = 2;
+            this.pnlWeeklyGoal.BackColor = System.Drawing.Color.Transparent;
+            this.pnlWeeklyGoal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlWeeklyGoal.Controls.Add(this.lblGoalStatus);
+            this.pnlWeeklyGoal.Controls.Add(this.lblGoalTitle);
+            this.pnlWeeklyGoal.Controls.Add(this.lblWeeklyGoal);
+            this.pnlWeeklyGoal.Location = new System.Drawing.Point(775, 112);
+            this.pnlWeeklyGoal.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlWeeklyGoal.Name = "pnlWeeklyGoal";
+            this.pnlWeeklyGoal.Size = new System.Drawing.Size(231, 147);
+            this.pnlWeeklyGoal.TabIndex = 2;
             // 
             // lblGoalStatus
             // 
@@ -924,7 +918,8 @@
             this.lblGoalTitle.AutoSize = true;
             this.lblGoalTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGoalTitle.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblGoalTitle.Location = new System.Drawing.Point(36, 72);
+            this.lblGoalTitle.Location = new System.Drawing.Point(20, 58);
+            this.lblGoalTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGoalTitle.Name = "lblGoalTitle";
             this.lblGoalTitle.Size = new System.Drawing.Size(25, 37);
             this.lblGoalTitle.TabIndex = 1;
@@ -935,24 +930,26 @@
             this.lblWeeklyGoal.AutoSize = true;
             this.lblWeeklyGoal.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWeeklyGoal.ForeColor = System.Drawing.Color.Gray;
-            this.lblWeeklyGoal.Location = new System.Drawing.Point(5, 21);
+            this.lblWeeklyGoal.Location = new System.Drawing.Point(49, 17);
+            this.lblWeeklyGoal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWeeklyGoal.Name = "lblWeeklyGoal";
             this.lblWeeklyGoal.Size = new System.Drawing.Size(158, 32);
             this.lblWeeklyGoal.TabIndex = 0;
             this.lblWeeklyGoal.Text = "WEEKLYGOAL";
+            this.lblWeeklyGoal.Click += new System.EventHandler(this.lblWeeklyGoal_Click);
             // 
-            // cardDeadlines
+            // pnlDeadlines
             // 
-            this.cardDeadlines.BackColor = System.Drawing.Color.Transparent;
-            this.cardDeadlines.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cardDeadlines.Controls.Add(this.lblDeadlinesStatus);
-            this.cardDeadlines.Controls.Add(this.lblDeadLinesValue);
-            this.cardDeadlines.Controls.Add(this.lblDeadlineTitle);
-            this.cardDeadlines.Location = new System.Drawing.Point(580, 140);
-            this.cardDeadlines.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cardDeadlines.Name = "cardDeadlines";
-            this.cardDeadlines.Size = new System.Drawing.Size(255, 183);
-            this.cardDeadlines.TabIndex = 1;
+            this.pnlDeadlines.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDeadlines.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlDeadlines.Controls.Add(this.lblDeadlinesStatus);
+            this.pnlDeadlines.Controls.Add(this.lblDeadLinesValue);
+            this.pnlDeadlines.Controls.Add(this.lblDeadlineTitle);
+            this.pnlDeadlines.Location = new System.Drawing.Point(406, 112);
+            this.pnlDeadlines.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlDeadlines.Name = "pnlDeadlines";
+            this.pnlDeadlines.Size = new System.Drawing.Size(221, 147);
+            this.pnlDeadlines.TabIndex = 1;
             // 
             // lblDeadlinesStatus
             // 
@@ -970,7 +967,8 @@
             this.lblDeadLinesValue.AutoSize = true;
             this.lblDeadLinesValue.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeadLinesValue.ForeColor = System.Drawing.Color.Orange;
-            this.lblDeadLinesValue.Location = new System.Drawing.Point(36, 78);
+            this.lblDeadLinesValue.Location = new System.Drawing.Point(11, 61);
+            this.lblDeadLinesValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDeadLinesValue.Name = "lblDeadLinesValue";
             this.lblDeadLinesValue.Size = new System.Drawing.Size(33, 37);
             this.lblDeadLinesValue.TabIndex = 1;
@@ -982,7 +980,8 @@
             this.lblDeadlineTitle.AutoSize = true;
             this.lblDeadlineTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeadlineTitle.ForeColor = System.Drawing.Color.Gray;
-            this.lblDeadlineTitle.Location = new System.Drawing.Point(4, 21);
+            this.lblDeadlineTitle.Location = new System.Drawing.Point(62, 17);
+            this.lblDeadlineTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDeadlineTitle.Name = "lblDeadlineTitle";
             this.lblDeadlineTitle.Size = new System.Drawing.Size(122, 32);
             this.lblDeadlineTitle.TabIndex = 0;
@@ -998,7 +997,7 @@
             this.pnlProgress.Location = new System.Drawing.Point(96, 140);
             this.pnlProgress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlProgress.Name = "pnlProgress";
-            this.pnlProgress.Size = new System.Drawing.Size(255, 183);
+            this.pnlProgress.Size = new System.Drawing.Size(227, 147);
             this.pnlProgress.TabIndex = 0;
             // 
             // lblProgressStatus
@@ -1018,7 +1017,8 @@
             this.lblProgressValue.AutoSize = true;
             this.lblProgressValue.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProgressValue.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblProgressValue.Location = new System.Drawing.Point(36, 72);
+            this.lblProgressValue.Location = new System.Drawing.Point(10, 58);
+            this.lblProgressValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProgressValue.Name = "lblProgressValue";
             this.lblProgressValue.Size = new System.Drawing.Size(40, 45);
             this.lblProgressValue.TabIndex = 1;
@@ -1030,7 +1030,8 @@
             this.lblProgressTitle.AutoSize = true;
             this.lblProgressTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProgressTitle.ForeColor = System.Drawing.Color.Gray;
-            this.lblProgressTitle.Location = new System.Drawing.Point(15, 21);
+            this.lblProgressTitle.Location = new System.Drawing.Point(53, 17);
+            this.lblProgressTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProgressTitle.Name = "lblProgressTitle";
             this.lblProgressTitle.Size = new System.Drawing.Size(127, 32);
             this.lblProgressTitle.TabIndex = 0;
@@ -1048,68 +1049,6 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Setting";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnSaveGoal);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(53, 101);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(781, 266);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "WeeklyStudyGoal";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(52, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(334, 45);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Study hours per week:";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(392, 69);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(126, 43);
-            this.numericUpDown1.TabIndex = 1;
-            // 
-            // btnSaveGoal
-            // 
-            this.btnSaveGoal.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnSaveGoal.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveGoal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSaveGoal.Location = new System.Drawing.Point(60, 177);
-            this.btnSaveGoal.Name = "btnSaveGoal";
-            this.btnSaveGoal.Size = new System.Drawing.Size(177, 68);
-            this.btnSaveGoal.TabIndex = 2;
-            this.btnSaveGoal.Text = "Save Goal";
-            this.btnSaveGoal.UseVisualStyleBackColor = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(544, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 45);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "hours";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(53, 443);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(781, 154);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "DataManegment";
             // 
             // Form1
             // 
@@ -1140,10 +1079,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReport)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.cardDeadlines.ResumeLayout(false);
-            this.cardDeadlines.PerformLayout();
+            this.pnlWeeklyGoal.ResumeLayout(false);
+            this.pnlWeeklyGoal.PerformLayout();
+            this.pnlDeadlines.ResumeLayout(false);
+            this.pnlDeadlines.PerformLayout();
             this.pnlProgress.ResumeLayout(false);
             this.pnlProgress.PerformLayout();
             this.tabPage5.ResumeLayout(false);
@@ -1199,8 +1138,8 @@
         private System.Windows.Forms.Button btnClear2;
         private System.Windows.Forms.Button btnMark;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel cardDeadlines;
+        private System.Windows.Forms.Panel pnlWeeklyGoal;
+        private System.Windows.Forms.Panel pnlDeadlines;
         private System.Windows.Forms.Panel pnlProgress;
         private System.Windows.Forms.Label lblDeadlineTitle;
         private System.Windows.Forms.Label lblProgressValue;

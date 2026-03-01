@@ -108,13 +108,12 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.btnGoal = new System.Windows.Forms.Button();
+            this.numWeeklyHours = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmCategoryReport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmTotalTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmCompletedR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmPendingR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClmCompletionRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,7 +133,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWeeklyHours)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -734,7 +733,6 @@
             this.dataGridViewReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.column1,
             this.ClmCategoryReport,
-            this.ClmTotalTask,
             this.ClmCompletedR,
             this.clmPendingR,
             this.ClmCompletionRate});
@@ -883,10 +881,10 @@
             this.pnlWeeklyGoal.Controls.Add(this.lblGoalStatus);
             this.pnlWeeklyGoal.Controls.Add(this.lblGoalTitle);
             this.pnlWeeklyGoal.Controls.Add(this.lblWeeklyGoal);
-            this.pnlWeeklyGoal.Location = new System.Drawing.Point(802, 92);
+            this.pnlWeeklyGoal.Location = new System.Drawing.Point(767, 92);
             this.pnlWeeklyGoal.Margin = new System.Windows.Forms.Padding(2);
             this.pnlWeeklyGoal.Name = "pnlWeeklyGoal";
-            this.pnlWeeklyGoal.Size = new System.Drawing.Size(204, 191);
+            this.pnlWeeklyGoal.Size = new System.Drawing.Size(239, 191);
             this.pnlWeeklyGoal.TabIndex = 2;
             // 
             // lblGoalStatus
@@ -918,7 +916,7 @@
             this.lblWeeklyGoal.AutoSize = true;
             this.lblWeeklyGoal.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWeeklyGoal.ForeColor = System.Drawing.Color.Gray;
-            this.lblWeeklyGoal.Location = new System.Drawing.Point(37, 12);
+            this.lblWeeklyGoal.Location = new System.Drawing.Point(58, 12);
             this.lblWeeklyGoal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWeeklyGoal.Name = "lblWeeklyGoal";
             this.lblWeeklyGoal.Size = new System.Drawing.Size(121, 25);
@@ -987,7 +985,7 @@
             this.pnlProgress.Location = new System.Drawing.Point(86, 90);
             this.pnlProgress.Margin = new System.Windows.Forms.Padding(2);
             this.pnlProgress.Name = "pnlProgress";
-            this.pnlProgress.Size = new System.Drawing.Size(204, 193);
+            this.pnlProgress.Size = new System.Drawing.Size(249, 193);
             this.pnlProgress.TabIndex = 0;
             // 
             // lblProgressStatus
@@ -1021,7 +1019,7 @@
             this.lblProgressTitle.AutoSize = true;
             this.lblProgressTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProgressTitle.ForeColor = System.Drawing.Color.Gray;
-            this.lblProgressTitle.Location = new System.Drawing.Point(39, 14);
+            this.lblProgressTitle.Location = new System.Drawing.Point(68, 14);
             this.lblProgressTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProgressTitle.Name = "lblProgressTitle";
             this.lblProgressTitle.Size = new System.Drawing.Size(99, 25);
@@ -1117,8 +1115,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.numericUpDown2);
+            this.groupBox3.Controls.Add(this.btnGoal);
+            this.groupBox3.Controls.Add(this.numWeeklyHours);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1131,25 +1129,31 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Weekly Study Goal";
             // 
-            // button6
+            // btnGoal
             // 
-            this.button6.BackColor = System.Drawing.Color.LimeGreen;
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(42, 150);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(129, 50);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Save Goal";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnGoal.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnGoal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGoal.Location = new System.Drawing.Point(42, 150);
+            this.btnGoal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGoal.Name = "btnGoal";
+            this.btnGoal.Size = new System.Drawing.Size(129, 50);
+            this.btnGoal.TabIndex = 3;
+            this.btnGoal.Text = "Save Goal";
+            this.btnGoal.UseVisualStyleBackColor = false;
+            this.btnGoal.Click += new System.EventHandler(this.button6_Click);
             // 
-            // numericUpDown2
+            // numWeeklyHours
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(178, 69);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(90, 39);
-            this.numericUpDown2.TabIndex = 2;
+            this.numWeeklyHours.Location = new System.Drawing.Point(178, 69);
+            this.numWeeklyHours.Margin = new System.Windows.Forms.Padding(2);
+            this.numWeeklyHours.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.numWeeklyHours.Name = "numWeeklyHours";
+            this.numWeeklyHours.Size = new System.Drawing.Size(90, 39);
+            this.numWeeklyHours.TabIndex = 2;
             // 
             // label4
             // 
@@ -1184,13 +1188,6 @@
             this.ClmCategoryReport.MinimumWidth = 10;
             this.ClmCategoryReport.Name = "ClmCategoryReport";
             this.ClmCategoryReport.Width = 150;
-            // 
-            // ClmTotalTask
-            // 
-            this.ClmTotalTask.HeaderText = "TotalTask";
-            this.ClmTotalTask.MinimumWidth = 10;
-            this.ClmTotalTask.Name = "ClmTotalTask";
-            this.ClmTotalTask.Width = 150;
             // 
             // ClmCompletedR
             // 
@@ -1254,7 +1251,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWeeklyHours)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1341,19 +1338,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numWeeklyHours;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnGoal;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmCategoryReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmTotalTask;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmCompletedR;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmPendingR;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClmCompletionRate;

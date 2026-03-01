@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Text;
 
 namespace Student_Study_Planner
 {
@@ -19,10 +20,10 @@ namespace Student_Study_Planner
         private bool isEditing = false;
         private bool isFiltering = false;
         private List<PlannerItem> items = new List<PlannerItem>();
+        private int weeklyGoalHours = 0; // Example weekly goal (can be made dynamic)
         public Form1()
         {
             InitializeComponent();
-           
             cmbFilter.SelectionChangeCommitted+=(s,e)=>ApplyFilter();
             LoadTasks(); // Load tasks when the form initializes
         }
@@ -60,7 +61,12 @@ namespace Student_Study_Planner
             lvTasks.Columns[5].Width = 120;
 
             lvDashboard.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-
+            if(File.Exists("goal.txt"))
+            {
+                string SavedGoal = File.ReadAllText("goal.txt");
+                int.TryParse(SavedGoal, out weeklyGoalHours);
+                weeklyGoalHours=(int)numWeeklyHours.Value;
+            }
 
             if (File.Exists("tasks.csv"))
             {
@@ -838,7 +844,6 @@ namespace Student_Study_Planner
                 dataGridViewReport.Rows.Add(
                     t.Title,
                     t.Category,
-                    1,
                     t.IsCompleted ? 1 : 0,
                     t.IsCompleted ? 0 : 1,
                     t.IsCompleted ? "100%" : "0%"
@@ -952,19 +957,64 @@ namespace Student_Study_Planner
                     $"{next.Title}\n{next.Date.ToShortDateString()}\n({when})";
             }
 
-            // ---------- Weekly Goal ----------
-            int weeklyGoal = 5; // change this number if you want (e.g., 10)
+            // ---------- Weekly Goal Section ----------
 
+            // Read saved goal from file
+            if (File.Exists("goal.txt"))
+            {
+                string savedGoal = File.ReadAllText("goal.txt");
+                int.TryParse(savedGoal, out weeklyGoalHours);
+            }
+
+            // Get start and end of week (Sunday to Saturday)
             var startOfWeek = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek);
             var endOfWeek = startOfWeek.AddDays(7);
 
-            int doneThisWeek = items.Count(t =>
-                t.IsCompleted &&
-                t.Date >= startOfWeek &&
-                t.Date < endOfWeek);
+            // Calculate completed study hours this week
+            int hoursDone = items
+                .Where(t => t.IsCompleted
+                            && t.Date >= startOfWeek
+                            && t.Date < endOfWeek
+                            && t is StudySession)
+                .Sum(t => ((StudySession)t).EstimatedHours);
 
-            lblGoalTitle.Text = $"WEEKLY GOAL\n{doneThisWeek}/{weeklyGoal}";
-            lblGoalTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // Calculate completed minutes
+            int minutesDone = items
+                .Where(t => t.IsCompleted
+                            && t.Date >= startOfWeek
+                            && t.Date < endOfWeek
+                            && t is StudySession)
+                .Sum(t => ((StudySession)t).EstimatedMinutes);
+
+            // Convert minutes into hours
+            hoursDone += minutesDone / 60;
+            int remainingMinutes = minutesDone % 60;
+
+            // Calculate percentage
+            double weeklyPercent = (weeklyGoalHours <= 0)
+                ? 0
+                : (hoursDone * 100.0) / weeklyGoalHours;
+
+            // Show result in your ONLY label
+            lblGoalTitle.Text = $"{hoursDone}h {remainingMinutes}m / {weeklyGoalHours}h";
+
+            // Change color automatically
+            if (weeklyGoalHours <= 0)
+            {
+                lblGoalTitle.ForeColor = Color.Gray;
+            }
+            else if (weeklyPercent >= 100)
+            {
+                lblGoalTitle.ForeColor = Color.Green;
+            }
+            else if (weeklyPercent >= 80)
+            {
+                lblGoalTitle.ForeColor = Color.Orange;
+            }
+            else
+            {
+                lblGoalTitle.ForeColor = Color.Red;
+            }
             // -------------------------------
 
             lvDashboard.Items.Clear();
@@ -997,6 +1047,20 @@ namespace Student_Study_Planner
         private void pnlDeadlines_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            weeklyGoalHours= (int)numWeeklyHours.Value;
+            if(weeklyGoalHours <= 0)
+            {
+                MessageBox.Show("Please enter a Valid number for weekly goal hours.");
+                return;
+            }
+            File.WriteAllText("goal.txt", weeklyGoalHours.ToString());
+            UpdateDashboard();
+    
+            MessageBox.Show($"Weekly goal set to {weeklyGoalHours} hours!");
         }
     }
 }

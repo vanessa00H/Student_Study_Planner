@@ -804,15 +804,46 @@ namespace Student_Study_Planner
         private void btnGenerate_Click(object sender, EventArgs e)
         {
 
-            CancelEventArgs fromArgs = new CancelEventArgs();
-            dateTimePicker1_Validating(dateTimePicker1, fromArgs);
+            // Get selected dates from DateTimePickers
+            DateTime fromDate = dateTimePicker1.Value.Date;
+            DateTime toDate = dateTimePicker2.Value.Date;
 
-            CancelEventArgs toArgs = new CancelEventArgs();
-            dateTimePicker2_Validating(dateTimePicker2, toArgs);
-
-            if (fromArgs.Cancel || toArgs.Cancel)
+            // Validate date range
+            if (toDate < fromDate)
+            {
+                MessageBox.Show("To date cannot be before From date.");
                 return;
+            }
 
+            // Filter tasks within selected date range
+            var filtered = items
+                .Where(t => t.Date.Date >= fromDate && t.Date.Date <= toDate)
+                .ToList();
+
+            // If no tasks found in this period
+            if (filtered.Count == 0)
+            {
+                MessageBox.Show("No tasks found in this period.");
+                dataGridViewReport.Rows.Clear();
+                return;
+            }
+
+            // Clear old report data
+            dataGridViewReport.Rows.Clear();
+
+            // Group tasks by Category
+            dataGridViewReport.Rows.Clear();
+            foreach (var t in filtered)
+            {
+                dataGridViewReport.Rows.Add(
+                    t.Title,
+                    t.Category,
+                    1,
+                    t.IsCompleted ? 1 : 0,
+                    t.IsCompleted ? 0 : 1,
+                    t.IsCompleted ? "100%" : "0%"
+                    );
+            }
             MessageBox.Show("Report Generated Successfully!");
         }
         private void ApplyFilter()

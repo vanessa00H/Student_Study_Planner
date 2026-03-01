@@ -76,11 +76,6 @@
             this.lblFilter = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewReport = new System.Windows.Forms.DataGridView();
-            this.ClmCategoryReport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmTotalTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmCompletedR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPendingR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClmCompletionRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -117,6 +112,12 @@
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmCategoryReport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmTotalTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmCompletedR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmPendingR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClmCompletionRate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MineTap.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numHours)).BeginInit();
@@ -731,6 +732,7 @@
             this.dataGridViewReport.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.column1,
             this.ClmCategoryReport,
             this.ClmTotalTask,
             this.ClmCompletedR,
@@ -746,47 +748,12 @@
             this.dataGridViewReport.TabIndex = 5;
             this.dataGridViewReport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReport_CellContentClick);
             // 
-            // ClmCategoryReport
-            // 
-            this.ClmCategoryReport.HeaderText = "Category";
-            this.ClmCategoryReport.MinimumWidth = 10;
-            this.ClmCategoryReport.Name = "ClmCategoryReport";
-            this.ClmCategoryReport.Width = 150;
-            // 
-            // ClmTotalTask
-            // 
-            this.ClmTotalTask.HeaderText = "TotalTask";
-            this.ClmTotalTask.MinimumWidth = 10;
-            this.ClmTotalTask.Name = "ClmTotalTask";
-            this.ClmTotalTask.Width = 150;
-            // 
-            // ClmCompletedR
-            // 
-            this.ClmCompletedR.HeaderText = "Completed";
-            this.ClmCompletedR.MinimumWidth = 10;
-            this.ClmCompletedR.Name = "ClmCompletedR";
-            this.ClmCompletedR.Width = 150;
-            // 
-            // clmPendingR
-            // 
-            this.clmPendingR.HeaderText = "Pending";
-            this.clmPendingR.MinimumWidth = 10;
-            this.clmPendingR.Name = "clmPendingR";
-            this.clmPendingR.Width = 150;
-            // 
-            // ClmCompletionRate
-            // 
-            this.ClmCompletionRate.HeaderText = "CompletionRate";
-            this.ClmCompletionRate.MinimumWidth = 10;
-            this.ClmCompletionRate.Name = "ClmCompletionRate";
-            this.ClmCompletionRate.Width = 150;
-            // 
             // btnGenerate
             // 
             this.btnGenerate.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGenerate.Location = new System.Drawing.Point(910, 25);
+            this.btnGenerate.Location = new System.Drawing.Point(905, 83);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(145, 79);
@@ -1204,6 +1171,48 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Study Hours: ";
             // 
+            // column1
+            // 
+            this.column1.HeaderText = "Title";
+            this.column1.MinimumWidth = 8;
+            this.column1.Name = "column1";
+            this.column1.Width = 150;
+            // 
+            // ClmCategoryReport
+            // 
+            this.ClmCategoryReport.HeaderText = "Category";
+            this.ClmCategoryReport.MinimumWidth = 10;
+            this.ClmCategoryReport.Name = "ClmCategoryReport";
+            this.ClmCategoryReport.Width = 150;
+            // 
+            // ClmTotalTask
+            // 
+            this.ClmTotalTask.HeaderText = "TotalTask";
+            this.ClmTotalTask.MinimumWidth = 10;
+            this.ClmTotalTask.Name = "ClmTotalTask";
+            this.ClmTotalTask.Width = 150;
+            // 
+            // ClmCompletedR
+            // 
+            this.ClmCompletedR.HeaderText = "Completed";
+            this.ClmCompletedR.MinimumWidth = 10;
+            this.ClmCompletedR.Name = "ClmCompletedR";
+            this.ClmCompletedR.Width = 150;
+            // 
+            // clmPendingR
+            // 
+            this.clmPendingR.HeaderText = "Pending";
+            this.clmPendingR.MinimumWidth = 10;
+            this.clmPendingR.Name = "clmPendingR";
+            this.clmPendingR.Width = 150;
+            // 
+            // ClmCompletionRate
+            // 
+            this.ClmCompletionRate.HeaderText = "CompletionRate";
+            this.ClmCompletionRate.MinimumWidth = 10;
+            this.ClmCompletionRate.Name = "ClmCompletionRate";
+            this.ClmCompletionRate.Width = 150;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1325,11 +1334,6 @@
         private System.Windows.Forms.Label lblFromDate;
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.DataGridView dataGridViewReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCategoryReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmTotalTask;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCompletedR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPendingR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCompletionRate;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label1;
@@ -1347,6 +1351,12 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCategoryReport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmTotalTask;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCompletedR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPendingR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCompletionRate;
     }
 }
 

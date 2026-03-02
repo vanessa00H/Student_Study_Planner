@@ -21,9 +21,17 @@ namespace Student_Study_Planner
         private bool isFiltering = false;
         private List<PlannerItem> items = new List<PlannerItem>();
         private int weeklyGoalHours = 0; // Example weekly goal (can be made dynamic)
+        private const string SettingsFile = "settings.txt"; // File to save settings like weekly goal
+        private bool deadlineWarningsEnabled = false;
+        private bool dailySummaryEnabled = false;
         public Form1()
         {
             InitializeComponent();
+            LoadNotificationSettings();
+            ApplyNotificationSettingsToUI();
+            chkDeadlineWarnings.CheckedChanged += (s, e) => SaveNotificationSettings();
+            chkDailySummary.CheckedChanged += (s, e) => SaveNotificationSettings();
+
             cmbFilter.SelectionChangeCommitted+=(s,e)=>ApplyFilter();
             LoadTasks(); // Load tasks when the form initializes
         }
@@ -99,6 +107,7 @@ namespace Student_Study_Planner
             }
             ApplyFilter(); // Apply filter after loading tasks
             UpdateDashboard();
+            ShowStartupReminders();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -1062,8 +1071,157 @@ namespace Student_Study_Planner
     
             MessageBox.Show($"Weekly goal set to {weeklyGoalHours} hours!");
         }
+        // Load saved notification settings from file
+        private void LoadNotificationSettings()
+        {
+            deadlineWarningsEnabled = false;
+            dailySummaryEnabled = false;
+
+            if (!File.Exists(SettingsFile))
+                return;
+
+            foreach (var line in File.ReadAllLines(SettingsFile))
+            {
+                var parts = line.Split('=');
+                if (parts.Length != 2) continue;
+
+                string key = parts[0].Trim();
+                string val = parts[1].Trim();
+
+                bool isOn = val.Equals("true", StringComparison.OrdinalIgnoreCase);
+
+                if (key == "deadlineWarnings") deadlineWarningsEnabled = isOn;
+                if (key == "dailySummary") dailySummaryEnabled = isOn;
+            }
+        }
+
+        // Save notification settings to file
+        private void SaveNotificationSettings()
+        {
+            var lines = new List<string>
+    {
+        $"deadlineWarnings={chkDeadlineWarnings.Checked}",
+        $"dailySummary={chkDailySummary.Checked}"
+    };
+
+            File.WriteAllLines(SettingsFile, lines);
+        }
+
+        // Sync UI checkboxes from loaded flags
+        private void ApplyNotificationSettingsToUI()
+        {
+            chkDeadlineWarnings.Checked = deadlineWarningsEnabled;
+            chkDailySummary.Checked = dailySummaryEnabled;
+        }
+
+        // Show reminders automatically on app start
+        private void ShowStartupReminders()
+        {
+            DateTime today = DateTime.Today;
+
+            // =========================
+            // 1️⃣ Deadline Warning Window
+            // =========================
+            if (chkDeadlineWarnings.Checked)
+            {
+               var dueSoon=items
+                    .Where(t=>!t.IsCompleted)
+                    .Where(t=>
+                    {
+                        int daysLeft = (t.EndDate.Date - DateTime.Today).Days;
+                        return daysLeft >= 0 && daysLeft <= 3;
+                    })
+                    .OrderBy(t=>t.EndDate)
+                    .ToList();
+
+                if (dueSoon.Count > 0)
+                {
+                    string msg = "⚠ Deadline Warning (3 days before)\n\n";
+
+                    foreach (var t in dueSoon)
+                        msg += $"- {t.Title} ({t.Date:dd/MM/yyyy})\n";
+
+                    MessageBox.Show(
+                        msg,
+                        "Deadline Warning",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+            }
+
+            // =========================
+            // 2️⃣ Daily Summary Window
+            // =========================
+            if (chkDailySummary.Checked)
+            {
+                int totalToday = items.Count(t => t.Date.Date == today);
+                int completedToday = items.Count(t => t.Date.Date == today && t.IsCompleted);
+                int pendingToday = totalToday - completedToday;
+                int overdue = items.Count(t => !t.IsCompleted && t.Date.Date < today);
+
+                string msg =
+                    $"📊 Daily Summary ({today:dd/MM/yyyy})\n\n" +
+                    $"Today tasks: {totalToday}\n" +
+                    $"Completed: {completedToday}\n" +
+                    $"Pending: {pendingToday}\n\n" +
+                    $"Overdue (all): {overdue}";
+
+                MessageBox.Show(
+                    msg,
+                    "Daily Summary",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnClearAll_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show(
+         "Are you sure you want to delete ALL tasks?",
+         "Warning",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Warning);
+
+            if (confirm == DialogResult.Yes)
+            {
+                // Clear list
+                items.Clear();
+
+                // Delete tasks file
+                if (File.Exists("tasks.csv"))
+                    File.Delete("tasks.csv");
+
+                // Refresh UI
+                LoadTasks();
+
+                MessageBox.Show("All tasks deleted successfully!",
+                                "Cleared",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+        }
+        
+
+        private void btnSaveExit_Click(object sender, EventArgs e)
+        {
+            // Save tasks to CSV
+            SaveTasks();
+
+            // Save weekly goal
+            File.WriteAllText("goal.txt", weeklyGoalHours.ToString());
+
+            // Save notification settings
+            SaveNotificationSettings();
+
+            MessageBox.Show("All data saved successfully!",
+                            "Saved",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+            // Close the application
+            Application.Exit();
+        }
     }
 }
     
-    
-
+ 

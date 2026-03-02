@@ -4,12 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Drawing.Text;
 
 namespace Student_Study_Planner
 {
@@ -24,6 +25,7 @@ namespace Student_Study_Planner
         private const string SettingsFile = "settings.txt"; // File to save settings like weekly goal
         private bool deadlineWarningsEnabled = false;
         private bool dailySummaryEnabled = false;
+      
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +35,9 @@ namespace Student_Study_Planner
             chkDailySummary.CheckedChanged += (s, e) => SaveNotificationSettings();
 
             cmbFilter.SelectionChangeCommitted+=(s,e)=>ApplyFilter();
+
             LoadTasks(); // Load tasks when the form initializes
+            InitializHome();
         }
         // Save tasks to a CSV file
         private void SaveTasks()
@@ -112,6 +116,7 @@ namespace Student_Study_Planner
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             lvTasks.View = View.Details;
             lvTasks.FullRowSelect = true;
             lvTasks.GridLines = true;
@@ -270,7 +275,7 @@ namespace Student_Study_Planner
         private void grpPriority_Validating(object sender, CancelEventArgs e)
         {
             if (isFiltering) return; // Skip validation when filtering
-            if (!rbLow.Checked && !rbMedium.Checked && !rbHigh.Checked)
+            if (!r1.Checked && !r3.Checked && !r.Checked)
             {
                 MessageBox.Show("Please select a priority.");
                 grpPriority.BackColor = Color.MistyRose;
@@ -331,7 +336,7 @@ namespace Student_Study_Planner
             if (string.IsNullOrWhiteSpace(txtTitle.Text) ||
                 string.IsNullOrWhiteSpace(txtCategory.Text) ||
                 cmbType.SelectedIndex == -1 ||
-                (!rbLow.Checked && !rbMedium.Checked && !rbHigh.Checked) ||
+                (!r1.Checked && !r3.Checked && !r.Checked) ||
                 (numHours.Value == 0 && numMinutes.Value == 0))
             {
                 MessageBox.Show("Please fill all required fields.",
@@ -428,9 +433,9 @@ namespace Student_Study_Planner
             txtCategory.Clear();
             cmbType.SelectedIndex = -1;
 
-            rbLow.Checked = false;
-            rbMedium.Checked = false;
-            rbHigh.Checked = false;
+            r1.Checked = false;
+            r3.Checked = false;
+            r.Checked = false;
 
             numHours.Value = 1;
             numMinutes.Value = 0;
@@ -441,8 +446,8 @@ namespace Student_Study_Planner
         // Get Selected Priority
         private Priority GetPriority()
         {
-            if (rbLow.Checked) return Priority.Low;
-            if (rbMedium.Checked) return Priority.Medium;
+            if (r1.Checked) return Priority.Low;
+            if (r3.Checked) return Priority.Medium;
             return Priority.High;
         }
         private void btnEdit_Click(object sender, EventArgs e)
@@ -1220,6 +1225,46 @@ namespace Student_Study_Planner
 
             // Close the application
             Application.Exit();
+        }
+        private void InitializHome()
+        {
+            // Show one random motivational message on home tab
+            ShowRandomMotivation();
+            
+        }
+
+        private void lblMinutes_Click(object sender, EventArgs e)
+        {
+
+        }
+        // =============================
+        // Show one random motivational message
+        // =============================
+        private void ShowRandomMotivation()
+        {
+            string[] messages =
+            {
+        "Small steps every day = big results 💪",
+        "Discipline beats motivation. Keep going 🔥",
+        "Finish today strong. Your future self is watching 👀",
+        "One task now is better than ten later 🚀",
+        "Progress > Perfection. Just move forward 🎯"
+    };
+
+            Random rnd = new Random();
+            string selected = messages[rnd.Next(messages.Length)];
+
+            // IMPORTANT: change this to your actual label name
+            lblMotivationText.Text = selected;
+
+            lblMotivationText.AutoSize = false;
+            lblMotivationText.Visible = true;
+            lblMotivationText.BringToFront();
+        }
+
+        private void lblMotivationTitle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

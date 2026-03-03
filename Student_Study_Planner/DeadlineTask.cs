@@ -11,8 +11,8 @@ namespace Student_Study_Planner
         public DateTime Deadline { get; set; }
         public string Description { get; set; }
 
-        public DeadlineTask(DateTime date,DateTime EndDte, string title, string category, Priority priority, DateTime deadline, string description, TaskType type)
-            : base(date , EndDte, title, category, type, priority)
+        public DeadlineTask(DateTime date,DateTime EndDate, string title, string category, Priority priority, DateTime deadline, string description, TaskType type)
+            : base(date , EndDate, title, category, type, priority)
         {
             Deadline = deadline;
             Description = description;

@@ -18,6 +18,7 @@ namespace Student_Study_Planner
 
     public partial class Form1 : Form
     {
+        private bool startupRemindersShown = false;
         private bool isAdding = false;
         private bool isEditing = false;
         private bool isFiltering = false;
@@ -26,11 +27,12 @@ namespace Student_Study_Planner
         private const string SettingsFile = "settings.txt"; // File to save settings like weekly goal
         private bool deadlineWarningsEnabled = false;
         private bool dailySummaryEnabled = false;
-      
+        private bool remindersShown= false;
+        private readonly string tasksFile=Path.Combine(Application.StartupPath,"tasks.csv");
         public Form1()
         {
             InitializeComponent();
-  
+            this.Shown += Form1_Shown;
             LoadNotificationSettings();
             ApplyNotificationSettingsToUI();
             chkDeadlineWarnings.CheckedChanged += (s, e) => SaveNotificationSettings();
@@ -47,14 +49,14 @@ namespace Student_Study_Planner
         {
             using (StreamWriter sw = new StreamWriter("tasks.csv"))
             {
-                sw.WriteLine("Kind,Title,Category,Date,Priority,Hours,Minutes,IsCompleted,Type");
+                sw.WriteLine("Kind,Title,Category,Date,EndDate,Priority,Hours,Minutes,IsCompleted,Type");
 
                 foreach (var task in items)
                 {
                     if (task is StudySession s)
                         sw.WriteLine(s.ToCSV());
                     else
-                        sw.WriteLine($"DeadlineTask,{task.Title},{task.Category},{task.Date:dd/MM/yyyy},{task.Priority},0,0,{task.IsCompleted},{task.Type}");
+                        sw.WriteLine($"DeadlineTask,{task.Title},{task.Category},{task.Date:dd/MM/yyyy},{task.EndDate:dd/MM/yyyy},{task.Priority},0,0,{task.IsCompleted},{task.Type}");
                 }
             }
         }
@@ -93,7 +95,9 @@ namespace Student_Study_Planner
                     if (string.IsNullOrWhiteSpace(line)) continue;
                     try
                     {
-                        items.Add(StudySession.FromCSV(line));
+                        var session=StudySession.FromCSV(line);
+                        if (session != null)
+                            items.Add(session);
                     }
                     catch { continue; }
                 }
@@ -110,11 +114,13 @@ namespace Student_Study_Planner
                 item.SubItems.Add(task.Priority.ToString());
                 item.SubItems.Add(task.Date.ToShortDateString());
                 item.SubItems.Add(task.Type.ToString());
+
+                item.Tag = task;
                 lvTasks.Items.Add(item);
             }
             ApplyFilter(); // Apply filter after loading tasks
             UpdateDashboard();
-            ShowStartupReminders();
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -130,6 +136,14 @@ namespace Student_Study_Planner
             lvDashboard.GridLines = true;
             lvDashboard.Scrollable = true;
             lvDashboard.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            lblGoalTitle.Left=(pnlWeeklyGoal.Width- lblGoalTitle.Width)/2;
+            lblGoalTitle.Top = (pnlWeeklyGoal.Width - lblGoalTitle.Width) / 2;
+
+            lblDeadLinesValue.Left = (pnlDeadlines.Width - lblDeadLinesValue.Width) / 2;
+            lblDeadLinesValue.Top = (pnlDeadlines.Width - lblDeadLinesValue.Width) / 2;
+
+            lblProgressValue.Left = (pnlProgress.Width - lblProgressValue.Width) / 2;
+            lblProgressValue.Top = (pnlProgress.Width - lblProgressValue.Width) / 2;
 
             if (lvTasks.Columns.Count > 0)
             {
@@ -380,7 +394,13 @@ namespace Student_Study_Planner
             // Run All Field Validations
             if (!ValidateChildren()&&(cmbFilter.CausesValidation=false)&&(txtSearch.CausesValidation=false))
                 return;
-
+            // Check for duplicate title
+            if (items.Any(t=>
+            t.Title.Trim().ToLower()==txtTitle.Text.Trim().ToLower()))
+            {
+                MessageBox.Show("A task with this title already exists. Please choose a different title.");
+                return;
+            }
             // Get Time Values
             int hours = (int)numHours.Value;
             int minutes = (int)numMinutes.Value;
@@ -436,9 +456,9 @@ namespace Student_Study_Planner
             txtCategory.Clear();
             cmbType.SelectedIndex = -1;
 
-            r1.Checked = false;
-            r3.Checked = false;
-            r.Checked = false;
+            rbLow.Checked = false;
+            rbMedium.Checked = false;
+            rbHigh.Checked = false;
 
             numHours.Value = 1;
             numMinutes.Value = 0;
@@ -449,8 +469,8 @@ namespace Student_Study_Planner
         // Get Selected Priority
         private Priority GetPriority()
         {
-            if (r1.Checked) return Priority.Low;
-            if (r3.Checked) return Priority.Medium;
+            if (rbLow.Checked) return Priority.Low;
+            if (rbMedium.Checked) return Priority.Medium;
             return Priority.High;
         }
         private void btnEdit_Click(object sender, EventArgs e)
@@ -667,28 +687,28 @@ namespace Student_Study_Planner
 
         private void btnMark_Click(object sender, EventArgs e)
         {
-            if (items.Count == 0)
-            {
-                MessageBox.Show("No tasks available.");
-                return;
-            }
-
-
             if (lvTasks.CheckedItems.Count == 0)
             {
                 MessageBox.Show("Please select a task first.");
                 return;
             }
 
-            int index = lvTasks.CheckedItems[0].Index;
+            var selectedItem = lvTasks.CheckedItems[0];
+            var task = selectedItem.Tag as PlannerItem;
 
-            if (items[index].IsCompleted)
+            if (task == null)
+            {
+                MessageBox.Show("Task not found.");
+                return;
+            }
+
+            if (task.IsCompleted)
             {
                 MessageBox.Show("Task is already completed.");
                 return;
             }
 
-            items[index].IsCompleted = true;
+            task.IsCompleted = true;
 
             MessageBox.Show("Task marked as completed successfully!");
 
@@ -840,7 +860,7 @@ namespace Student_Study_Planner
 
             // Filter tasks within selected date range
             var filtered = items
-                .Where(t => t.Date.Date >= fromDate && t.Date.Date <= toDate)
+                .Where(t => t.Date.Date >= fromDate && t.EndDate.Date <= toDate)
                 .ToList();
 
             // If no tasks found in this period
@@ -914,7 +934,7 @@ namespace Student_Study_Planner
             {
                 filtered = items.Where(i =>
                     !i.IsCompleted &&
-                    i.Date.Date < DateTime.Today);
+                    i.EndDate.Date < DateTime.Today);
             }
 
             // show results
@@ -932,8 +952,10 @@ namespace Student_Study_Planner
                 row.SubItems.Add(task.Date.ToShortDateString());
                 row.SubItems.Add(task.GetType().Name);
 
+                row.Tag = task;
+
                 //RED: Highlight overdue tasks in red 
-                if (!task.IsCompleted && task.Date.Date < DateTime.Today)
+                if (!task.IsCompleted && task.EndDate.Date < DateTime.Today)
                 {
                     row.ForeColor = Color.Red;
                 }
@@ -954,7 +976,7 @@ namespace Student_Study_Planner
 
             var next = items
                 .Where(t => !t.IsCompleted)
-                .OrderBy(t => t.Date)
+                .OrderBy(t => t.EndDate)
                 .FirstOrDefault();
 
             if (next == null)
@@ -963,7 +985,7 @@ namespace Student_Study_Planner
             }
             else
             {
-                int daysLeft = (next.Date.Date - DateTime.Today).Days;
+                int daysLeft = (next.EndDate.Date - DateTime.Today).Days;
 
                 string when =
                     daysLeft < 0 ? $"Overdue by {-daysLeft} day(s)" :
@@ -971,7 +993,7 @@ namespace Student_Study_Planner
                     $"Due in {daysLeft} day(s)";
 
                 lblDeadLinesValue.Text =
-                    $"{next.Title}\n{next.Date.ToShortDateString()}\n({when})";
+                    $"{next.Title}\n{next.EndDate.ToShortDateString()}\n({when})";
             }
 
             // ---------- Weekly Goal Section ----------
@@ -1046,10 +1068,10 @@ namespace Student_Study_Planner
             {
                 ListViewItem row = new ListViewItem(t.Title);
                 row.SubItems.Add(t.Priority.ToString());
-                row.SubItems.Add(t.Date.ToShortDateString());
+                row.SubItems.Add(t.EndDate.ToShortDateString());
                 row.SubItems.Add(t.IsCompleted? "Completed" : "Pending");
 
-                if (t.Date.Date < DateTime.Today)
+                if (t.EndDate.Date < DateTime.Today)
                     row.ForeColor = Color.Red;
 
                 lvDashboard.Items.Add(row);
@@ -1126,35 +1148,22 @@ namespace Student_Study_Planner
         private void ShowStartupReminders()
         {
             DateTime today = DateTime.Today;
+            DateTime windowEnd = today.AddDays(3);
 
-            // =========================
-            // 1️⃣ Deadline Warning Window
-            // =========================
-            if (chkDeadlineWarnings.Checked)
+            var dueSoon = items
+                .Where(t => !t.IsCompleted)
+                .Where(t => t.EndDate.Date >= today && t.EndDate.Date <= windowEnd)
+                .OrderBy(t => t.EndDate)
+                .ToList();
+
+            if (dueSoon.Count > 0)
             {
-               var dueSoon=items
-                    .Where(t=>!t.IsCompleted)
-                    .Where(t=>
-                    {
-                        int daysLeft = (t.EndDate.Date - DateTime.Today).Days;
-                        return daysLeft >= 0 && daysLeft <= 3;
-                    })
-                    .OrderBy(t=>t.EndDate)
-                    .ToList();
+                string msg = "⚠️ Deadline Warning (next 3 days)\n\n";
 
-                if (dueSoon.Count > 0)
-                {
-                    string msg = "⚠ Deadline Warning (3 days before)\n\n";
+                foreach (var t in dueSoon)
+                    msg += $"- {t.Title} ({t.Date:dd/MM/yyyy} → {t.EndDate:dd/MM/yyyy})\n";
 
-                    foreach (var t in dueSoon)
-                        msg += $"- {t.Title} ({t.Date:dd/MM/yyyy})\n";
-
-                    MessageBox.Show(
-                        msg,
-                        "Deadline Warning",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                }
+                MessageBox.Show(msg, "Deadline Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             // =========================
@@ -1308,10 +1317,10 @@ namespace Student_Study_Planner
                 .ToList();
 
             bool todayCompleted =
-                todayTasks.Count > 0 &&
-                todayTasks.All(t => t.IsCompleted);
+                   items.Any(t => t.Date.Date == DateTime.Today && t.IsCompleted);
 
-            
+
+
 
             if (streak == 0 && !todayCompleted)
             {
@@ -1349,7 +1358,7 @@ namespace Student_Study_Planner
             }
 
         }
-
+       
         private void txtCategory_TextChanged(object sender, EventArgs e)
         {
 
@@ -1381,6 +1390,18 @@ namespace Student_Study_Planner
         }
 
         private void lblFromDate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            if (remindersShown) return;
+            remindersShown = true;
+            ShowStartupReminders();
+        }
+
+        private void pnlProgress_Paint(object sender, PaintEventArgs e)
         {
 
         }

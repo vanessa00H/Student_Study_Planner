@@ -11,16 +11,16 @@ namespace Student_Study_Planner
         public int EstimatedHours { get; set; }
         public int EstimatedMinutes { get; set; }
 
-        // Add this method to fix CS1061
+        // UPDATED CSV FORMAT
+        // Kind,Title,Category,StartDate,EndDate,Priority,Hours,Minutes,IsCompleted,Type
         public string ToCSV()
         {
-            // Format: Kind,Title,Category,Date,Priority,Hours,Minutes,IsCompleted,Type
-            return $"StudySession,{Title},{Category},{Date:dd/MM/yyyy},{Priority},{EstimatedHours},{EstimatedMinutes},{IsCompleted},{Type}";
+            return $"StudySession,{Title},{Category},{Date:dd/MM/yyyy},{EndDate:dd/MM/yyyy},{Priority},{EstimatedHours},{EstimatedMinutes},{IsCompleted},{Type}";
         }
 
-        public StudySession(DateTime date,DateTime EndDte, string title, string category, Priority priority,
+        public StudySession(DateTime startDate, DateTime endDate, string title, string category, Priority priority,
             int estimatedHours, int estimatedMinutes, TaskType type)
-            : base(date, EndDte, title, category, type, priority)
+            : base(startDate, endDate, title, category, type, priority)
         {
             EstimatedHours = estimatedHours;
             EstimatedMinutes = estimatedMinutes;
@@ -33,23 +33,26 @@ namespace Student_Study_Planner
 
             string[] p = line.Split(',');
 
-            // NEW FORMAT (9 fields)
-            if (p.Length >= 9)
+            // NEW FORMAT (10 fields)
+            if (p.Length >= 10)
             {
                 try
                 {
-                    DateTime date = DateTime.ParseExact(p[3].Trim(), "dd/MM/yyyy",
+                    DateTime startDate = DateTime.ParseExact(p[3].Trim(), "dd/MM/yyyy",
+                        System.Globalization.CultureInfo.InvariantCulture);
+
+                    DateTime endDate = DateTime.ParseExact(p[4].Trim(), "dd/MM/yyyy",
                         System.Globalization.CultureInfo.InvariantCulture);
 
                     string title = p[1].Trim();
                     string category = p[2].Trim();
-                    Priority pr = (Priority)Enum.Parse(typeof(Priority), p[4].Trim());
-                    int hours = int.Parse(p[5].Trim());
-                    int minutes = int.Parse(p[6].Trim());
-                    bool done = bool.Parse(p[7].Trim());
-                    TaskType type = (TaskType)Enum.Parse(typeof(TaskType), p[8].Trim());
+                    Priority pr = (Priority)Enum.Parse(typeof(Priority), p[5].Trim());
+                    int hours = int.Parse(p[6].Trim());
+                    int minutes = int.Parse(p[7].Trim());
+                    bool done = bool.Parse(p[8].Trim());
+                    TaskType type = (TaskType)Enum.Parse(typeof(TaskType), p[9].Trim());
 
-                    StudySession s = new StudySession(date, date, title, category, pr, hours, minutes, type);
+                    StudySession s = new StudySession(startDate, endDate, title, category, pr, hours, minutes, type);
                     s.IsCompleted = done;
                     return s;
                 }
@@ -59,7 +62,7 @@ namespace Student_Study_Planner
                 }
             }
 
-            // OLD FORMAT (6 fields): Title,Category,Date,Priority,Hours,Minutes
+            // OLD FORMAT (6 fields) — backward compatibility
             if (p.Length >= 6)
             {
                 try
@@ -72,7 +75,7 @@ namespace Student_Study_Planner
                     int minutes = int.Parse(p[5].Trim());
 
                     StudySession s = new StudySession(date, date, title, category, pr, hours, minutes, TaskType.StudySession);
-                    s.IsCompleted = false; // default = Pending
+                    s.IsCompleted = false;
                     return s;
                 }
                 catch
@@ -86,8 +89,7 @@ namespace Student_Study_Planner
 
         public override string GetDetails()
         {
-            // Implementation as needed
-            return $"{Title} - {Category} - {Date:dd/MM/yyyy} - {Priority} - {EstimatedHours}h {EstimatedMinutes}m";
+            return $"{Title} - {Category} - {Date:dd/MM/yyyy} → {EndDate:dd/MM/yyyy} - {Priority} - {EstimatedHours}h {EstimatedMinutes}m";
         }
     }
 }

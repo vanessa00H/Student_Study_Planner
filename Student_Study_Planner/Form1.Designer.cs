@@ -96,6 +96,7 @@
             this.cmbFilter = new System.Windows.Forms.ComboBox();
             this.lblFilter = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
             this.endDatePicker = new System.Windows.Forms.DateTimePicker();
             this.lblEndDate = new System.Windows.Forms.Label();
             this.numHours = new System.Windows.Forms.NumericUpDown();
@@ -130,7 +131,6 @@
             this.lblMotivationText = new System.Windows.Forms.Label();
             this.lblMotivationTitle = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -158,10 +158,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(28, 88);
+            this.button1.Location = new System.Drawing.Point(28, 84);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 52);
+            this.button1.Size = new System.Drawing.Size(127, 49);
             this.button1.TabIndex = 0;
             this.button1.Text = "AddTask";
             this.button1.UseVisualStyleBackColor = true;
@@ -169,10 +169,10 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(365, 88);
+            this.button2.Location = new System.Drawing.Point(365, 84);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 52);
+            this.button2.Size = new System.Drawing.Size(95, 49);
             this.button2.TabIndex = 1;
             this.button2.Text = "Reports";
             this.button2.UseVisualStyleBackColor = true;
@@ -181,10 +181,10 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(199, 88);
+            this.button3.Location = new System.Drawing.Point(199, 84);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 52);
+            this.button3.Size = new System.Drawing.Size(129, 49);
             this.button3.TabIndex = 2;
             this.button3.Text = "ViewTask";
             this.button3.UseVisualStyleBackColor = true;
@@ -192,10 +192,10 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(502, 92);
+            this.button4.Location = new System.Drawing.Point(502, 87);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(130, 52);
+            this.button4.Size = new System.Drawing.Size(130, 49);
             this.button4.TabIndex = 3;
             this.button4.Text = "DeleteTask";
             this.button4.UseVisualStyleBackColor = true;
@@ -203,10 +203,10 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(680, 92);
+            this.button5.Location = new System.Drawing.Point(680, 87);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(95, 52);
+            this.button5.Size = new System.Drawing.Size(95, 49);
             this.button5.TabIndex = 4;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
@@ -256,29 +256,31 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.BackColor = System.Drawing.Color.MistyRose;
+            this.tabPage5.BackColor = System.Drawing.Color.SeaShell;
             this.tabPage5.Controls.Add(this.groupBox5);
             this.tabPage5.Controls.Add(this.groupBox4);
             this.tabPage5.Controls.Add(this.groupBox3);
             this.tabPage5.ForeColor = System.Drawing.Color.Goldenrod;
-            this.tabPage5.Location = new System.Drawing.Point(4, 29);
+            this.tabPage5.Location = new System.Drawing.Point(4, 28);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage5.Size = new System.Drawing.Size(1049, 717);
+            this.tabPage5.Size = new System.Drawing.Size(1049, 680);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Setting";
             // 
             // groupBox5
             // 
+            this.groupBox5.BackColor = System.Drawing.Color.SeaShell;
             this.groupBox5.Controls.Add(this.chkDailySummary);
             this.groupBox5.Controls.Add(this.chkDeadlineWarnings);
-            this.groupBox5.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(53, 322);
+            this.groupBox5.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox5.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.groupBox5.Location = new System.Drawing.Point(53, 306);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox5.Size = new System.Drawing.Size(680, 189);
+            this.groupBox5.Size = new System.Drawing.Size(493, 215);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Notifications";
@@ -286,10 +288,10 @@
             // chkDailySummary
             // 
             this.chkDailySummary.AutoSize = true;
-            this.chkDailySummary.Location = new System.Drawing.Point(19, 98);
+            this.chkDailySummary.Location = new System.Drawing.Point(19, 93);
             this.chkDailySummary.Margin = new System.Windows.Forms.Padding(2);
             this.chkDailySummary.Name = "chkDailySummary";
-            this.chkDailySummary.Size = new System.Drawing.Size(247, 36);
+            this.chkDailySummary.Size = new System.Drawing.Size(265, 36);
             this.chkDailySummary.TabIndex = 1;
             this.chkDailySummary.Text = "Daily task summary";
             this.chkDailySummary.UseVisualStyleBackColor = true;
@@ -297,24 +299,26 @@
             // chkDeadlineWarnings
             // 
             this.chkDeadlineWarnings.AutoSize = true;
-            this.chkDeadlineWarnings.Location = new System.Drawing.Point(19, 54);
+            this.chkDeadlineWarnings.Location = new System.Drawing.Point(19, 51);
             this.chkDeadlineWarnings.Margin = new System.Windows.Forms.Padding(2);
             this.chkDeadlineWarnings.Name = "chkDeadlineWarnings";
-            this.chkDeadlineWarnings.Size = new System.Drawing.Size(458, 36);
+            this.chkDeadlineWarnings.Size = new System.Drawing.Size(495, 36);
             this.chkDeadlineWarnings.TabIndex = 0;
             this.chkDeadlineWarnings.Text = "Show deadline warnings(3 days before)";
             this.chkDeadlineWarnings.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.SeaShell;
             this.groupBox4.Controls.Add(this.btnClearAll);
             this.groupBox4.Controls.Add(this.btnSaveExit);
-            this.groupBox4.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(489, 79);
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox4.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.groupBox4.Location = new System.Drawing.Point(489, 59);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(493, 209);
+            this.groupBox4.Size = new System.Drawing.Size(493, 215);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Data Managment";
@@ -322,11 +326,12 @@
             // btnClearAll
             // 
             this.btnClearAll.BackColor = System.Drawing.Color.DarkGray;
-            this.btnClearAll.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.btnClearAll.Location = new System.Drawing.Point(221, 82);
+            this.btnClearAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
+            this.btnClearAll.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnClearAll.Location = new System.Drawing.Point(119, 125);
             this.btnClearAll.Margin = new System.Windows.Forms.Padding(2);
             this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(182, 46);
+            this.btnClearAll.Size = new System.Drawing.Size(268, 56);
             this.btnClearAll.TabIndex = 1;
             this.btnClearAll.Text = "Clear All Tasks";
             this.btnClearAll.UseVisualStyleBackColor = false;
@@ -334,12 +339,13 @@
             // 
             // btnSaveExit
             // 
-            this.btnSaveExit.BackColor = System.Drawing.Color.Gold;
-            this.btnSaveExit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSaveExit.Location = new System.Drawing.Point(27, 82);
+            this.btnSaveExit.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnSaveExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
+            this.btnSaveExit.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnSaveExit.Location = new System.Drawing.Point(119, 49);
             this.btnSaveExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveExit.Name = "btnSaveExit";
-            this.btnSaveExit.Size = new System.Drawing.Size(190, 46);
+            this.btnSaveExit.Size = new System.Drawing.Size(268, 56);
             this.btnSaveExit.TabIndex = 0;
             this.btnSaveExit.Text = "Save And Exit";
             this.btnSaveExit.UseVisualStyleBackColor = false;
@@ -347,28 +353,32 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.SeaShell;
             this.groupBox3.Controls.Add(this.btnGoal);
             this.groupBox3.Controls.Add(this.numWeeklyHours);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(53, 61);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox3.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.groupBox3.Location = new System.Drawing.Point(53, 58);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(393, 227);
+            this.groupBox3.Size = new System.Drawing.Size(493, 215);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Weekly Study Goal";
             // 
             // btnGoal
             // 
-            this.btnGoal.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnGoal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGoal.Location = new System.Drawing.Point(42, 150);
+            this.btnGoal.BackColor = System.Drawing.SystemColors.Info;
+            this.btnGoal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
+            this.btnGoal.ForeColor = System.Drawing.Color.Goldenrod;
+            this.btnGoal.Location = new System.Drawing.Point(42, 142);
             this.btnGoal.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoal.Name = "btnGoal";
-            this.btnGoal.Size = new System.Drawing.Size(129, 50);
+            this.btnGoal.Size = new System.Drawing.Size(268, 56);
             this.btnGoal.TabIndex = 3;
             this.btnGoal.Text = "Save Goal";
             this.btnGoal.UseVisualStyleBackColor = false;
@@ -376,7 +386,7 @@
             // 
             // numWeeklyHours
             // 
-            this.numWeeklyHours.Location = new System.Drawing.Point(178, 69);
+            this.numWeeklyHours.Location = new System.Drawing.Point(178, 66);
             this.numWeeklyHours.Margin = new System.Windows.Forms.Padding(2);
             this.numWeeklyHours.Maximum = new decimal(new int[] {
             30,
@@ -390,26 +400,26 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(284, 69);
+            this.label4.Location = new System.Drawing.Point(284, 66);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 32);
+            this.label4.Size = new System.Drawing.Size(79, 32);
             this.label4.TabIndex = 1;
             this.label4.Text = "hours";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 69);
+            this.label3.Location = new System.Drawing.Point(28, 66);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(157, 32);
+            this.label3.Size = new System.Drawing.Size(170, 32);
             this.label3.TabIndex = 0;
             this.label3.Text = "Study Hours: ";
             // 
             // tabPage4
             // 
-            this.tabPage4.BackColor = System.Drawing.Color.MistyRose;
+            this.tabPage4.BackColor = System.Drawing.Color.SeaShell;
             this.tabPage4.Controls.Add(this.lblDashboard);
             this.tabPage4.Controls.Add(this.lvDashboard);
             this.tabPage4.Controls.Add(this.pnlWeeklyGoal);
@@ -417,22 +427,22 @@
             this.tabPage4.Controls.Add(this.pnlProgress);
             this.tabPage4.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.ForeColor = System.Drawing.Color.Goldenrod;
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage4.Size = new System.Drawing.Size(1049, 717);
+            this.tabPage4.Size = new System.Drawing.Size(1049, 680);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Dashboard";
             // 
             // lblDashboard
             // 
             this.lblDashboard.AutoSize = true;
-            this.lblDashboard.Font = new System.Drawing.Font("Segoe UI Symbol", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDashboard.Location = new System.Drawing.Point(449, 28);
+            this.lblDashboard.Font = new System.Drawing.Font("Segoe UI Variable Display", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDashboard.Location = new System.Drawing.Point(449, 27);
             this.lblDashboard.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDashboard.Name = "lblDashboard";
-            this.lblDashboard.Size = new System.Drawing.Size(160, 38);
+            this.lblDashboard.Size = new System.Drawing.Size(159, 37);
             this.lblDashboard.TabIndex = 4;
             this.lblDashboard.Text = "Dashboard";
             // 
@@ -446,10 +456,10 @@
             this.lvDashboard.FullRowSelect = true;
             this.lvDashboard.GridLines = true;
             this.lvDashboard.HideSelection = false;
-            this.lvDashboard.Location = new System.Drawing.Point(72, 325);
+            this.lvDashboard.Location = new System.Drawing.Point(72, 309);
             this.lvDashboard.Margin = new System.Windows.Forms.Padding(2);
             this.lvDashboard.Name = "lvDashboard";
-            this.lvDashboard.Size = new System.Drawing.Size(935, 301);
+            this.lvDashboard.Size = new System.Drawing.Size(935, 286);
             this.lvDashboard.TabIndex = 3;
             this.lvDashboard.UseCompatibleStateImageBehavior = false;
             this.lvDashboard.View = System.Windows.Forms.View.Details;
@@ -484,10 +494,10 @@
             this.pnlWeeklyGoal.Controls.Add(this.lblGoalStatus);
             this.pnlWeeklyGoal.Controls.Add(this.lblGoalTitle);
             this.pnlWeeklyGoal.Controls.Add(this.lblWeeklyGoal);
-            this.pnlWeeklyGoal.Location = new System.Drawing.Point(767, 92);
+            this.pnlWeeklyGoal.Location = new System.Drawing.Point(767, 87);
             this.pnlWeeklyGoal.Margin = new System.Windows.Forms.Padding(2);
             this.pnlWeeklyGoal.Name = "pnlWeeklyGoal";
-            this.pnlWeeklyGoal.Size = new System.Drawing.Size(239, 191);
+            this.pnlWeeklyGoal.Size = new System.Drawing.Size(239, 182);
             this.pnlWeeklyGoal.TabIndex = 2;
             // 
             // lblGoalStatus
@@ -495,7 +505,7 @@
             this.lblGoalStatus.AutoSize = true;
             this.lblGoalStatus.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGoalStatus.ForeColor = System.Drawing.Color.Gray;
-            this.lblGoalStatus.Location = new System.Drawing.Point(2, 88);
+            this.lblGoalStatus.Location = new System.Drawing.Point(2, 84);
             this.lblGoalStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGoalStatus.Name = "lblGoalStatus";
             this.lblGoalStatus.Size = new System.Drawing.Size(19, 30);
@@ -507,7 +517,7 @@
             this.lblGoalTitle.AutoSize = true;
             this.lblGoalTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGoalTitle.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblGoalTitle.Location = new System.Drawing.Point(14, 44);
+            this.lblGoalTitle.Location = new System.Drawing.Point(14, 42);
             this.lblGoalTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGoalTitle.Name = "lblGoalTitle";
             this.lblGoalTitle.Size = new System.Drawing.Size(20, 30);
@@ -519,7 +529,7 @@
             this.lblWeeklyGoal.AutoSize = true;
             this.lblWeeklyGoal.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWeeklyGoal.ForeColor = System.Drawing.Color.Gray;
-            this.lblWeeklyGoal.Location = new System.Drawing.Point(58, 12);
+            this.lblWeeklyGoal.Location = new System.Drawing.Point(58, 11);
             this.lblWeeklyGoal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblWeeklyGoal.Name = "lblWeeklyGoal";
             this.lblWeeklyGoal.Size = new System.Drawing.Size(121, 25);
@@ -534,10 +544,10 @@
             this.pnlDeadlines.Controls.Add(this.lblDeadlinesStatus);
             this.pnlDeadlines.Controls.Add(this.lblDeadLinesValue);
             this.pnlDeadlines.Controls.Add(this.lblDeadlineTitle);
-            this.pnlDeadlines.Location = new System.Drawing.Point(436, 90);
+            this.pnlDeadlines.Location = new System.Drawing.Point(436, 86);
             this.pnlDeadlines.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDeadlines.Name = "pnlDeadlines";
-            this.pnlDeadlines.Size = new System.Drawing.Size(204, 193);
+            this.pnlDeadlines.Size = new System.Drawing.Size(204, 183);
             this.pnlDeadlines.TabIndex = 1;
             this.pnlDeadlines.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlDeadlines_Paint);
             // 
@@ -546,7 +556,7 @@
             this.lblDeadlinesStatus.AutoSize = true;
             this.lblDeadlinesStatus.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeadlinesStatus.ForeColor = System.Drawing.Color.Gray;
-            this.lblDeadlinesStatus.Location = new System.Drawing.Point(2, 105);
+            this.lblDeadlinesStatus.Location = new System.Drawing.Point(2, 100);
             this.lblDeadlinesStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDeadlinesStatus.Name = "lblDeadlinesStatus";
             this.lblDeadlinesStatus.Size = new System.Drawing.Size(17, 25);
@@ -558,7 +568,7 @@
             this.lblDeadLinesValue.AutoSize = true;
             this.lblDeadLinesValue.Font = new System.Drawing.Font("Segoe UI Symbol", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeadLinesValue.ForeColor = System.Drawing.Color.Orange;
-            this.lblDeadLinesValue.Location = new System.Drawing.Point(29, 54);
+            this.lblDeadLinesValue.Location = new System.Drawing.Point(29, 51);
             this.lblDeadLinesValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDeadLinesValue.Name = "lblDeadLinesValue";
             this.lblDeadLinesValue.Size = new System.Drawing.Size(27, 30);
@@ -571,7 +581,7 @@
             this.lblDeadlineTitle.AutoSize = true;
             this.lblDeadlineTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeadlineTitle.ForeColor = System.Drawing.Color.Gray;
-            this.lblDeadlineTitle.Location = new System.Drawing.Point(45, 14);
+            this.lblDeadlineTitle.Location = new System.Drawing.Point(45, 13);
             this.lblDeadlineTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDeadlineTitle.Name = "lblDeadlineTitle";
             this.lblDeadlineTitle.Size = new System.Drawing.Size(94, 25);
@@ -585,10 +595,10 @@
             this.pnlProgress.Controls.Add(this.lblProgressStatus);
             this.pnlProgress.Controls.Add(this.lblProgressValue);
             this.pnlProgress.Controls.Add(this.lblProgressTitle);
-            this.pnlProgress.Location = new System.Drawing.Point(86, 90);
+            this.pnlProgress.Location = new System.Drawing.Point(86, 86);
             this.pnlProgress.Margin = new System.Windows.Forms.Padding(2);
             this.pnlProgress.Name = "pnlProgress";
-            this.pnlProgress.Size = new System.Drawing.Size(249, 193);
+            this.pnlProgress.Size = new System.Drawing.Size(249, 183);
             this.pnlProgress.TabIndex = 0;
             // 
             // lblProgressStatus
@@ -596,7 +606,7 @@
             this.lblProgressStatus.AutoSize = true;
             this.lblProgressStatus.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProgressStatus.ForeColor = System.Drawing.Color.Gray;
-            this.lblProgressStatus.Location = new System.Drawing.Point(2, 90);
+            this.lblProgressStatus.Location = new System.Drawing.Point(2, 86);
             this.lblProgressStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProgressStatus.Name = "lblProgressStatus";
             this.lblProgressStatus.Size = new System.Drawing.Size(17, 25);
@@ -609,7 +619,7 @@
             this.lblProgressValue.AutoSize = true;
             this.lblProgressValue.Font = new System.Drawing.Font("Segoe UI Symbol", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProgressValue.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblProgressValue.Location = new System.Drawing.Point(37, 46);
+            this.lblProgressValue.Location = new System.Drawing.Point(37, 44);
             this.lblProgressValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProgressValue.Name = "lblProgressValue";
             this.lblProgressValue.Size = new System.Drawing.Size(35, 38);
@@ -622,7 +632,7 @@
             this.lblProgressTitle.AutoSize = true;
             this.lblProgressTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProgressTitle.ForeColor = System.Drawing.Color.Gray;
-            this.lblProgressTitle.Location = new System.Drawing.Point(68, 14);
+            this.lblProgressTitle.Location = new System.Drawing.Point(68, 13);
             this.lblProgressTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProgressTitle.Name = "lblProgressTitle";
             this.lblProgressTitle.Size = new System.Drawing.Size(99, 25);
@@ -631,7 +641,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.MistyRose;
+            this.tabPage3.BackColor = System.Drawing.Color.SeaShell;
             this.tabPage3.Controls.Add(this.dataGridViewReport);
             this.tabPage3.Controls.Add(this.btnGenerate);
             this.tabPage3.Controls.Add(this.dateTimePicker2);
@@ -639,11 +649,11 @@
             this.tabPage3.Controls.Add(this.lblToDate);
             this.tabPage3.Controls.Add(this.lblFromDate);
             this.tabPage3.ForeColor = System.Drawing.Color.Goldenrod;
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(1049, 717);
+            this.tabPage3.Size = new System.Drawing.Size(1049, 680);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Reports";
             // 
@@ -657,13 +667,13 @@
             this.ClmCompletedR,
             this.clmPendingR,
             this.ClmCompletionRate});
-            this.dataGridViewReport.Location = new System.Drawing.Point(83, 180);
+            this.dataGridViewReport.Location = new System.Drawing.Point(83, 171);
             this.dataGridViewReport.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewReport.Name = "dataGridViewReport";
             this.dataGridViewReport.RowHeadersVisible = false;
             this.dataGridViewReport.RowHeadersWidth = 82;
             this.dataGridViewReport.RowTemplate.Height = 33;
-            this.dataGridViewReport.Size = new System.Drawing.Size(899, 432);
+            this.dataGridViewReport.Size = new System.Drawing.Size(899, 410);
             this.dataGridViewReport.TabIndex = 5;
             this.dataGridViewReport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReport_CellContentClick);
             // 
@@ -704,13 +714,13 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnGenerate.BackColor = System.Drawing.Color.Goldenrod;
             this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGenerate.Location = new System.Drawing.Point(294, 97);
+            this.btnGenerate.ForeColor = System.Drawing.SystemColors.Info;
+            this.btnGenerate.Location = new System.Drawing.Point(377, 96);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(463, 79);
+            this.btnGenerate.Size = new System.Drawing.Size(268, 56);
             this.btnGenerate.TabIndex = 4;
             this.btnGenerate.Text = "Generate Report";
             this.btnGenerate.UseVisualStyleBackColor = false;
@@ -720,50 +730,51 @@
             // 
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker2.Location = new System.Drawing.Point(630, 53);
+            this.dateTimePicker2.Location = new System.Drawing.Point(630, 50);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker2.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker2.MinDate = new System.DateTime(2026, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(276, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(276, 27);
             this.dateTimePicker2.TabIndex = 3;
             this.dateTimePicker2.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePicker2_Validating);
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(182, 54);
+            this.dateTimePicker1.Location = new System.Drawing.Point(182, 51);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(274, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(274, 27);
             this.dateTimePicker1.TabIndex = 2;
             this.dateTimePicker1.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePicker1_Validating);
             // 
             // lblToDate
             // 
             this.lblToDate.AutoSize = true;
-            this.lblToDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblToDate.Location = new System.Drawing.Point(569, 45);
+            this.lblToDate.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold);
+            this.lblToDate.Location = new System.Drawing.Point(568, 47);
             this.lblToDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblToDate.Name = "lblToDate";
-            this.lblToDate.Size = new System.Drawing.Size(58, 32);
+            this.lblToDate.Size = new System.Drawing.Size(49, 32);
             this.lblToDate.TabIndex = 1;
             this.lblToDate.Text = "To:";
             // 
             // lblFromDate
             // 
             this.lblFromDate.AutoSize = true;
-            this.lblFromDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFromDate.Location = new System.Drawing.Point(88, 45);
+            this.lblFromDate.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold);
+            this.lblFromDate.Location = new System.Drawing.Point(86, 47);
             this.lblFromDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFromDate.Name = "lblFromDate";
-            this.lblFromDate.Size = new System.Drawing.Size(92, 32);
+            this.lblFromDate.Size = new System.Drawing.Size(79, 32);
             this.lblFromDate.TabIndex = 0;
             this.lblFromDate.Text = "From:";
+            this.lblFromDate.Click += new System.EventHandler(this.lblFromDate_Click);
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.MistyRose;
+            this.tabPage2.BackColor = System.Drawing.Color.SeaShell;
             this.tabPage2.Controls.Add(this.btnSearch);
             this.tabPage2.Controls.Add(this.btnClear2);
             this.tabPage2.Controls.Add(this.btnMark);
@@ -773,24 +784,25 @@
             this.tabPage2.Controls.Add(this.cmbFilter);
             this.tabPage2.Controls.Add(this.lblFilter);
             this.tabPage2.ForeColor = System.Drawing.Color.Goldenrod;
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(1049, 717);
+            this.tabPage2.Size = new System.Drawing.Size(1049, 680);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ViewTask";
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             this.tabPage2.Resize += new System.EventHandler(this.tabPage2_Resize);
             // 
             // btnSearch
             // 
-            this.btnSearch.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnSearch.Location = new System.Drawing.Point(790, 66);
+            this.btnSearch.BackColor = System.Drawing.Color.LightYellow;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
+            this.btnSearch.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnSearch.Location = new System.Drawing.Point(718, 51);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(171, 42);
+            this.btnSearch.Size = new System.Drawing.Size(268, 56);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -799,11 +811,12 @@
             // btnClear2
             // 
             this.btnClear2.BackColor = System.Drawing.Color.DarkGray;
-            this.btnClear2.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnClear2.Location = new System.Drawing.Point(468, 584);
+            this.btnClear2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
+            this.btnClear2.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnClear2.Location = new System.Drawing.Point(498, 565);
             this.btnClear2.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear2.Name = "btnClear2";
-            this.btnClear2.Size = new System.Drawing.Size(259, 52);
+            this.btnClear2.Size = new System.Drawing.Size(268, 56);
             this.btnClear2.TabIndex = 6;
             this.btnClear2.Text = "Clear";
             this.btnClear2.UseVisualStyleBackColor = false;
@@ -811,13 +824,13 @@
             // 
             // btnMark
             // 
-            this.btnMark.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnMark.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMark.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnMark.Location = new System.Drawing.Point(194, 584);
+            this.btnMark.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnMark.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
+            this.btnMark.ForeColor = System.Drawing.SystemColors.Info;
+            this.btnMark.Location = new System.Drawing.Point(206, 565);
             this.btnMark.Margin = new System.Windows.Forms.Padding(2);
             this.btnMark.Name = "btnMark";
-            this.btnMark.Size = new System.Drawing.Size(262, 52);
+            this.btnMark.Size = new System.Drawing.Size(268, 56);
             this.btnMark.TabIndex = 5;
             this.btnMark.Text = "Mark Task Completed";
             this.btnMark.UseVisualStyleBackColor = false;
@@ -839,10 +852,10 @@
             this.lvTasks.FullRowSelect = true;
             this.lvTasks.GridLines = true;
             this.lvTasks.HideSelection = false;
-            this.lvTasks.Location = new System.Drawing.Point(52, 140);
+            this.lvTasks.Location = new System.Drawing.Point(52, 133);
             this.lvTasks.Margin = new System.Windows.Forms.Padding(2);
             this.lvTasks.Name = "lvTasks";
-            this.lvTasks.Size = new System.Drawing.Size(934, 425);
+            this.lvTasks.Size = new System.Drawing.Size(934, 404);
             this.lvTasks.TabIndex = 4;
             this.lvTasks.UseCompatibleStateImageBehavior = false;
             this.lvTasks.View = System.Windows.Forms.View.Details;
@@ -885,18 +898,19 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(451, 66);
+            this.txtSearch.Location = new System.Drawing.Point(448, 52);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(230, 39);
+            this.txtSearch.Size = new System.Drawing.Size(180, 39);
             this.txtSearch.TabIndex = 1;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.Validating += new System.ComponentModel.CancelEventHandler(this.txtSearch_Validating);
             // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(328, 67);
+            this.lblSearch.Location = new System.Drawing.Point(347, 59);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(97, 32);
@@ -913,10 +927,10 @@
             "This Month",
             "Completed",
             "Overdue"});
-            this.cmbFilter.Location = new System.Drawing.Point(101, 67);
+            this.cmbFilter.Location = new System.Drawing.Point(127, 64);
             this.cmbFilter.Margin = new System.Windows.Forms.Padding(2);
             this.cmbFilter.Name = "cmbFilter";
-            this.cmbFilter.Size = new System.Drawing.Size(180, 28);
+            this.cmbFilter.Size = new System.Drawing.Size(180, 27);
             this.cmbFilter.TabIndex = 2;
             this.cmbFilter.Validating += new System.ComponentModel.CancelEventHandler(this.cmbFilter_Validating);
             // 
@@ -924,16 +938,17 @@
             // 
             this.lblFilter.AutoSize = true;
             this.lblFilter.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFilter.Location = new System.Drawing.Point(18, 60);
+            this.lblFilter.Location = new System.Drawing.Point(44, 59);
             this.lblFilter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFilter.Name = "lblFilter";
             this.lblFilter.Size = new System.Drawing.Size(79, 32);
             this.lblFilter.TabIndex = 0;
             this.lblFilter.Text = "Filter:";
+            this.lblFilter.Click += new System.EventHandler(this.lblFilter_Click);
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.MistyRose;
+            this.tabPage1.BackColor = System.Drawing.Color.SeaShell;
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.endDatePicker);
             this.tabPage1.Controls.Add(this.lblEndDate);
@@ -956,23 +971,34 @@
             this.tabPage1.Controls.Add(this.lblCategory);
             this.tabPage1.Controls.Add(this.lblEstimatedTime);
             this.tabPage1.ForeColor = System.Drawing.Color.Goldenrod;
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(1049, 717);
+            this.tabPage1.Size = new System.Drawing.Size(1049, 680);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "AddTask";
+            // 
+            // label6
+            // 
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("MS PGothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Goldenrod;
+            this.label6.Location = new System.Drawing.Point(19, 2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(430, 52);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Add Tasks Here ";
             // 
             // endDatePicker
             // 
             this.endDatePicker.CustomFormat = "dd/MM/yyyy";
             this.endDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.endDatePicker.Location = new System.Drawing.Point(179, 366);
+            this.endDatePicker.Location = new System.Drawing.Point(179, 348);
             this.endDatePicker.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.endDatePicker.MinDate = new System.DateTime(2026, 1, 1, 0, 0, 0, 0);
             this.endDatePicker.Name = "endDatePicker";
-            this.endDatePicker.Size = new System.Drawing.Size(292, 26);
+            this.endDatePicker.Size = new System.Drawing.Size(292, 27);
             this.endDatePicker.TabIndex = 26;
             this.endDatePicker.Value = new System.DateTime(2026, 3, 11, 0, 0, 0, 0);
             this.endDatePicker.Validating += new System.ComponentModel.CancelEventHandler(this.endDatePicker_Validating);
@@ -981,7 +1007,7 @@
             // 
             this.lblEndDate.AutoSize = true;
             this.lblEndDate.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEndDate.Location = new System.Drawing.Point(21, 360);
+            this.lblEndDate.Location = new System.Drawing.Point(21, 342);
             this.lblEndDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEndDate.Name = "lblEndDate";
             this.lblEndDate.Size = new System.Drawing.Size(119, 32);
@@ -990,7 +1016,7 @@
             // 
             // numHours
             // 
-            this.numHours.Location = new System.Drawing.Point(108, 569);
+            this.numHours.Location = new System.Drawing.Point(108, 541);
             this.numHours.Maximum = new decimal(new int[] {
             24,
             0,
@@ -1002,7 +1028,7 @@
             0,
             0});
             this.numHours.Name = "numHours";
-            this.numHours.Size = new System.Drawing.Size(120, 26);
+            this.numHours.Size = new System.Drawing.Size(120, 27);
             this.numHours.TabIndex = 24;
             this.numHours.Value = new decimal(new int[] {
             1,
@@ -1012,14 +1038,14 @@
             // 
             // numMinutes
             // 
-            this.numMinutes.Location = new System.Drawing.Point(351, 567);
+            this.numMinutes.Location = new System.Drawing.Point(351, 539);
             this.numMinutes.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
             this.numMinutes.Name = "numMinutes";
-            this.numMinutes.Size = new System.Drawing.Size(120, 26);
+            this.numMinutes.Size = new System.Drawing.Size(120, 27);
             this.numMinutes.TabIndex = 23;
             this.numMinutes.ValueChanged += new System.EventHandler(this.numMinutes_ValueChanged);
             // 
@@ -1030,9 +1056,9 @@
             this.grpPriority.Controls.Add(this.rbLow);
             this.grpPriority.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPriority.ForeColor = System.Drawing.Color.Goldenrod;
-            this.grpPriority.Location = new System.Drawing.Point(24, 432);
+            this.grpPriority.Location = new System.Drawing.Point(24, 410);
             this.grpPriority.Name = "grpPriority";
-            this.grpPriority.Size = new System.Drawing.Size(447, 101);
+            this.grpPriority.Size = new System.Drawing.Size(447, 96);
             this.grpPriority.TabIndex = 22;
             this.grpPriority.TabStop = false;
             this.grpPriority.Text = "Priority";
@@ -1041,7 +1067,7 @@
             // rbHigh
             // 
             this.rbHigh.AutoSize = true;
-            this.rbHigh.Location = new System.Drawing.Point(315, 38);
+            this.rbHigh.Location = new System.Drawing.Point(315, 36);
             this.rbHigh.Name = "rbHigh";
             this.rbHigh.Size = new System.Drawing.Size(94, 36);
             this.rbHigh.TabIndex = 2;
@@ -1052,7 +1078,7 @@
             // rbMedium
             // 
             this.rbMedium.AutoSize = true;
-            this.rbMedium.Location = new System.Drawing.Point(133, 38);
+            this.rbMedium.Location = new System.Drawing.Point(133, 36);
             this.rbMedium.Name = "rbMedium";
             this.rbMedium.Size = new System.Drawing.Size(135, 36);
             this.rbMedium.TabIndex = 1;
@@ -1064,7 +1090,7 @@
             // 
             this.rbLow.AutoSize = true;
             this.rbLow.ForeColor = System.Drawing.Color.Goldenrod;
-            this.rbLow.Location = new System.Drawing.Point(6, 38);
+            this.rbLow.Location = new System.Drawing.Point(6, 36);
             this.rbLow.Name = "rbLow";
             this.rbLow.Size = new System.Drawing.Size(84, 36);
             this.rbLow.TabIndex = 0;
@@ -1077,24 +1103,24 @@
             // 
             this.StartDatePicker.CustomFormat = "dd/MM/yyyy";
             this.StartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.StartDatePicker.Location = new System.Drawing.Point(179, 285);
+            this.StartDatePicker.Location = new System.Drawing.Point(179, 271);
             this.StartDatePicker.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.StartDatePicker.MinDate = new System.DateTime(2026, 1, 1, 0, 0, 0, 0);
             this.StartDatePicker.Name = "StartDatePicker";
-            this.StartDatePicker.Size = new System.Drawing.Size(292, 26);
+            this.StartDatePicker.Size = new System.Drawing.Size(292, 27);
             this.StartDatePicker.TabIndex = 21;
             this.StartDatePicker.ValueChanged += new System.EventHandler(this.StartDatePicker_ValueChanged);
             this.StartDatePicker.Validating += new System.ComponentModel.CancelEventHandler(this.StartDatePicker_Validating);
             // 
             // btnEdit
             // 
-            this.btnEdit.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnEdit.Location = new System.Drawing.Point(660, 149);
+            this.btnEdit.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.Info;
+            this.btnEdit.Location = new System.Drawing.Point(660, 142);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(268, 59);
+            this.btnEdit.Size = new System.Drawing.Size(268, 56);
             this.btnEdit.TabIndex = 20;
             this.btnEdit.Text = "EditTask";
             this.btnEdit.UseVisualStyleBackColor = false;
@@ -1102,13 +1128,13 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Red;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnDelete.Location = new System.Drawing.Point(660, 252);
+            this.btnDelete.BackColor = System.Drawing.Color.LightYellow;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnDelete.Location = new System.Drawing.Point(660, 239);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(268, 59);
+            this.btnDelete.Size = new System.Drawing.Size(268, 56);
             this.btnDelete.TabIndex = 19;
             this.btnDelete.Text = "DeleteTask";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -1117,12 +1143,12 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.DarkGray;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI Symbol", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnClear.Location = new System.Drawing.Point(660, 348);
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
+            this.btnClear.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnClear.Location = new System.Drawing.Point(660, 331);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(268, 59);
+            this.btnClear.Size = new System.Drawing.Size(268, 56);
             this.btnClear.TabIndex = 18;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -1130,13 +1156,13 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Symbol", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdd.Location = new System.Drawing.Point(660, 52);
+            this.btnAdd.BackColor = System.Drawing.Color.LightYellow;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnAdd.Location = new System.Drawing.Point(660, 49);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(268, 59);
+            this.btnAdd.Size = new System.Drawing.Size(268, 56);
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "AddTask";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -1152,7 +1178,7 @@
             "Assignment",
             "Quiz",
             "Exam"});
-            this.cmbType.Location = new System.Drawing.Point(179, 201);
+            this.cmbType.Location = new System.Drawing.Point(179, 191);
             this.cmbType.Margin = new System.Windows.Forms.Padding(2);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(292, 40);
@@ -1163,7 +1189,7 @@
             // 
             this.lblType.AutoSize = true;
             this.lblType.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblType.Location = new System.Drawing.Point(18, 204);
+            this.lblType.Location = new System.Drawing.Point(18, 194);
             this.lblType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(70, 32);
@@ -1175,7 +1201,7 @@
             this.lblMinutes.AutoSize = true;
             this.lblMinutes.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMinutes.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lblMinutes.Location = new System.Drawing.Point(238, 561);
+            this.lblMinutes.Location = new System.Drawing.Point(238, 533);
             this.lblMinutes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMinutes.Name = "lblMinutes";
             this.lblMinutes.Size = new System.Drawing.Size(108, 32);
@@ -1186,7 +1212,7 @@
             // txtCategory
             // 
             this.txtCategory.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategory.Location = new System.Drawing.Point(179, 129);
+            this.txtCategory.Location = new System.Drawing.Point(179, 123);
             this.txtCategory.Margin = new System.Windows.Forms.Padding(2);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(292, 39);
@@ -1197,7 +1223,7 @@
             // txtTitle
             // 
             this.txtTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitle.Location = new System.Drawing.Point(179, 66);
+            this.txtTitle.Location = new System.Drawing.Point(179, 63);
             this.txtTitle.Margin = new System.Windows.Forms.Padding(2);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(292, 39);
@@ -1208,7 +1234,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(18, 67);
+            this.lblTitle.Location = new System.Drawing.Point(18, 64);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(65, 32);
@@ -1219,7 +1245,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(21, 285);
+            this.lblDate.Location = new System.Drawing.Point(21, 271);
             this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(130, 32);
@@ -1231,7 +1257,7 @@
             this.lblHours.AutoSize = true;
             this.lblHours.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHours.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lblHours.Location = new System.Drawing.Point(21, 563);
+            this.lblHours.Location = new System.Drawing.Point(21, 535);
             this.lblHours.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHours.Name = "lblHours";
             this.lblHours.Size = new System.Drawing.Size(82, 32);
@@ -1242,7 +1268,7 @@
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(18, 129);
+            this.lblCategory.Location = new System.Drawing.Point(18, 123);
             this.lblCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(118, 32);
@@ -1253,7 +1279,7 @@
             // 
             this.lblEstimatedTime.AutoSize = true;
             this.lblEstimatedTime.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstimatedTime.Location = new System.Drawing.Point(489, 348);
+            this.lblEstimatedTime.Location = new System.Drawing.Point(489, 331);
             this.lblEstimatedTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEstimatedTime.Name = "lblEstimatedTime";
             this.lblEstimatedTime.Size = new System.Drawing.Size(0, 32);
@@ -1272,41 +1298,41 @@
             this.MineTap.Margin = new System.Windows.Forms.Padding(2);
             this.MineTap.Name = "MineTap";
             this.MineTap.SelectedIndex = 0;
-            this.MineTap.Size = new System.Drawing.Size(1057, 750);
+            this.MineTap.Size = new System.Drawing.Size(1057, 712);
             this.MineTap.TabIndex = 5;
             // 
             // tabPage6
             // 
-            this.tabPage6.BackColor = System.Drawing.Color.MistyRose;
+            this.tabPage6.BackColor = System.Drawing.Color.SeaShell;
             this.tabPage6.Controls.Add(this.panel1);
             this.tabPage6.Controls.Add(this.pictureBox2);
             this.tabPage6.Controls.Add(this.pictureBox1);
             this.tabPage6.Controls.Add(this.pnlMotivation);
             this.tabPage6.Controls.Add(this.label5);
             this.tabPage6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
+            this.tabPage6.Location = new System.Drawing.Point(4, 28);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1049, 717);
+            this.tabPage6.Size = new System.Drawing.Size(1049, 680);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Home";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.MistyRose;
+            this.panel1.BackColor = System.Drawing.Color.SeaShell;
             this.panel1.Controls.Add(this.lblStreak);
             this.panel1.Controls.Add(this.lblStreak1);
-            this.panel1.Location = new System.Drawing.Point(18, 116);
+            this.panel1.Location = new System.Drawing.Point(18, 110);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(468, 358);
+            this.panel1.Size = new System.Drawing.Size(468, 340);
             this.panel1.TabIndex = 4;
             // 
             // lblStreak
             // 
             this.lblStreak.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStreak.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lblStreak.Location = new System.Drawing.Point(25, 75);
+            this.lblStreak.Location = new System.Drawing.Point(25, 71);
             this.lblStreak.Name = "lblStreak";
-            this.lblStreak.Size = new System.Drawing.Size(413, 270);
+            this.lblStreak.Size = new System.Drawing.Size(413, 256);
             this.lblStreak.TabIndex = 1;
             this.lblStreak.Text = "label6";
             this.lblStreak.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1315,9 +1341,9 @@
             // 
             this.lblStreak1.Font = new System.Drawing.Font("Myanmar Text", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStreak1.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lblStreak1.Location = new System.Drawing.Point(50, 12);
+            this.lblStreak1.Location = new System.Drawing.Point(50, 11);
             this.lblStreak1.Name = "lblStreak1";
-            this.lblStreak1.Size = new System.Drawing.Size(360, 48);
+            this.lblStreak1.Size = new System.Drawing.Size(360, 46);
             this.lblStreak1.TabIndex = 0;
             this.lblStreak1.Text = "Your Streak !!";
             this.lblStreak1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -1325,9 +1351,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Student_Study_Planner.Properties.Resources._5852469815497395490;
-            this.pictureBox2.Location = new System.Drawing.Point(79, 464);
+            this.pictureBox2.Location = new System.Drawing.Point(79, 441);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(343, 214);
+            this.pictureBox2.Size = new System.Drawing.Size(343, 203);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -1335,9 +1361,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Student_Study_Planner.Properties.Resources.WhatsApp_Image_2026_03_03_at_1_05_55_AM;
-            this.pictureBox1.Location = new System.Drawing.Point(697, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(697, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(191, 187);
+            this.pictureBox1.Size = new System.Drawing.Size(191, 178);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -1345,21 +1371,21 @@
             // 
             // pnlMotivation
             // 
-            this.pnlMotivation.BackColor = System.Drawing.Color.MistyRose;
+            this.pnlMotivation.BackColor = System.Drawing.Color.SeaShell;
             this.pnlMotivation.Controls.Add(this.lblMotivationText);
             this.pnlMotivation.Controls.Add(this.lblMotivationTitle);
-            this.pnlMotivation.Location = new System.Drawing.Point(523, 229);
+            this.pnlMotivation.Location = new System.Drawing.Point(523, 218);
             this.pnlMotivation.Name = "pnlMotivation";
-            this.pnlMotivation.Size = new System.Drawing.Size(489, 388);
+            this.pnlMotivation.Size = new System.Drawing.Size(489, 369);
             this.pnlMotivation.TabIndex = 1;
             // 
             // lblMotivationText
             // 
             this.lblMotivationText.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMotivationText.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lblMotivationText.Location = new System.Drawing.Point(25, 90);
+            this.lblMotivationText.Location = new System.Drawing.Point(25, 86);
             this.lblMotivationText.Name = "lblMotivationText";
-            this.lblMotivationText.Size = new System.Drawing.Size(446, 283);
+            this.lblMotivationText.Size = new System.Drawing.Size(446, 269);
             this.lblMotivationText.TabIndex = 1;
             this.lblMotivationText.Text = "label6";
             this.lblMotivationText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1368,9 +1394,9 @@
             // 
             this.lblMotivationTitle.Font = new System.Drawing.Font("Myanmar Text", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMotivationTitle.ForeColor = System.Drawing.Color.Goldenrod;
-            this.lblMotivationTitle.Location = new System.Drawing.Point(95, 14);
+            this.lblMotivationTitle.Location = new System.Drawing.Point(95, 13);
             this.lblMotivationTitle.Name = "lblMotivationTitle";
-            this.lblMotivationTitle.Size = new System.Drawing.Size(360, 48);
+            this.lblMotivationTitle.Size = new System.Drawing.Size(360, 46);
             this.lblMotivationTitle.TabIndex = 0;
             this.lblMotivationTitle.Text = "Motivation For U !";
             this.lblMotivationTitle.Click += new System.EventHandler(this.lblMotivationTitle_Click);
@@ -1380,29 +1406,18 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label5.Font = new System.Drawing.Font("MS PGothic", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Goldenrod;
-            this.label5.Location = new System.Drawing.Point(8, 14);
+            this.label5.Location = new System.Drawing.Point(8, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(478, 69);
+            this.label5.Size = new System.Drawing.Size(478, 66);
             this.label5.TabIndex = 0;
             this.label5.Text = "Welcome Back !";
             // 
-            // label6
-            // 
-            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label6.Font = new System.Drawing.Font("MS PGothic", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Goldenrod;
-            this.label6.Location = new System.Drawing.Point(3, 2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(468, 57);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Add Tasks Here ";
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
-            this.ClientSize = new System.Drawing.Size(1057, 750);
+            this.ClientSize = new System.Drawing.Size(1057, 712);
             this.Controls.Add(this.MineTap);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);

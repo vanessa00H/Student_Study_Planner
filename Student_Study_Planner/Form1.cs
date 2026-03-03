@@ -339,7 +339,7 @@ namespace Student_Study_Planner
             if (string.IsNullOrWhiteSpace(txtTitle.Text) ||
                 string.IsNullOrWhiteSpace(txtCategory.Text) ||
                 cmbType.SelectedIndex == -1 ||
-                (!r1.Checked && !r3.Checked && !r.Checked) ||
+                (!rbLow.Checked && !rbMedium.Checked && !rbHigh.Checked) ||
                 (numHours.Value == 0 && numMinutes.Value == 0))
             {
                 MessageBox.Show("Please fill all required fields.",

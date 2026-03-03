@@ -1364,6 +1364,26 @@ namespace Student_Study_Planner
         {
 
         }
+
+        private void lblFilter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFromDate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     

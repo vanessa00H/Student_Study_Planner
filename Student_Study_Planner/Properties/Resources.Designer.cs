@@ -63,6 +63,16 @@ namespace Student_Study_Planner.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5852469815497395490 {
+            get {
+                object obj = ResourceManager.GetObject("5852469815497395490", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhatsApp_Image_2026_03_03_at_1_05_55_AM {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Image 2026-03-03 at 1.05.55 AM", resourceCulture);

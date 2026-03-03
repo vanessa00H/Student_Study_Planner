@@ -38,6 +38,7 @@ namespace Student_Study_Planner
 
             LoadTasks(); // Load tasks when the form initializes
             InitializHome();
+            UpdateStreak();
         }
         // Save tasks to a CSV file
         private void SaveTasks()
@@ -1265,6 +1266,74 @@ namespace Student_Study_Planner
         private void lblMotivationTitle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void UpdateStreak()
+        {
+            int streak = 0;
+            DateTime checkDate = DateTime.Now.Date;
+
+           
+            while (checkDate >= DateTime.Now.AddMonths(-3))
+            {
+                var dayTasks = items
+                    .Where(i => i.Date.Date == checkDate)
+                    .ToList();
+
+                if (dayTasks.Count > 0 && dayTasks.All(t => t.IsCompleted))
+                {
+                    streak++;
+                    checkDate = checkDate.AddDays(-1);
+                }
+                else if (dayTasks.Count > 0)
+                {
+                    break;
+                }
+                else
+                {
+                    checkDate = checkDate.AddDays(-1);
+                }
+            }
+
+            
+            var todayTasks = items
+                .Where(i => i.Date.Date == DateTime.Now.Date)
+                .ToList();
+
+            bool todayCompleted =
+                todayTasks.Count > 0 &&
+                todayTasks.All(t => t.IsCompleted);
+
+            
+
+            if (streak == 0 && !todayCompleted)
+            {
+                lblStreak.Text =
+                    "💔 STREAK LOST" + Environment.NewLine +
+                    Environment.NewLine +
+                    "Start again today 🔥" + Environment.NewLine +
+                    "You can do it!";
+            }
+            else if (streak == 0 && todayCompleted)
+            {
+                lblStreak.Text =
+                    "🔥 DAY 1 STARTED!" + Environment.NewLine +
+                    Environment.NewLine +
+                    "Keep it going 💪";
+            }
+            else
+            {
+                lblStreak.Text =
+                    "🔥 STREAK 🔥" + Environment.NewLine +
+                    Environment.NewLine +
+                    streak + " Days" + Environment.NewLine +
+                    Environment.NewLine +
+                    "You’re on fire 🚀";
+            }
         }
     }
 }

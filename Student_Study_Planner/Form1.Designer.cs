@@ -121,11 +121,15 @@
             this.lblEstimatedTime = new System.Windows.Forms.Label();
             this.MineTap = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblStreak = new System.Windows.Forms.Label();
+            this.lblStreak1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlMotivation = new System.Windows.Forms.Panel();
             this.lblMotivationText = new System.Windows.Forms.Label();
             this.lblMotivationTitle = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage5.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -144,8 +148,10 @@
             this.grpPriority.SuspendLayout();
             this.MineTap.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            this.pnlMotivation.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlMotivation.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -249,17 +255,18 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.BackColor = System.Drawing.Color.MistyRose;
             this.tabPage5.Controls.Add(this.groupBox5);
             this.tabPage5.Controls.Add(this.groupBox4);
             this.tabPage5.Controls.Add(this.groupBox3);
+            this.tabPage5.ForeColor = System.Drawing.Color.Goldenrod;
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage5.Size = new System.Drawing.Size(1088, 807);
+            this.tabPage5.Size = new System.Drawing.Size(1049, 717);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Setting";
-            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
@@ -302,11 +309,11 @@
             this.groupBox4.Controls.Add(this.btnClearAll);
             this.groupBox4.Controls.Add(this.btnSaveExit);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(53, 546);
+            this.groupBox4.Location = new System.Drawing.Point(489, 79);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(680, 209);
+            this.groupBox4.Size = new System.Drawing.Size(493, 209);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Data Managment";
@@ -314,6 +321,7 @@
             // btnClearAll
             // 
             this.btnClearAll.BackColor = System.Drawing.Color.DarkGray;
+            this.btnClearAll.ForeColor = System.Drawing.SystemColors.MenuText;
             this.btnClearAll.Location = new System.Drawing.Point(221, 82);
             this.btnClearAll.Margin = new System.Windows.Forms.Padding(2);
             this.btnClearAll.Name = "btnClearAll";
@@ -347,7 +355,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(680, 227);
+            this.groupBox3.Size = new System.Drawing.Size(393, 227);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Weekly Study Goal";
@@ -400,20 +408,21 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.BackColor = System.Drawing.Color.MistyRose;
             this.tabPage4.Controls.Add(this.lblDashboard);
             this.tabPage4.Controls.Add(this.lvDashboard);
             this.tabPage4.Controls.Add(this.pnlWeeklyGoal);
             this.tabPage4.Controls.Add(this.pnlDeadlines);
             this.tabPage4.Controls.Add(this.pnlProgress);
             this.tabPage4.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage4.ForeColor = System.Drawing.Color.Goldenrod;
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage4.Size = new System.Drawing.Size(1088, 807);
+            this.tabPage4.Size = new System.Drawing.Size(1049, 717);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Dashboard";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // lblDashboard
             // 
@@ -621,20 +630,21 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.BackColor = System.Drawing.Color.MistyRose;
             this.tabPage3.Controls.Add(this.dataGridViewReport);
             this.tabPage3.Controls.Add(this.btnGenerate);
             this.tabPage3.Controls.Add(this.dateTimePicker2);
             this.tabPage3.Controls.Add(this.dateTimePicker1);
             this.tabPage3.Controls.Add(this.lblToDate);
             this.tabPage3.Controls.Add(this.lblFromDate);
+            this.tabPage3.ForeColor = System.Drawing.Color.Goldenrod;
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(1088, 807);
+            this.tabPage3.Size = new System.Drawing.Size(1049, 717);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Reports";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dataGridViewReport
             // 
@@ -752,6 +762,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.MistyRose;
             this.tabPage2.Controls.Add(this.btnSearch);
             this.tabPage2.Controls.Add(this.btnClear2);
             this.tabPage2.Controls.Add(this.btnMark);
@@ -760,14 +771,14 @@
             this.tabPage2.Controls.Add(this.lblSearch);
             this.tabPage2.Controls.Add(this.cmbFilter);
             this.tabPage2.Controls.Add(this.lblFilter);
+            this.tabPage2.ForeColor = System.Drawing.Color.Goldenrod;
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(1088, 807);
+            this.tabPage2.Size = new System.Drawing.Size(1049, 717);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ViewTask";
-            this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Resize += new System.EventHandler(this.tabPage2_Resize);
             // 
             // btnSearch
@@ -788,7 +799,7 @@
             // 
             this.btnClear2.BackColor = System.Drawing.Color.DarkGray;
             this.btnClear2.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnClear2.Location = new System.Drawing.Point(524, 697);
+            this.btnClear2.Location = new System.Drawing.Point(487, 587);
             this.btnClear2.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear2.Name = "btnClear2";
             this.btnClear2.Size = new System.Drawing.Size(259, 52);
@@ -802,7 +813,7 @@
             this.btnMark.BackColor = System.Drawing.Color.LimeGreen;
             this.btnMark.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMark.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnMark.Location = new System.Drawing.Point(179, 697);
+            this.btnMark.Location = new System.Drawing.Point(182, 587);
             this.btnMark.Margin = new System.Windows.Forms.Padding(2);
             this.btnMark.Name = "btnMark";
             this.btnMark.Size = new System.Drawing.Size(262, 52);
@@ -830,7 +841,7 @@
             this.lvTasks.Location = new System.Drawing.Point(52, 166);
             this.lvTasks.Margin = new System.Windows.Forms.Padding(2);
             this.lvTasks.Name = "lvTasks";
-            this.lvTasks.Size = new System.Drawing.Size(973, 489);
+            this.lvTasks.Size = new System.Drawing.Size(934, 399);
             this.lvTasks.TabIndex = 4;
             this.lvTasks.UseCompatibleStateImageBehavior = false;
             this.lvTasks.View = System.Windows.Forms.View.Details;
@@ -921,7 +932,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.BackColor = System.Drawing.Color.MistyRose;
             this.tabPage1.Controls.Add(this.endDatePicker);
             this.tabPage1.Controls.Add(this.lblEndDate);
             this.tabPage1.Controls.Add(this.numHours);
@@ -942,12 +953,12 @@
             this.tabPage1.Controls.Add(this.lblHours);
             this.tabPage1.Controls.Add(this.lblCategory);
             this.tabPage1.Controls.Add(this.lblEstimatedTime);
-            this.tabPage1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.tabPage1.ForeColor = System.Drawing.Color.Goldenrod;
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(1088, 807);
+            this.tabPage1.Size = new System.Drawing.Size(1049, 717);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "AddTask";
             // 
@@ -1255,29 +1266,85 @@
             this.MineTap.Margin = new System.Windows.Forms.Padding(2);
             this.MineTap.Name = "MineTap";
             this.MineTap.SelectedIndex = 0;
-            this.MineTap.Size = new System.Drawing.Size(1096, 840);
+            this.MineTap.Size = new System.Drawing.Size(1057, 750);
             this.MineTap.TabIndex = 5;
             // 
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.MistyRose;
+            this.tabPage6.Controls.Add(this.panel1);
+            this.tabPage6.Controls.Add(this.pictureBox2);
             this.tabPage6.Controls.Add(this.pictureBox1);
             this.tabPage6.Controls.Add(this.pnlMotivation);
             this.tabPage6.Controls.Add(this.label5);
             this.tabPage6.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.tabPage6.Location = new System.Drawing.Point(4, 29);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1088, 807);
+            this.tabPage6.Size = new System.Drawing.Size(1049, 717);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Home";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.MistyRose;
+            this.panel1.Controls.Add(this.lblStreak);
+            this.panel1.Controls.Add(this.lblStreak1);
+            this.panel1.Location = new System.Drawing.Point(18, 116);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(468, 358);
+            this.panel1.TabIndex = 4;
+            // 
+            // lblStreak
+            // 
+            this.lblStreak.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStreak.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lblStreak.Location = new System.Drawing.Point(25, 75);
+            this.lblStreak.Name = "lblStreak";
+            this.lblStreak.Size = new System.Drawing.Size(413, 270);
+            this.lblStreak.TabIndex = 1;
+            this.lblStreak.Text = "label6";
+            this.lblStreak.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblStreak1
+            // 
+            this.lblStreak1.Font = new System.Drawing.Font("Myanmar Text", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStreak1.ForeColor = System.Drawing.Color.Goldenrod;
+            this.lblStreak1.Location = new System.Drawing.Point(50, 12);
+            this.lblStreak1.Name = "lblStreak1";
+            this.lblStreak1.Size = new System.Drawing.Size(360, 48);
+            this.lblStreak1.TabIndex = 0;
+            this.lblStreak1.Text = "Your Streak !!";
+            this.lblStreak1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Student_Study_Planner.Properties.Resources._5852469815497395490;
+            this.pictureBox2.Location = new System.Drawing.Point(79, 464);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(343, 214);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Student_Study_Planner.Properties.Resources.WhatsApp_Image_2026_03_03_at_1_05_55_AM;
+            this.pictureBox1.Location = new System.Drawing.Point(697, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(191, 187);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // pnlMotivation
             // 
+            this.pnlMotivation.BackColor = System.Drawing.Color.MistyRose;
             this.pnlMotivation.Controls.Add(this.lblMotivationText);
             this.pnlMotivation.Controls.Add(this.lblMotivationTitle);
             this.pnlMotivation.Location = new System.Drawing.Point(523, 229);
             this.pnlMotivation.Name = "pnlMotivation";
-            this.pnlMotivation.Size = new System.Drawing.Size(538, 388);
+            this.pnlMotivation.Size = new System.Drawing.Size(489, 388);
             this.pnlMotivation.TabIndex = 1;
             // 
             // lblMotivationText
@@ -1286,7 +1353,7 @@
             this.lblMotivationText.ForeColor = System.Drawing.Color.Goldenrod;
             this.lblMotivationText.Location = new System.Drawing.Point(25, 90);
             this.lblMotivationText.Name = "lblMotivationText";
-            this.lblMotivationText.Size = new System.Drawing.Size(496, 283);
+            this.lblMotivationText.Size = new System.Drawing.Size(446, 283);
             this.lblMotivationText.TabIndex = 1;
             this.lblMotivationText.Text = "label6";
             this.lblMotivationText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1313,30 +1380,24 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Welcome Back !";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Student_Study_Planner.Properties.Resources.WhatsApp_Image_2026_03_03_at_1_05_55_AM;
-            this.pictureBox1.Location = new System.Drawing.Point(689, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(191, 187);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 840);
+            this.BackColor = System.Drawing.Color.MistyRose;
+            this.ClientSize = new System.Drawing.Size(1057, 750);
             this.Controls.Add(this.MineTap);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Student Study Planer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabPage5.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -1366,8 +1427,10 @@
             this.grpPriority.PerformLayout();
             this.MineTap.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
-            this.pnlMotivation.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlMotivation.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1478,6 +1541,10 @@
         private System.Windows.Forms.Label lblMotivationTitle;
         private System.Windows.Forms.Label lblMotivationText;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblStreak;
+        private System.Windows.Forms.Label lblStreak1;
     }
 }
 

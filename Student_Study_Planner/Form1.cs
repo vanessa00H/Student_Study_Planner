@@ -11,6 +11,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Student_Study_Planner
 {
@@ -29,6 +30,7 @@ namespace Student_Study_Planner
         public Form1()
         {
             InitializeComponent();
+  
             LoadNotificationSettings();
             ApplyNotificationSettingsToUI();
             chkDeadlineWarnings.CheckedChanged += (s, e) => SaveNotificationSettings();
@@ -276,7 +278,7 @@ namespace Student_Study_Planner
         private void grpPriority_Validating(object sender, CancelEventArgs e)
         {
             if (isFiltering) return; // Skip validation when filtering
-            if (!r1.Checked && !r3.Checked && !r.Checked)
+            if (!rbLow.Checked && !rbMedium.Checked && !rbHigh.Checked)
             {
                 MessageBox.Show("Please select a priority.");
                 grpPriority.BackColor = Color.MistyRose;
@@ -1272,6 +1274,7 @@ namespace Student_Study_Planner
         {
 
         }
+      
         private void UpdateStreak()
         {
             int streak = 0;
@@ -1317,6 +1320,9 @@ namespace Student_Study_Planner
                     Environment.NewLine +
                     "Start again today 🔥" + Environment.NewLine +
                     "You can do it!";
+                Console.Beep(900,150);
+                Console.Beep(700, 200);
+                Console.Beep(500,300);
             }
             else if (streak == 0 && todayCompleted)
             {
@@ -1324,6 +1330,9 @@ namespace Student_Study_Planner
                     "🔥 DAY 1 STARTED!" + Environment.NewLine +
                     Environment.NewLine +
                     "Keep it going 💪";
+                Console.Beep(700, 120);
+                Console.Beep(900, 120);
+                Console.Beep(1100, 150);
             }
             else
             {
@@ -1333,7 +1342,27 @@ namespace Student_Study_Planner
                     streak + " Days" + Environment.NewLine +
                     Environment.NewLine +
                     "You’re on fire 🚀";
+                Console.Beep(900, 100);
+                Console.Beep(1100, 100);
+                Console.Beep(1300, 120);
+                Console.Beep(1500, 180);
             }
+
+        }
+
+        private void txtCategory_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbLow_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numMinutes_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

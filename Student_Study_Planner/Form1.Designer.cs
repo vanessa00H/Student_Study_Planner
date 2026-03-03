@@ -707,10 +707,10 @@
             this.btnGenerate.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGenerate.Location = new System.Drawing.Point(905, 83);
+            this.btnGenerate.Location = new System.Drawing.Point(294, 97);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(145, 79);
+            this.btnGenerate.Size = new System.Drawing.Size(463, 79);
             this.btnGenerate.TabIndex = 4;
             this.btnGenerate.Text = "Generate Report";
             this.btnGenerate.UseVisualStyleBackColor = false;
@@ -787,10 +787,10 @@
             this.btnSearch.BackColor = System.Drawing.Color.SteelBlue;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnSearch.Location = new System.Drawing.Point(920, 63);
+            this.btnSearch.Location = new System.Drawing.Point(790, 66);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 38);
+            this.btnSearch.Size = new System.Drawing.Size(171, 42);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -800,7 +800,7 @@
             // 
             this.btnClear2.BackColor = System.Drawing.Color.DarkGray;
             this.btnClear2.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnClear2.Location = new System.Drawing.Point(487, 587);
+            this.btnClear2.Location = new System.Drawing.Point(468, 584);
             this.btnClear2.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear2.Name = "btnClear2";
             this.btnClear2.Size = new System.Drawing.Size(259, 52);
@@ -814,7 +814,7 @@
             this.btnMark.BackColor = System.Drawing.Color.LimeGreen;
             this.btnMark.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMark.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnMark.Location = new System.Drawing.Point(182, 587);
+            this.btnMark.Location = new System.Drawing.Point(194, 584);
             this.btnMark.Margin = new System.Windows.Forms.Padding(2);
             this.btnMark.Name = "btnMark";
             this.btnMark.Size = new System.Drawing.Size(262, 52);
@@ -839,10 +839,10 @@
             this.lvTasks.FullRowSelect = true;
             this.lvTasks.GridLines = true;
             this.lvTasks.HideSelection = false;
-            this.lvTasks.Location = new System.Drawing.Point(52, 166);
+            this.lvTasks.Location = new System.Drawing.Point(52, 140);
             this.lvTasks.Margin = new System.Windows.Forms.Padding(2);
             this.lvTasks.Name = "lvTasks";
-            this.lvTasks.Size = new System.Drawing.Size(934, 399);
+            this.lvTasks.Size = new System.Drawing.Size(934, 425);
             this.lvTasks.TabIndex = 4;
             this.lvTasks.UseCompatibleStateImageBehavior = false;
             this.lvTasks.View = System.Windows.Forms.View.Details;
@@ -885,7 +885,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(650, 60);
+            this.txtSearch.Location = new System.Drawing.Point(451, 66);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(230, 39);
@@ -896,7 +896,7 @@
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.Location = new System.Drawing.Point(550, 61);
+            this.lblSearch.Location = new System.Drawing.Point(328, 67);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(97, 32);
@@ -913,7 +913,7 @@
             "This Month",
             "Completed",
             "Overdue"});
-            this.cmbFilter.Location = new System.Drawing.Point(142, 65);
+            this.cmbFilter.Location = new System.Drawing.Point(101, 67);
             this.cmbFilter.Margin = new System.Windows.Forms.Padding(2);
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.Size = new System.Drawing.Size(180, 28);
@@ -924,7 +924,7 @@
             // 
             this.lblFilter.AutoSize = true;
             this.lblFilter.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFilter.Location = new System.Drawing.Point(64, 57);
+            this.lblFilter.Location = new System.Drawing.Point(18, 60);
             this.lblFilter.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFilter.Name = "lblFilter";
             this.lblFilter.Size = new System.Drawing.Size(79, 32);

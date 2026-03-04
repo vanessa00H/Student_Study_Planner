@@ -507,15 +507,7 @@ namespace Student_Study_Planner
                 return;
             }
 
-            // Validate End Date: Ensure End Date is not the same as Start Date
-            if (endDatePicker.Value.Date == StartDatePicker.Value.Date)
-            {
-                MessageBox.Show("End date cannot be the same as start date.",
-                    "Invalid Date",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-                return;
-            }
+          
             // Check if EndDate is before StartDate
             if (endDatePicker.Value.Date < StartDatePicker.Value.Date)
             {
@@ -1183,11 +1175,15 @@ namespace Student_Study_Planner
                     $"Pending: {pendingToday}\n\n" +
                     $"Overdue (all): {overdue}";
 
+                Console.Beep(800, 100);
+                Console.Beep(1000, 100);
+                Console.Beep(1200, 150);
+
                 MessageBox.Show(
                     msg,
                     "Daily Summary",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                    MessageBoxIcon.None);
             }
         }
 
@@ -1321,7 +1317,7 @@ namespace Student_Study_Planner
 
 
 
-
+            
             if (streak == 0 && !todayCompleted)
             {
                 lblStreak.Text =
@@ -1329,9 +1325,9 @@ namespace Student_Study_Planner
                     Environment.NewLine +
                     "Start again today 🔥" + Environment.NewLine +
                     "You can do it!";
-                Console.Beep(900,150);
+                Console.Beep(900, 150);
                 Console.Beep(700, 200);
-                Console.Beep(500,300);
+                Console.Beep(500, 300);
             }
             else if (streak == 0 && todayCompleted)
             {
@@ -1402,6 +1398,11 @@ namespace Student_Study_Planner
         }
 
         private void pnlProgress_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblGoalTitle_Click(object sender, EventArgs e)
         {
 
         }

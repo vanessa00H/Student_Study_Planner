@@ -193,14 +193,6 @@ namespace Student_Study_Planner
 
         }
 
-        private void LblDeadLinesValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-
 
         private void txtTitle_Validating(object sender, CancelEventArgs e)
         {
@@ -1070,27 +1062,17 @@ namespace Student_Study_Planner
             }
         }
 
-        private void lblWeeklyGoal_Click(object sender, EventArgs e)
+        private void btnGoal_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void pnlDeadlines_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            weeklyGoalHours= (int)numWeeklyHours.Value;
-            if(weeklyGoalHours <= 0)
+            weeklyGoalHours = (int)numWeeklyHours.Value;
+            if (weeklyGoalHours <= 0)
             {
                 MessageBox.Show("Please enter a Valid number for weekly goal hours.");
                 return;
             }
             File.WriteAllText("goal.txt", weeklyGoalHours.ToString());
             UpdateDashboard();
-    
+
             MessageBox.Show($"Weekly goal set to {weeklyGoalHours} hours!");
         }
         // Load saved notification settings from file
@@ -1116,6 +1098,7 @@ namespace Student_Study_Planner
                 if (key == "dailySummary") dailySummaryEnabled = isOn;
             }
         }
+
 
         // Save notification settings to file
         private void SaveNotificationSettings()
@@ -1241,10 +1224,7 @@ namespace Student_Study_Planner
             
         }
 
-        private void lblMinutes_Click(object sender, EventArgs e)
-        {
-
-        }
+       
         // =============================
         // Show one random motivational message
         // =============================
@@ -1270,15 +1250,6 @@ namespace Student_Study_Planner
             lblMotivationText.BringToFront();
         }
 
-        private void lblMotivationTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
       
         private void UpdateStreak()
         {
@@ -1354,41 +1325,7 @@ namespace Student_Study_Planner
             }
 
         }
-       
-        private void txtCategory_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbLow_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numMinutes_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFilter_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFromDate_Click(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void Form1_Shown(object sender, EventArgs e)
         {
@@ -1397,15 +1334,13 @@ namespace Student_Study_Planner
             ShowStartupReminders();
         }
 
-        private void pnlProgress_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+      
         private void lblGoalTitle_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }
     

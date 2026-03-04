@@ -168,32 +168,7 @@ namespace Student_Study_Planner
 
         }
 
-        private void Button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblProgressValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblProgressStatus_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
+      
         private void txtTitle_Validating(object sender, CancelEventArgs e)
         {
             if (isFiltering) return; // Skip validation when filtering
@@ -1334,13 +1309,7 @@ namespace Student_Study_Planner
             ShowStartupReminders();
         }
 
-      
-        private void lblGoalTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
+     
     }
 }
     

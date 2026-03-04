@@ -176,7 +176,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Reports";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            
             // 
             // button3
             // 
@@ -199,7 +199,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "DeleteTask";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.Button4_Click);
+            
             // 
             // button5
             // 
@@ -210,7 +210,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Button5_Click);
+            
             // 
             // r
             // 
@@ -517,14 +517,14 @@
             this.lblGoalTitle.AutoSize = true;
             this.lblGoalTitle.Font = new System.Drawing.Font("Segoe UI Symbol", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGoalTitle.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lblGoalTitle.Location = new System.Drawing.Point(14, 42);
+            this.lblGoalTitle.Location = new System.Drawing.Point(25, 59);
             this.lblGoalTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGoalTitle.Name = "lblGoalTitle";
             this.lblGoalTitle.Size = new System.Drawing.Size(20, 30);
             this.lblGoalTitle.TabIndex = 1;
             this.lblGoalTitle.Text = " ";
             this.lblGoalTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblGoalTitle.Click += new System.EventHandler(this.lblGoalTitle_Click);
+          
             // 
             // lblWeeklyGoal
             // 
@@ -556,7 +556,7 @@
             this.lblDeadlinesStatus.AutoSize = true;
             this.lblDeadlinesStatus.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeadlinesStatus.ForeColor = System.Drawing.Color.Gray;
-            this.lblDeadlinesStatus.Location = new System.Drawing.Point(2, 100);
+            this.lblDeadlinesStatus.Location = new System.Drawing.Point(32, 120);
             this.lblDeadlinesStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDeadlinesStatus.Name = "lblDeadlinesStatus";
             this.lblDeadlinesStatus.Size = new System.Drawing.Size(17, 25);
@@ -569,7 +569,7 @@
             this.lblDeadLinesValue.Font = new System.Drawing.Font("Segoe UI Symbol", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeadLinesValue.ForeColor = System.Drawing.Color.Orange;
             this.lblDeadLinesValue.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblDeadLinesValue.Location = new System.Drawing.Point(44, 52);
+            this.lblDeadLinesValue.Location = new System.Drawing.Point(25, 61);
             this.lblDeadLinesValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDeadLinesValue.Name = "lblDeadLinesValue";
             this.lblDeadLinesValue.Size = new System.Drawing.Size(24, 28);
@@ -613,7 +613,6 @@
             this.lblProgressStatus.Size = new System.Drawing.Size(17, 25);
             this.lblProgressStatus.TabIndex = 2;
             this.lblProgressStatus.Text = " ";
-            this.lblProgressStatus.Click += new System.EventHandler(this.LblProgressStatus_Click);
             // 
             // lblProgressValue
             // 
@@ -625,7 +624,7 @@
             this.lblProgressValue.Name = "lblProgressValue";
             this.lblProgressValue.Size = new System.Drawing.Size(0, 28);
             this.lblProgressValue.TabIndex = 1;
-            this.lblProgressValue.Click += new System.EventHandler(this.LblProgressValue_Click);
+         
             // 
             // lblProgressTitle
             // 
@@ -673,7 +672,7 @@
             this.dataGridViewReport.RowHeadersVisible = false;
             this.dataGridViewReport.RowHeadersWidth = 82;
             this.dataGridViewReport.RowTemplate.Height = 33;
-            this.dataGridViewReport.Size = new System.Drawing.Size(899, 410);
+            this.dataGridViewReport.Size = new System.Drawing.Size(902, 410);
             this.dataGridViewReport.TabIndex = 5;
             this.dataGridViewReport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewReport_CellContentClick);
             // 
@@ -682,35 +681,35 @@
             this.column1.HeaderText = "Title";
             this.column1.MinimumWidth = 8;
             this.column1.Name = "column1";
-            this.column1.Width = 150;
+            this.column1.Width = 180;
             // 
             // ClmCategoryReport
             // 
             this.ClmCategoryReport.HeaderText = "Category";
             this.ClmCategoryReport.MinimumWidth = 10;
             this.ClmCategoryReport.Name = "ClmCategoryReport";
-            this.ClmCategoryReport.Width = 150;
+            this.ClmCategoryReport.Width = 180;
             // 
             // ClmCompletedR
             // 
             this.ClmCompletedR.HeaderText = "Completed";
             this.ClmCompletedR.MinimumWidth = 10;
             this.ClmCompletedR.Name = "ClmCompletedR";
-            this.ClmCompletedR.Width = 150;
+            this.ClmCompletedR.Width = 180;
             // 
             // clmPendingR
             // 
             this.clmPendingR.HeaderText = "Pending";
             this.clmPendingR.MinimumWidth = 10;
             this.clmPendingR.Name = "clmPendingR";
-            this.clmPendingR.Width = 150;
+            this.clmPendingR.Width = 180;
             // 
             // ClmCompletionRate
             // 
             this.ClmCompletionRate.HeaderText = "CompletionRate";
             this.ClmCompletionRate.MinimumWidth = 10;
             this.ClmCompletionRate.Name = "ClmCompletionRate";
-            this.ClmCompletionRate.Width = 150;
+            this.ClmCompletionRate.Width = 180;
             // 
             // btnGenerate
             // 
@@ -1506,11 +1505,6 @@
         private System.Windows.Forms.Label lblProgressTitle;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView dataGridViewReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCategoryReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCompletedR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPendingR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCompletionRate;
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -1567,6 +1561,11 @@
         private System.Windows.Forms.Label lblStreak;
         private System.Windows.Forms.Label lblStreak1;
         private System.Windows.Forms.Label lblAddtasks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCategoryReport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCompletedR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmPendingR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClmCompletionRate;
     }
 }
 

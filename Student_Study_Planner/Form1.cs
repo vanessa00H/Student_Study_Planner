@@ -994,7 +994,7 @@ namespace Student_Study_Planner
                 : (hoursDone * 100.0) / weeklyGoalHours;
 
             // Show result in your ONLY label
-            lblGoalTitle.Text = $"{hoursDone}h {remainingMinutes}m / {weeklyGoalHours}h";
+            lblGoalTitle.Text = $" {remainingMinutes}m / {weeklyGoalHours}h";
 
             // Change color automatically
             if (weeklyGoalHours <= 0)

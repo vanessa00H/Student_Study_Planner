@@ -1282,7 +1282,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Student_Study_Planner.Properties.Resources._5852469815497395490;
-            this.pictureBox2.Location = new System.Drawing.Point(105, 580);
+            this.pictureBox2.Location = new System.Drawing.Point(106, 600);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(457, 268);

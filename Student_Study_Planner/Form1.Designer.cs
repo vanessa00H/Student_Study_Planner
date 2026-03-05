@@ -255,7 +255,7 @@
             this.tabPage5.ForeColor = System.Drawing.Color.Goldenrod;
             this.tabPage5.Location = new System.Drawing.Point(8, 39);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(1393, 889);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Setting";
@@ -406,7 +406,7 @@
             this.tabPage4.ForeColor = System.Drawing.Color.Goldenrod;
             this.tabPage4.Location = new System.Drawing.Point(8, 39);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(1393, 889);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Dashboard";
@@ -610,7 +610,7 @@
             this.tabPage3.ForeColor = System.Drawing.Color.Goldenrod;
             this.tabPage3.Location = new System.Drawing.Point(8, 39);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1393, 889);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Reports";
@@ -737,7 +737,7 @@
             this.tabPage2.ForeColor = System.Drawing.Color.Goldenrod;
             this.tabPage2.Location = new System.Drawing.Point(8, 39);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1393, 889);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ViewTask";
@@ -912,7 +912,7 @@
             this.tabPage1.ForeColor = System.Drawing.Color.Goldenrod;
             this.tabPage1.Location = new System.Drawing.Point(8, 39);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1393, 889);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "AddTask";
@@ -934,7 +934,7 @@
             this.endDatePicker.CustomFormat = "dd/MM/yyyy";
             this.endDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.endDatePicker.Location = new System.Drawing.Point(239, 458);
-            this.endDatePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.endDatePicker.Margin = new System.Windows.Forms.Padding(4);
             this.endDatePicker.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.endDatePicker.MinDate = new System.DateTime(2026, 1, 1, 0, 0, 0, 0);
             this.endDatePicker.Name = "endDatePicker";
@@ -956,7 +956,7 @@
             // numHours
             // 
             this.numHours.Location = new System.Drawing.Point(144, 711);
-            this.numHours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numHours.Margin = new System.Windows.Forms.Padding(4);
             this.numHours.Maximum = new decimal(new int[] {
             24,
             0,
@@ -979,7 +979,7 @@
             // numMinutes
             // 
             this.numMinutes.Location = new System.Drawing.Point(468, 709);
-            this.numMinutes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numMinutes.Margin = new System.Windows.Forms.Padding(4);
             this.numMinutes.Maximum = new decimal(new int[] {
             59,
             0,
@@ -997,9 +997,9 @@
             this.grpPriority.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPriority.ForeColor = System.Drawing.Color.Goldenrod;
             this.grpPriority.Location = new System.Drawing.Point(32, 539);
-            this.grpPriority.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpPriority.Margin = new System.Windows.Forms.Padding(4);
             this.grpPriority.Name = "grpPriority";
-            this.grpPriority.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpPriority.Padding = new System.Windows.Forms.Padding(4);
             this.grpPriority.Size = new System.Drawing.Size(596, 126);
             this.grpPriority.TabIndex = 22;
             this.grpPriority.TabStop = false;
@@ -1010,7 +1010,7 @@
             // 
             this.rbHigh.AutoSize = true;
             this.rbHigh.Location = new System.Drawing.Point(420, 47);
-            this.rbHigh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbHigh.Margin = new System.Windows.Forms.Padding(4);
             this.rbHigh.Name = "rbHigh";
             this.rbHigh.Size = new System.Drawing.Size(123, 49);
             this.rbHigh.TabIndex = 2;
@@ -1022,7 +1022,7 @@
             // 
             this.rbMedium.AutoSize = true;
             this.rbMedium.Location = new System.Drawing.Point(177, 47);
-            this.rbMedium.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbMedium.Margin = new System.Windows.Forms.Padding(4);
             this.rbMedium.Name = "rbMedium";
             this.rbMedium.Size = new System.Drawing.Size(176, 49);
             this.rbMedium.TabIndex = 1;
@@ -1035,7 +1035,7 @@
             this.rbLow.AutoSize = true;
             this.rbLow.ForeColor = System.Drawing.Color.Goldenrod;
             this.rbLow.Location = new System.Drawing.Point(8, 47);
-            this.rbLow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbLow.Margin = new System.Windows.Forms.Padding(4);
             this.rbLow.Name = "rbLow";
             this.rbLow.Size = new System.Drawing.Size(111, 49);
             this.rbLow.TabIndex = 0;
@@ -1048,7 +1048,7 @@
             this.StartDatePicker.CustomFormat = "dd/MM/yyyy";
             this.StartDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.StartDatePicker.Location = new System.Drawing.Point(239, 357);
-            this.StartDatePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StartDatePicker.Margin = new System.Windows.Forms.Padding(4);
             this.StartDatePicker.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.StartDatePicker.MinDate = new System.DateTime(2026, 1, 1, 0, 0, 0, 0);
             this.StartDatePicker.Name = "StartDatePicker";
@@ -1226,7 +1226,7 @@
             this.MineTap.Location = new System.Drawing.Point(0, 0);
             this.MineTap.Name = "MineTap";
             this.MineTap.SelectedIndex = 0;
-            this.MineTap.Size = new System.Drawing.Size(1409, 936);
+            this.MineTap.Size = new System.Drawing.Size(1409, 1022);
             this.MineTap.TabIndex = 5;
             // 
             // tabPage6
@@ -1239,9 +1239,9 @@
             this.tabPage6.Controls.Add(this.lblWelcome);
             this.tabPage6.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.tabPage6.Location = new System.Drawing.Point(8, 39);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1393, 889);
+            this.tabPage6.Size = new System.Drawing.Size(1393, 975);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Home";
             // 
@@ -1251,7 +1251,7 @@
             this.panel1.Controls.Add(this.lblStreak);
             this.panel1.Controls.Add(this.lblStreak1);
             this.panel1.Location = new System.Drawing.Point(24, 145);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(624, 447);
             this.panel1.TabIndex = 4;
@@ -1283,7 +1283,7 @@
             // 
             this.pictureBox2.Image = global::Student_Study_Planner.Properties.Resources._5852469815497395490;
             this.pictureBox2.Location = new System.Drawing.Point(105, 580);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(457, 268);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1294,7 +1294,7 @@
             // 
             this.pictureBox1.Image = global::Student_Study_Planner.Properties.Resources.WhatsApp_Image_2026_03_03_at_1_05_55_AM;
             this.pictureBox1.Location = new System.Drawing.Point(929, 18);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(255, 234);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1307,7 +1307,7 @@
             this.pnlMotivation.Controls.Add(this.lblMotivationText);
             this.pnlMotivation.Controls.Add(this.lblMotivationTitle);
             this.pnlMotivation.Location = new System.Drawing.Point(697, 286);
-            this.pnlMotivation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlMotivation.Margin = new System.Windows.Forms.Padding(4);
             this.pnlMotivation.Name = "pnlMotivation";
             this.pnlMotivation.Size = new System.Drawing.Size(652, 486);
             this.pnlMotivation.TabIndex = 1;
@@ -1351,7 +1351,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
-            this.ClientSize = new System.Drawing.Size(1409, 936);
+            this.ClientSize = new System.Drawing.Size(1409, 1022);
             this.Controls.Add(this.MineTap);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
